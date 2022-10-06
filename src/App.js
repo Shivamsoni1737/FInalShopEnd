@@ -1,5 +1,7 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
+import { ToastContainer,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 import Login from './components/Login';
 import Header from "./components/Header/Header"
@@ -24,6 +26,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
       <Footer />
+      <ToastContainer /> 
     </div>
   );
 }

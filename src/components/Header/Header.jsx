@@ -1,4 +1,7 @@
 import React,{useState} from 'react'
+import { ToastContainer,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 import {BsDropletFill} from "react-icons/bs"
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -17,16 +20,13 @@ const Header = () => {
   const [signupActive, setSignupActive] = useState(false);
   const [ open, setOpen] = useState(false);
 
-
-  const login = localStorage.getItem("login");
-  const cUser = localStorage.getItem("cUser");
-
   const gotohome =()=>{
     navigate("/");
   }
 
   const logout = () => {
     navigate("/");
+    toast.success("Logout successful!");
   };
 
   const toggle = ()=>{
@@ -43,7 +43,7 @@ const Header = () => {
           <p className='font-bold flex items-center text-xl'>DHANDA PAANI <BsDropletFill className='text-blue-500'/></p>
         </div>
         <div>
-          <div className={`nav_dropLinks ${active && location.pathname!=="/businessprofile"?'show':'hide'} `}>
+          <div className={`nav_dropLinks ${active && location.pathname!=="/dashboard"?'show':'hide'} `}>
               <div className="absolute top-20 left-0 right-0 w-full px-2 rounded-b-md">
                   <ul className="bg-gray-200 flex flex-col items-center text-lg rounded-md transition-all">
                       <li className="p-1 cursor-pointer hover:text-black"><a href="/our-mission" className="hover:text-black">Our mission</a></li>
@@ -54,7 +54,7 @@ const Header = () => {
               </div>
             </div>
             <div className="nav_horizontalLinks" >
-              {location.pathname==="/businessprofile" ? <></> : 
+              {location.pathname==="/dashboard" ? <></> : 
                 <ul className="flex gap-4">
                   <li className="cursor-pointer hover:text-black hover:underline hover:underline-offset-4"><a href="/our-mission" className="hover:text-black">Our mission</a></li>
                   <li className="cursor-pointer hover:text-black hover:underline hover:underline-offset-4"><a href="/about-us" className="hover:text-black">About us</a></li>
@@ -68,7 +68,7 @@ const Header = () => {
         <div className="flex items-center gap-2">
                     {
                         // need to access from cookies when cookies applied over whole site
-                        (login || cUser==="BUSINESS") ?
+                        (location.pathname=="/dashboard") ?
                         <div className="flex relative items-center text-gray-600 gap-2">
                               <div  className='cursor-pointer hover:text-black'>
                                 <div onClick={()=> {setOpen(!open)}} className="flex items-center relative">
@@ -81,8 +81,8 @@ const Header = () => {
                               
                               { open &&
                                 <div className="bg-white absolute right-4 shadow-lg top-8 w-[153px] rounded-lg py-1">
-                                  <div onClick={() => {navigate("/businessprofile"); setOpen(!open)} } className="flex flex-row px-3 py-1 text-gray-600 hover:text-black hover:bg-gray-100 hover:cursor-pointer"><MdOutlineSpaceDashboard className="h-6 mr-2" /> Dashboard</div>
-                                  <div onClick={()=>logout()} className="flex flex-row px-3 py-1 text-gray-600 hover:text-black hover:bg-gray-100 hover:cursor-pointer"><MdLogout className="h-6 mr-2" /> Sign out</div>
+                                  <div onClick={() => {navigate("/dashboard"); setOpen(!open)} } className="flex flex-row px-3 py-1 text-gray-600 hover:text-black hover:bg-gray-100 hover:cursor-pointer"><MdOutlineSpaceDashboard className="h-6 mr-2" /> Dashboard</div>
+                                  <div onClick={()=>{setOpen(!open); logout()} } className="flex flex-row px-3 py-1 text-gray-600 hover:text-black hover:bg-gray-100 hover:cursor-pointer"><MdLogout className="h-6 mr-2" /> Sign out</div>
                                 </div>
                               }
                             
@@ -95,7 +95,7 @@ const Header = () => {
                             <a href="/signup"><li className="mt-2 flex gap-2 items-center hover:text-black cursor-pointer"><span>Sign up</span></li></a>
                         </div>
                     }
-                    {location.pathname==="/businessprofile" ? <></> :
+                    {location.pathname==="/dashboard" ? <></> :
                       <div onClick={toggle} className="hamburger w-7 ml-2 md:hidden cursor-pointer">
                         <div className="w-full h-0.5 bg-gray-800 line rounded-md"></div>
                         <div className="w-full h-0.5 bg-gray-800 my-1.5 rounded-md"></div>

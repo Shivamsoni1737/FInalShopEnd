@@ -1,10 +1,15 @@
 import React,{useState} from 'react'
+import { ToastContainer,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 import {FaRegEnvelope} from 'react-icons/fa'
 import {MdLockOutline} from 'react-icons/md'
 import {FcGoogle} from 'react-icons/fc'
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
@@ -13,11 +18,17 @@ const Login = () => {
   const handleEmailChange = (e) => {
     setEmail(e.target.value.toLowerCase());
   };
+  const handleLogin = () => {
+    navigate("/dashboard")
+    toast.success("Login successful!");
+  }
+
   const handlePassChange = (e) => {
     setPass(e.target.value);
   };
 
   return (
+    <>
     <div className="mt-16  bg-white">
       <div className='w-full flex flex-col md:flex-row items-center justify-center flex-1 text-center '>
 
@@ -42,7 +53,7 @@ const Login = () => {
                     <div className='flex justify-between w-64 mb-5'>
                         <div className='text-xs hover:cursor-pointer'>Forgot Password?</div>
                     </div>
-                    <a href='/dashboard'  className='border-2 border-[#003979] text-[#003979] font-semibold rounded-full px-12 py-2 inline-block hover:bg-[#003979] hover:text-white hover:cursor-pointer'>Login</a>
+                    <button onClick={handleLogin} className='border-2 border-[#003979] text-[#003979] font-semibold rounded-full px-12 py-2 inline-block hover:bg-[#003979] hover:text-white hover:cursor-pointer'>Login</button>
                 </div>
             </div>
       </div>
@@ -60,6 +71,8 @@ const Login = () => {
 
       </div>
     </div>
+    <ToastContainer /> 
+    </>
   )
 }
 

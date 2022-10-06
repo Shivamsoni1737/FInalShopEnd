@@ -1,4 +1,7 @@
 import React from "react";
+import { ToastContainer,toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 import {BsBriefcase} from 'react-icons/bs';
 import {MdOutlineSpaceDashboard, MdLogout} from 'react-icons/md';
 import {AiOutlinePlusCircle} from 'react-icons/ai';
@@ -12,7 +15,8 @@ const Sidebar = ({ option, setOption }) => {
   const logout = () => {
     // localStorage.clear();
     // setAnchorEl(null);
-    navigate("/auth/logout");
+    navigate("/");
+    toast.success("Logout successful!");
   };
 
   return (
