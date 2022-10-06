@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-import {BsDropletFill} from "react-icons/bs"
+import {GiShoppingBag} from "react-icons/gi"
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import {CgProfile} from "react-icons/cg"
@@ -42,7 +42,7 @@ const Header = () => {
     <nav className="w-full top-0 bg-gray-300 shadow-md fixed text-gray-600">
       <div className="relative py-3 px-3 font-semibold sm:px-5 h-16 flex flex-row items-center justify-between max-w-7xl m-auto nav_container">
         <div onClick={gotohome} className="cursor-pointer">
-          <p className='font-bold flex items-center text-xl'>DHANDA PAANI <BsDropletFill className='text-blue-500'/></p>
+          <p className='font-bold flex items-center text-xl'>Apni Dukaan <GiShoppingBag className='text-gray-800 ml-2'/></p>
         </div>
         <div>
           <div className={`nav_dropLinks ${active && location.pathname!=="/dashboard"?'show':'hide'} `}>
@@ -73,7 +73,7 @@ const Header = () => {
                         (location.pathname=="/dashboard") ?
                         <div className="flex relative items-center text-gray-600 gap-2">
                               <div className='hover:cursor-pointer relative hover:text-black'>
-                                <div onClick={()=>setNotify(!notify)}>
+                                <div onClick={()=>{setNotify(!notify); setOpen(false)}}>
                                  <IoIosNotifications className='text-2xl mr-2' />
                                 </div>
                                 { notify &&
@@ -84,7 +84,7 @@ const Header = () => {
                               </div>
 
                               <div  className='cursor-pointer hover:text-black'>
-                                <div onClick={()=> {setOpen(!open)}} className="flex items-center relative">
+                                <div onClick={()=> {setOpen(!open); setNotify(false)}} className="flex items-center relative">
                                   <CgProfile size={30}/>
                                   <AiFillCaretDown size={13}  /> 
                                 </div> 
