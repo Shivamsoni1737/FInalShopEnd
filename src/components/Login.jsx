@@ -2,17 +2,13 @@ import React,{useState} from 'react'
 
 import {FaRegEnvelope} from 'react-icons/fa'
 import {MdLockOutline} from 'react-icons/md'
+import {FcGoogle} from 'react-icons/fc'
 
 const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
-  const [loading, setLoading] = useState(false);
 
-
-  const [values, setValues] = useState({                                    /* For what? */
-    showPassword: false,
-  });
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value.toLowerCase());
@@ -26,9 +22,10 @@ const Login = () => {
       <div className='w-full flex flex-col md:flex-row items-center justify-center flex-1 text-center '>
 
       <div className='w-full md:w-3/5 p-5'>
-      <div className='py-10'>
+      <div className='py-10 items-center flex flex-col justify-center'>
             <h2 className='text-3xl font-bold text-[#003979] mb-8'>Sign in to account</h2>
             <div className='border-4 w-10 border-[#003979] inline-block mb-2' />
+            <div className='flex items-center my-3 mb-8 hover:cursor-pointer'><p>Login via google </p><FcGoogle className='text-blue-500 text-2xl ml-3' /></div>
 
                 {/* Input Divs below */}
                 <div className='flex flex-col items-center '>
