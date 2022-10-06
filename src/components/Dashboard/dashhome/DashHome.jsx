@@ -1,4 +1,5 @@
 import React from 'react'
+import Linechart from './Linechart'
 
 const DashHome = () => {
   return (
@@ -24,6 +25,10 @@ const DashHome = () => {
           <p className='border-b pb-2'>this month's</p>
           <p className='p-8 text-2xl text-center'>0.84%</p>
         </div>
+      </div>
+
+      <div>
+        <Linechart />
       </div>
     </div>
   )
