@@ -5,6 +5,7 @@ import {lineCustomSeries, LinePrimaryYAxis, LinePrimaryXAxis} from "../../../dat
 const Linechart = () => {
   return (
     <div>
+      <p className='text-xl font-semibold ml-4 mb-4'>Sales during few months :</p>
       <ChartComponent
         id="line-chart"
         height='420px'
