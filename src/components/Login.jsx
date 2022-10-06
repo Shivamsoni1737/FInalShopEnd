@@ -34,8 +34,8 @@ const Login = () => {
 
       <div className='w-full md:w-3/5 p-5'>
       <div className='py-10 items-center flex flex-col justify-center'>
-            <h2 className='text-3xl font-bold text-[#003979] mb-8'>Sign in to account</h2>
-            <div className='border-4 w-10 border-[#003979] inline-block mb-2' />
+            <h2 className='text-3xl font-bold text-green-700 mb-8'>Sign in to account</h2>
+            <div className='border-4 w-10 border-green-700 inline-block mb-2' />
             <div className='flex items-center my-3 mb-8 hover:cursor-pointer'><p>Login via google </p><FcGoogle className='text-blue-500 text-2xl ml-3' /></div>
 
                 {/* Input Divs below */}
@@ -53,20 +53,20 @@ const Login = () => {
                     <div className='flex justify-between w-64 mb-5'>
                         <div className='text-xs hover:cursor-pointer'>Forgot Password?</div>
                     </div>
-                    <button onClick={handleLogin} className='border-2 border-[#003979] text-[#003979] font-semibold rounded-full px-12 py-2 inline-block hover:bg-[#003979] hover:text-white hover:cursor-pointer'>Login</button>
+                    <button onClick={handleLogin} className='border-2 border-green-800 text-green-800 font-semibold rounded-full px-12 py-2 inline-block hover:bg-green-800 hover:text-white hover:cursor-pointer'>Login</button>
                 </div>
             </div>
       </div>
 
-      <div className='w-full md:w-2/5 md:h-[492px] bg-[#003979] text-white px-12 py-36'>  {/* signup Section */}
+      <div className='w-full md:w-2/5 md:h-[492px] bg-green-800 text-white px-12 py-36'>  {/* signup Section */}
             <h2 className='text-3xl text-white font-bold mb-2'>Hello, Store!</h2>
             <div className='border-4 w-10 border-white inline-block mb-2' />
             <div className='90%'>
               <p className='text-xl mb-3'>Expand your business horizon with Dhanda Paani</p>
-              <p className='text-xl mb-6'>Hire our trained and skilled WEB3 developers</p>
-              <p className='mb-10'>expand your business horizon, Join us nows!</p>
+              <p className='text-xl mb-6'>no-limit reach to your customers</p>
+              <p className='mb-10'>Manage your inventory on the go, Join us now !</p>
             </div>
-            <a href='/companySignUp' className='border-2 border-white font-semibold rounded-full px-12 py-2 inline-block hover:bg-white hover:text-[#003979]'>Signup</a>
+            <a href='/companySignUp' className='border-2 border-white font-semibold rounded-full px-12 py-2 inline-block hover:bg-white hover:text-green-800'>Signup</a>
         </div>
 
       </div>

@@ -26,13 +26,13 @@ const Footer = () => {
             <div>
               <b className='mt-4'>Connect with us:</b>
               <div className='flex justify-center my-2'>
-                  <a href='https://www.linkedin.com/' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-[#003979] hover:text-white'>
+                  <a href='https://www.linkedin.com/' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-green-600 hover:text-white'>
                       <FaLinkedinIn />
                   </a>
-                  <a href='https://www.instagram.com/' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-[#003979] hover:text-white'>
+                  <a href='https://www.instagram.com/' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-green-600 hover:text-white'>
                       <FaInstagram />
                   </a>
-                  <a href='https://twitter.com/' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-[#003979] hover:text-white'>
+                  <a href='https://twitter.com/' target="_blank" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:bg-green-600 hover:text-white'>
                       <FaTwitter />
                   </a>
               </div>
