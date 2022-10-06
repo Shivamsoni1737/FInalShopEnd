@@ -6,7 +6,7 @@ const Footer = () => {
 
   const location = useLocation();
 
-  if(location.pathname !== '/' && location.pathname !== "/auth/devlogin" && location.pathname !== "/auth/devsignup" && location.pathname !== "/profile" && location.pathname !== "/jobspage" && location.pathname !== "/internships" && location.pathname !== "/terms" && location.pathname !== "/contactus" && location.pathname !== "/aboutus" && location.pathname !== "/dcma" && location.pathname !== "/privacy" && location.pathname !== "/jobapplication"){
+  if(location.pathname !== "/auth/devlogin" && location.pathname !== "/auth/devsignup" && location.pathname !== "/profile" && location.pathname !== "/jobspage" && location.pathname !== "/internships" && location.pathname !== "/terms" && location.pathname !== "/contactus" && location.pathname !== "/aboutus" && location.pathname !== "/dcma" && location.pathname !== "/privacy" && location.pathname !== "/jobapplication"){
     return (
         <footer className='flex justify-center flex-col  text-center bg-gray-100 py-6'>
           <div className="flex flex-col md:justify-between md:flex-row items-center py-8 md:px-32">
@@ -38,7 +38,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <p className="my-4 md:my-0">©DhandaPaani all right reserved</p>
+          <p className="my-4 md:my-0">©DhandaPaani few rights reserved</p>
         </footer>
     );
   }  

@@ -42,20 +42,20 @@ const Login = () => {
                     <div className='flex justify-between w-64 mb-5'>
                         <div className='text-xs hover:cursor-pointer'>Forgot Password?</div>
                     </div>
-                    <button  className='border-2 border-[#003979] text-[#003979] font-semibold rounded-full px-12 py-2 inline-block hover:bg-[#003979] hover:text-white hover:cursor-pointer'>SignIn</button>
+                    <a href='/dashboard'  className='border-2 border-[#003979] text-[#003979] font-semibold rounded-full px-12 py-2 inline-block hover:bg-[#003979] hover:text-white hover:cursor-pointer'>Login</a>
                 </div>
             </div>
       </div>
 
       <div className='w-full md:w-2/5 md:h-[492px] bg-[#003979] text-white px-12 py-36'>  {/* signup Section */}
-            <h2 className='text-3xl text-white font-bold mb-2'>Hello, company!</h2>
+            <h2 className='text-3xl text-white font-bold mb-2'>Hello, Store!</h2>
             <div className='border-4 w-10 border-white inline-block mb-2' />
             <div className='90%'>
               <p className='text-xl mb-3'>Post jobs and internships for your company</p>
               <p className='text-xl mb-6'>Hire our trained and skilled WEB3 developers</p>
-              <p className='mb-10'>Fill up company info and start journey with us!</p>
+              <p className='mb-10'>expand your business horizon, Join us nows!</p>
             </div>
-            <a href='/companySignUp' className='border-2 border-white font-semibold rounded-full px-12 py-2 inline-block hover:bg-white hover:text-[#003979]'>SignUp</a>
+            <a href='/companySignUp' className='border-2 border-white font-semibold rounded-full px-12 py-2 inline-block hover:bg-white hover:text-[#003979]'>Signup</a>
         </div>
 
       </div>
