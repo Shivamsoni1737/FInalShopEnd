@@ -2,9 +2,9 @@ import React from "react";
 import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-import {BsBriefcase} from 'react-icons/bs';
-import {MdOutlineSpaceDashboard, MdLogout} from 'react-icons/md';
-import {AiOutlinePlusCircle} from 'react-icons/ai';
+import {CgInsights} from 'react-icons/cg';
+import {ImProfile} from 'react-icons/im';
+import {MdOutlineSpaceDashboard, MdLogout, MdInventory, MdInsights} from 'react-icons/md';
 
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +20,7 @@ const Sidebar = ({ option, setOption }) => {
   };
 
   return (
-    <div className="col-span-2 border-r border-gray-200 min-h-[90vh] w-[90px] xl:w-[250px] pt-8 px-1 flex flex-col items-start justify-between">
+    <div className="col-span-2 border-r font-semibold border-gray-200 min-h-[90vh] w-[90px] xl:w-[250px] pt-8 px-1 flex flex-col items-start justify-between">
       <div className="space-y-8 w-full">
 
 
@@ -45,60 +45,60 @@ const Sidebar = ({ option, setOption }) => {
 
 
         <div
-          onClick={() => {setOption("Posted Internships")}}
+          onClick={() => {setOption("Your Inventory")}}
           className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 border-l-4 border-transparent ${
-          option === "Posted Internships" && "border-gray-900"
+          option === "Your Inventory" && "border-gray-900"
           }`}
         >
           <span>
-            <BsBriefcase className="nav-icon" />
+            <MdInventory className="nav-icon" />
           </span>
           <h1
             className={`text-gray-600  group-hover:text-black xl:flex hidden ${
-              option === "Posted Internships" && "text-black"
+              option === "Your Inventory" && "text-black"
             }`}
           >
-            Your Internships
+            Your Inventory
           </h1>
         </div>
 
 
 
         <div
-          onClick={() => {setOption("Posted Jobs")}}
+          onClick={() => {setOption("Customer Insights")}}
           className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 border-l-4 border-transparent ${
-          option === "Posted Jobs" && "border-gray-900"
+          option === "Customer Insights" && "border-gray-900"
           }`}
         >
           <span>
-            <BsBriefcase className="nav-icon" />
+            <CgInsights className="nav-icon" />
           </span>
           <h1
             className={`text-gray-600  group-hover:text-black xl:flex hidden ${
-              option === "Posted Jobs" && "text-black"
+              option === "Customer Insights" && "text-black"
             }`}
           >
-            Your Jobs
+            Customer Insights
           </h1>
         </div>
 
 
 
         <div
-          onClick={() => {setOption("Add job")}}
+          onClick={() => {setOption("Sales Insights")}}
           className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 border-l-4 border-transparent ${
-          option === "Add job" && "border-gray-900"
+          option === "Sales Insights" && "border-gray-900"
           }`}
         >
           <span>
-            <AiOutlinePlusCircle className="nav-icon" />
+            <MdInsights className="nav-icon" />
           </span>
           <h1
             className={`text-gray-600  group-hover:text-black xl:flex hidden ${
-              option === "Add job" && "text-black"
+              option === "Sales Insights" && "text-black"
             }`}
           >
-            Add job
+            Sales Insights
           </h1>
         </div>
 
@@ -113,11 +113,11 @@ const Sidebar = ({ option, setOption }) => {
           }`}
         >
           <span>
-            <AiOutlinePlusCircle className="nav-icon" />
+            <ImProfile className="nav-icon" />
           </span>
           <h1
             className={`text-gray-600  group-hover:text-black xl:flex hidden ${
-              option === "Add job" && "text-black"
+              option === "Profile" && "text-black"
             }`}
           >
             Profile

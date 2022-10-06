@@ -62,7 +62,7 @@ const Login = () => {
             <h2 className='text-3xl text-white font-bold mb-2'>Hello, Store!</h2>
             <div className='border-4 w-10 border-white inline-block mb-2' />
             <div className='90%'>
-              <p className='text-xl mb-3'>Post jobs and internships for your company</p>
+              <p className='text-xl mb-3'>Expand your business horizon with Dhanda Paani</p>
               <p className='text-xl mb-6'>Hire our trained and skilled WEB3 developers</p>
               <p className='mb-10'>expand your business horizon, Join us nows!</p>
             </div>

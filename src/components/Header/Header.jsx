@@ -9,6 +9,7 @@ import {CgProfile} from "react-icons/cg"
 import "./header.scss"
 import {MdOutlineSpaceDashboard, MdLogout} from 'react-icons/md';
 import {AiFillCaretDown} from 'react-icons/ai'
+import {IoIosNotifications} from 'react-icons/io'
 
 const Header = () => {
 
@@ -19,6 +20,7 @@ const Header = () => {
   const [loginActive, setloginActive] = useState(false);
   const [signupActive, setSignupActive] = useState(false);
   const [ open, setOpen] = useState(false);
+  const [ notify, setNotify] = useState(false);
 
   const gotohome =()=>{
     navigate("/");
@@ -70,6 +72,17 @@ const Header = () => {
                         // need to access from cookies when cookies applied over whole site
                         (location.pathname=="/dashboard") ?
                         <div className="flex relative items-center text-gray-600 gap-2">
+                              <div className='hover:cursor-pointer relative hover:text-black'>
+                                <div onClick={()=>setNotify(!notify)}>
+                                 <IoIosNotifications className='text-2xl mr-2' />
+                                </div>
+                                { notify &&
+                                <div className="bg-white absolute right-4 min-h-[6rem] p-2 text-gray-600 shadow-lg top-8 w-[153px] rounded-lg py-1">
+                                  <p>No notifications</p>
+                                </div>
+                                }
+                              </div>
+
                               <div  className='cursor-pointer hover:text-black'>
                                 <div onClick={()=> {setOpen(!open)}} className="flex items-center relative">
                                   <CgProfile size={30}/>
