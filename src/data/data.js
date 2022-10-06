@@ -1,12 +1,12 @@
 export const stackedChartData = [
   [
-    { x: 'Jan', y: 111.1 },
-    { x: 'Feb', y: 127.3 },
-    { x: 'Mar', y: 143.4 },
-    { x: 'Apr', y: 159.9 },
-    { x: 'May', y: 159.9 },
-    { x: 'Jun', y: 159.9 },
-    { x: 'July', y: 159.9 },
+    { x: 'One', y: 2827 },
+    { x: 'Vodka', y: 2439 },
+    { x: 'Martini', y: 2000 },
+    { x: 'Shaken', y: 1704 },
+    { x: 'Not', y: 1600 },
+    { x: 'Stirred', y: 1509 },
+    { x: 'Please', y: 1402 },
   ],
 ];
 
@@ -15,7 +15,7 @@ export const stackedCustomSeries = [
   { dataSource: stackedChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Budget',
+    name: 'Total sold',
     type: 'StackingColumn',
     background: 'blue',
 
@@ -35,9 +35,9 @@ export const stackedPrimaryXAxis = {
 
 export const stackedPrimaryYAxis = {
   lineStyle: { width: 0 },
-  minimum: 100,
-  maximum: 400,
-  interval: 100,
+  minimum: 500,
+  maximum: 3000,
+  interval: 400,
   majorTickLines: { width: 0 },
   majorGridLines: { width: 1 },
   minorGridLines: { width: 1 },
@@ -56,7 +56,7 @@ export const LinePrimaryXAxis = {
   };
   
   export const LinePrimaryYAxis = {
-    labelFormat: '{value}%',
+    labelFormat: '{value}',
     rangePadding: 'None',
     minimum: 0,
     maximum: 100,
@@ -67,15 +67,14 @@ export const LinePrimaryXAxis = {
   };
 
   export const lineChartData = [
-  
     [
-      { x: new Date(2022 , 4, 1), y: 3.6 },
-      { x: new Date(2022, 5, 1), y: 6.4 },
-      { x: new Date(2022, 6, 1), y: 9.4 },
-      { x: new Date(2022, 7, 1), y: 8.1 },
-      { x: new Date(2022, 8, 1), y: 10 },
-      { x: new Date(2022, 9, 1), y: 12.3 },
-      { x: new Date(2022, 10, 1), y: 10.1 },
+      { x: new Date(2022, 3, 30), y: 3.6 },
+      { x: new Date(2022, 4, 30), y: 6.3 },
+      { x: new Date(2022, 5, 30), y: 9.4 },
+      { x: new Date(2022, 6, 30), y: 7.2 },
+      { x: new Date(2022, 7, 30), y: 10.5 },
+      { x: new Date(2022, 8, 30), y: 11.6 },
+      { x: new Date(2022, 9, 30), y: 10.1 },
     ],
   ];
 

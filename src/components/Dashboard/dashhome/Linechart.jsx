@@ -5,11 +5,11 @@ import {lineCustomSeries, LinePrimaryYAxis, LinePrimaryXAxis} from "../../../dat
 const Linechart = () => {
   return (
     <div>
-      <p className='text-xl font-semibold ml-4 mb-4'>Sales during few months :</p>
+      <p className='text-xl font-semibold ml-4 mb-4'>Sales stats from past months :</p>
       <ChartComponent
         id="line-chart"
         height='420px'
-        primaryXAxis={LinePrimaryXAxis}
+        primaryXAxis={{valueType:"DateTime"}}
         chartArea={{border:{width: 0}}}
         tooltip={{enable:true}}
       >

@@ -42,7 +42,7 @@ const Header = () => {
     <nav className="w-full top-0 bg-gray-300 shadow-md fixed text-gray-600">
       <div className="relative py-3 px-3 font-semibold sm:px-5 h-16 flex flex-row items-center justify-between max-w-7xl m-auto nav_container">
         <div onClick={gotohome} className="cursor-pointer">
-          <p className='font-bold flex items-center text-xl'>Apni Dukaan <GiShoppingBag className='text-gray-800 ml-2'/></p>
+          <p className='font-bold flex items-center text-xl'>Dhanda Paani <GiShoppingBag className='text-gray-800 ml-2'/></p>
         </div>
         <div>
           <div className={`nav_dropLinks ${active && location.pathname!=="/dashboard"?'show':'hide'} `}>
