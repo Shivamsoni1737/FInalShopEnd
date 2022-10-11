@@ -6,7 +6,7 @@ export const stackedChartData = [
     { x: 'Shaken', y: 1704 },
     { x: 'Not', y: 1600 },
     { x: 'Stirred', y: 1509 },
-    { x: 'Please', y: 1402 },
+    // { x: 'Please', y: 1402 },
   ],
 ];
 
