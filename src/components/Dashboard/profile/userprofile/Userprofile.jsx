@@ -3,25 +3,14 @@ import userpic from "../../../../data/profile/user.jpg"
 import {AiOutlineEdit} from "react-icons/ai"
 import {TiTick} from "react-icons/ti"
 
-const Userprofile = ({user}) => {
+import DatePicker from 'react-date-picker'
+import "react-date-picker/dist/DatePicker.css"
+
+const Userprofile = ({user, setUser}) => {
 
   const[editProfile, setEditProfile] = useState(false)
 
-  // const inputData = {
-  //   name: user.name,
-  //   dob: user.dob,
-  //   email: user.email,
-  //   contact: user.contact,
-  //   address: user.address
-  // }
-
   const submitHandler = () => {
-    // user.name = inputData.name,
-    // user.dob = inputData.dob,
-    // user.email = inputData.email,
-    // user.contact = inputData.contact,
-    // user.address = inputData.address,
-
     setEditProfile(false);
   }
 
@@ -35,19 +24,23 @@ const Userprofile = ({user}) => {
         <form className='text-gray-700'>
           <div className='flex my-3'>
             <span className='font-semibold'>Email: </span>
-            <input onChange={(e)=>{user.email=e.target.value}} value={user.email} type="text" className='px-4 mx-2 w-full border-b outline-none' />
+            <input onChange={(e)=>{setUser({...user, email: e.target.value})}} value={user.email} type="text" className='px-4 mx-2 w-full border-b outline-none' />
           </div>
           <div className='flex my-3'>
             <span className='font-semibold'>Contact: </span>
-            <input onChange={(e)=>{user.contact=e.target.value}} value={user.contact} type="text" className='px-4 mx-2 w-full border-b outline-none' />
+            <input onChange={(e)=>{setUser({...user, contact: e.target.value})}} value={user.contact} type="number" className='px-4 mx-2 w-full border-b outline-none' />
           </div>
           <div className='flex my-3'>
             <span className='font-semibold'>DOB: </span>
-            <input onChange={(e)=>{user.dob=e.target.value}} value={user.dob} type="text" className='px-4 mx-2 w-full border-b outline-none' />
+            {/* <DatePicker
+              selected={user.dob}
+              onChange={date => setUser({...user, dob: date})}
+            /> */}
+            <input onChange={(e)=>{setUser({...user, dob: e.target.value})}} value={user.dob} type="text" className='px-4 mx-2 w-full border-b outline-none' />
           </div>
           <div className='flex my-3'>
             <span className='font-semibold'>Address: </span>
-            <input onChange={(e)=>{user.address=e.target.value}} value={user.address} type="text" className='px-4 mx-2 w-full border-b outline-none' />
+            <input onChange={(e)=>{setUser({...user, address: e.target.value})}} value={user.address} type="text" className='px-4 mx-2 w-full border-b outline-none' />
           </div>
           <button onClick={submitHandler} className="w-full flex justify-center items-center text-gray-600 hover:text-green-600 mt-8"><p className='mr-1'>Save Changes</p><TiTick className='text-lg text-green-600' /></button>
         </form>
