@@ -2,10 +2,11 @@ import React,{useState} from "react";
 import Sidebar from "./sidebar/Sidebar";
 import DashHome from "./dashhome/DashHome"
 
+import Profile from "./profile/Profile";
+
 // import Yourinternships from "./yourinternships/YourInternships"
 // import Yourjobs from "./yourjobs/YourJobs"
 // import Addjob from "./addJob/Addjob"
-// import Profile from "./profile/Profile";
 
 const Dashboard = () => {
 
@@ -21,7 +22,7 @@ const Dashboard = () => {
           {/* {option === "Posted Internships" && <Yourinternships setOption={setOption}/>} */}
           {/* {option === "Posted Jobs" && <Yourjobs setOption={setOption}/>} */}
           {/* {option === "Add job" && <Addjob/>} */}
-          {/* {option === "Profile" && <Profile/>} */}
+          {option === "Profile" && <Profile/>}
         </div>
       </div>
     </div>
