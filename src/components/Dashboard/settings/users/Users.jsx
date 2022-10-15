@@ -107,8 +107,8 @@ const Users = () => {
                         <div className="hover:cursor-pointer">
                             <AiOutlineEye className="h-4 mt-1 text-blue-600"/>
                         </div>
-                        <div className="hover:cursor-pointer">
-                            <BsPencil className="h-4 mx-6 mt-1 text-blue-400" />
+                        <div className="hover:cursor-pointer mx-6">
+                            <BsPencil className="h-4 mt-1 text-blue-400" />
                         </div>
                         <div className="hover:cursor-pointer">
                             <BsTrash className="h-4 mt-1 text-red-600"/>
@@ -124,29 +124,39 @@ const Users = () => {
         <div className="flex flex-col w-full md:hidden">
           {usersData.map((user,i)=> (
             <div className="bg-white space-y-3 p-4 my-2 rounded-lg shadow">
-              <img src={user.image} alt={user.name} className="h-[6rem] rounded-full" />
-              <div className="flex items-center space-x-2 text-sm">
-                <div className="text-sm font-medium text-black mr-8">
-                  {user.name}
-                </div>
-                <div className="text-gray-500 ">
-                  {user.email}
+              <div className="flex justify-between items-center">
+                <img src={user.image} alt={user.name} className="h-[4rem] sm:h-[6rem] rounded-full" />
+                <div className="flex flex-col text-left w-[60%] text-sm">
+                    <div className="text-sm text-left font-medium text-black">
+                    {user.name}
+                    </div>
+                    <div className="text-gray-500 text-left ">
+                    {user.email}
+                    </div>
+                    <div className="text-gray-500 text-left ">
+                    {user.contact}
+                    </div>
                 </div>
               </div>
               <div className="flex h-7 justify-between">
                 <span
-                  className={`p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-200 ${
-                    user.position === "manager" && "text-green-800 bg-green-200"
-                  } rounded-lg bg-opacity-50`}
+                  className={`p-1.5 text-xs font-medium tracking-wider text-gray-800 bg-gray-200 
+                  ${user.position === "Manager" &&"text-green-800 bg-red-100"}
+                  ${user.position === "Owner" && "text-green-800 bg-green-200"}
+                  rounded-lg bg-opacity-50`}
                 >
                   {user.position}
                 </span>
                 <div className="p-3 text-sm flex justify-between text-gray-700 whitespace-nowrap">
                     <div className="hover:cursor-pointer">
-                      <AiOutlineEye className="h-4 mt-1 text-blue-600"/>
+                        <AiOutlineEye className="h-4 mt-1 text-blue-600"/>
                     </div>
-                    <BsPencil className="h-4 mt-1 mx-2 text-blue-400" />
-                    <BsTrash className="h-4 mt-1 text-red-600"/>
+                    <div className="hover:cursor-pointer  mx-4">
+                        <BsPencil className="h-4 mt-1 text-blue-400" />
+                    </div>
+                    <div className="hover:cursor-pointer">
+                        <BsTrash className="h-4 mt-1 text-red-600"/>
+                    </div>
                 </div>
               </div>
             </div>
