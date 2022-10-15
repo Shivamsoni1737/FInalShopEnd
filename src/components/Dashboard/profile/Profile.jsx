@@ -18,7 +18,7 @@ function Profile() {
   })
 
   return (
-    <div className='p-3 grid grid-cols-1 mt-8 md:grid-cols-5 gap-6'>
+    <div className='p-3 grid grid-cols-1 mt-4 md:mt-8 md:grid-cols-5 gap-6'>
       <div className='col-span-2 border rounded-md min-h-[80vh]'>
         <Userprofile user={UserDetails} setUser={setUserDetails} />
       </div>

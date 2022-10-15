@@ -17,10 +17,11 @@ const Userprofile = ({user, setUser}) => {
   return (
     <div className='flex flex-col justify-center p-4 items-center'>
       <img src={userpic} alt="user_pic" className='h-[13rem] md:h-[17rem] border shadow-2xl rounded-full' />
-      <p className='text-3xl font-bold mt-6'>{user.name}</p>
+      {/* <p className='text-3xl font-bold my-6'>{user.name}</p> */}
 
       {/* User Details */}
-      {editProfile? <>
+      {editProfile? <div className='flex flex-col justify-center text-center items-center'>
+        <input onChange={(e)=>{setUser({...user, name: e.target.value})}} value={user.name} type="text" className='px-4 text-center my-6 mx-2 font-bold text-gray-600 text-3xl border-b outline-none' />
         <form className='text-gray-700'>
           <div className='flex my-3'>
             <span className='font-semibold'>Email: </span>
@@ -44,7 +45,9 @@ const Userprofile = ({user, setUser}) => {
           </div>
           <button onClick={submitHandler} className="w-full flex justify-center items-center text-gray-600 hover:text-green-600 mt-8"><p className='mr-1'>Save Changes</p><TiTick className='text-lg text-green-600' /></button>
         </form>
-      </> : 
+      </div> : 
+      <>
+        <p className='text-3xl font-bold my-6'>{user.name}</p>
         <div className='text-gray-700'>
           <p className='my-3 flex'><span className='font-semibold'>Email: </span><p className='px-4 mx-2 border-b border-white'>{user.email}</p> </p>
           <p className='my-3 flex'><span className='font-semibold'>Contact: </span><p className='px-4 mx-2 border-b border-white'>{user.contact}</p> </p>
@@ -52,6 +55,7 @@ const Userprofile = ({user, setUser}) => {
           <p className='my-3 flex'><span className='font-semibold'>Address: </span><p className='px-4 mx-2 border-b border-white'>{user.address}</p> </p>
           <button onClick={()=> {setEditProfile(true)}} className="w-full flex justify-center items-center text-gray-600 hover:text-blue-800 mt-8"><p className='mr-2'>Edit Profile</p><AiOutlineEdit /></button>
         </div>
+      </>
       }
     </div>
   )
