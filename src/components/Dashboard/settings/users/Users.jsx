@@ -15,7 +15,7 @@ const Users = () => {
   const usersData = [
     {
         image: raees,
-        name: "Raees Alam",
+        name: "Raees Alam (you)",
         email:"raees786@ameen.com",
         contact: "0123456789",
         position: "Owner",

@@ -14,7 +14,8 @@ function Settings() {
     dob: "12-jan-2022",
     email: "raees786@ameen.com",
     contact: (1079654321),
-    address: "Fatehpur, Gujarat -01"
+    address: "Fatehpur, Gujarat -01",
+    password:"password@123",
   })
 
   const [StoreDetails, setStoreDetails] = useState({
@@ -44,7 +45,7 @@ function Settings() {
         </div>
       </div>
       }
-      {navitem==="security" && <Security />}
+      {navitem==="security" && <Security UserDetails={UserDetails} setUserDetails={setStoreDetails} />}
       {navitem==="users" && <Users />}
     </>
   )

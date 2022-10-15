@@ -93,7 +93,7 @@ const Storeprofile = ({store, setStore}) => {
           <p className='text-xs'>132 ratings </p>
         </div>
         <div className='text-gray-700 text-sm md:text-base'>
-          <p className='my-3 flex'><span className='font-semibold'>Website: </span><a href={`https://${store.website}`} target="_blank" className='px-4 mx-2 border-b text-blue-400 flex items-center border-white'>{store.website}<BiLinkExternal className='ml-2'/></a> </p>
+          <p className='my-3 flex'><span className='font-semibold'>Website: </span><a href={`https://${store.website}`} target="_blank" rel="noreferrer" className='px-4 mx-2 border-b text-blue-400 flex items-center border-white'>{store.website}<BiLinkExternal className='ml-2'/></a> </p>
           <p className='my-3 flex'><span className='font-semibold'>Description: </span><p className='px-4 mx-2 border-b border-white'>{store.description}</p> </p>
           <p className='my-3 flex'><span className='font-semibold'>Email: </span><p className='px-4 mx-2 border-b border-white'>{store.email}</p> </p>
           <p className='my-3 flex'><span className='font-semibold'>Contact: </span><p className='px-4 mx-2 border-b border-white'>{store.contact}</p> </p>
