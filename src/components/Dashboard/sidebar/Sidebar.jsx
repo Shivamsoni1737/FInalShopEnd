@@ -1,9 +1,10 @@
 import React from "react";
-import { ToastContainer,toast } from "react-toastify";
+import {toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 import {CgInsights} from 'react-icons/cg';
-import {ImProfile} from 'react-icons/im';
+// import {ImProfile} from 'react-icons/im';
+import {FiSettings} from 'react-icons/fi';
 import {MdOutlineSpaceDashboard, MdLogout, MdInventory, MdInsights} from 'react-icons/md';
 
 import { useNavigate } from "react-router-dom";
@@ -107,20 +108,20 @@ const Sidebar = ({ option, setOption }) => {
         <div className="w-full border-t border-gray-200" />
 
         <div
-          onClick={() => {setOption("Profile")}}
+          onClick={() => {setOption("Settings")}}
           className={`w-full flex items-center justify-start space-x-8 px-4 cursor-pointer group hover:border-gray-900 border-l-4 border-transparent ${
-          option === "Profile" && "border-gray-900"
+          option === "Settings" && "border-gray-900"
           }`}
         >
           <span>
-            <ImProfile className="nav-icon" />
+            <FiSettings className="nav-icon" />
           </span>
           <h1
             className={`text-gray-600  group-hover:text-black xl:flex hidden ${
-              option === "Profile" && "text-black"
+              option === "Settings" && "text-black"
             }`}
           >
-            Profile
+            Settings
           </h1>
         </div>
 
