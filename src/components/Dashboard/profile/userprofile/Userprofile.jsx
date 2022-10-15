@@ -3,7 +3,7 @@ import userpic from "../../../../data/profile/user.jpg"
 import {AiOutlineEdit} from "react-icons/ai"
 import {TiTick} from "react-icons/ti"
 
-import DatePicker from 'react-date-picker'
+// import DatePicker from 'react-date-picker'
 import "react-date-picker/dist/DatePicker.css"
 
 const Userprofile = ({user, setUser}) => {
@@ -16,7 +16,7 @@ const Userprofile = ({user, setUser}) => {
 
   return (
     <div className='flex flex-col justify-center p-4 items-center'>
-      <img src={userpic} alt="user_pic" className='h-[17rem] border shadow-2xl rounded-full' />
+      <img src={userpic} alt="user_pic" className='h-[13rem] md:h-[17rem] border shadow-2xl rounded-full' />
       <p className='text-3xl font-bold mt-6'>{user.name}</p>
 
       {/* User Details */}
