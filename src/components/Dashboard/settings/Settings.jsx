@@ -20,7 +20,7 @@ function Settings() {
 
   const [StoreDetails, setStoreDetails] = useState({
     name: "AMMU-NATION",
-    description: "Koi dhanda chhota nhi hota or dhande se bada koi dharm nahi hota",
+    description: "Got some rare things on sale, stranger",
     website: "shopend.netlify.app",
     ratings: (4),
     email: "contact@noammunation.com",
