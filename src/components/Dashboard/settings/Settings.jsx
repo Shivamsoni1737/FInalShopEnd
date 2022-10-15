@@ -13,24 +13,32 @@ function Settings() {
     name: "Raees Alam",
     dob: "12-jan-2022",
     email: "raees786@ameen.com",
-    contact: "0123456789",
+    contact: (1079654321),
     address: "Fatehpur, Gujarat -01"
   })
 
   const [StoreDetails, setStoreDetails] = useState({
-    storename: 'Apni duniya',
-    description: "Koi dhanda chhota nhi hota or dhande se bada koi dharm nahi hota"
+    name: "AMMU-NATION",
+    description: "Koi dhanda chhota nhi hota or dhande se bada koi dharm nahi hota",
+    website: "shopend.netlify.app",
+    ratings: (5),
+    email: "contact@ammunation.com",
+    contact: (2345567891),
+    address: "Fatehpur, Gujarat -01",
+    zipcode: (365601),
+    daysopened: "Mon-Fri",
+    timing: "9AM to 10PM",
   })
 
   return (
     <>
     <Navbar setNavitem={setNavitem} navitem={navitem} />
 
-      {navitem === "profile" && <div className='p-3 grid grid-cols-1 mt-4 md:mt-8 md:grid-cols-5 gap-6'>
-        <div className='col-span-2 border shadow-xl rounded-md min-h-[80vh]'>
+      {navitem === "profile" && <div className='p-3 grid grid-cols-1 mt-4 md:mt-8 md:grid-cols-6 gap-6'>
+        <div className='col-span-1 md:col-span-2 border shadow-xl rounded-md min-h-[80vh]'>
           <Userprofile user={UserDetails} setUser={setUserDetails} />
         </div>
-        <div className='col-span-3 border shadow-xl rounded-md min-h-[80vh]'>
+        <div className='col-span-1 md:col-span-4 border shadow-xl rounded-md min-h-[80vh]'>
           <Storeprofile store={StoreDetails} setStore={setStoreDetails} />
         </div>
       </div>

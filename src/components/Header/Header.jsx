@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { ToastContainer,toast } from "react-toastify";
+import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 import {GiShoppingBag} from "react-icons/gi"
@@ -70,7 +70,7 @@ const Header = () => {
         <div className="flex items-center gap-2">
                     {
                         // need to access from cookies when cookies applied over whole site
-                        (location.pathname=="/dashboard") ?
+                        (location.pathname==="/dashboard") ?
                         <div className="flex relative items-center text-gray-600 gap-2">
                               <div className='hover:cursor-pointer relative hover:text-black'>
                                 <div onClick={()=>{setNotify(!notify); setOpen(false)}}>
@@ -105,7 +105,7 @@ const Header = () => {
                         :
                         <div className="flex items-center gap-3">
                             <a href="/login"><li className="mt-2 flex gap-2 items-center hover:text-black cursor-pointer"><span>Login</span></li></a>
-                            <a href="/signup"><li className="mt-2 flex gap-2 items-center hover:text-black cursor-pointer"><span>Sign up</span></li></a>
+                            <a href="/signup"><li className="mt-2 flex gap-2 border border-gray-400 rounded-md p-2 items-center hover:border-black hover:text-black cursor-pointer"><span>Sign up</span></li></a>
                         </div>
                     }
                     {location.pathname==="/dashboard" ? <></> :
