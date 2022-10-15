@@ -1,7 +1,9 @@
 import React, {useState} from 'react'
 import Navbar from './navbar/Navbar'
+import Security from './security/Security'
 import Storeprofile from './storeprofile/Storeprofile'
 import Userprofile from './userprofile/Userprofile'
+import Users from './users/Users'
 
 function Settings() {
 
@@ -25,14 +27,16 @@ function Settings() {
     <Navbar setNavitem={setNavitem} navitem={navitem} />
 
       {navitem === "profile" && <div className='p-3 grid grid-cols-1 mt-4 md:mt-8 md:grid-cols-5 gap-6'>
-        <div className='col-span-2 border rounded-md min-h-[80vh]'>
+        <div className='col-span-2 border shadow-xl rounded-md min-h-[80vh]'>
           <Userprofile user={UserDetails} setUser={setUserDetails} />
         </div>
-        <div className='col-span-3 border rounded-md min-h-[80vh]'>
+        <div className='col-span-3 border shadow-xl rounded-md min-h-[80vh]'>
           <Storeprofile store={StoreDetails} setStore={setStoreDetails} />
         </div>
       </div>
       }
+      {navitem==="security" && <Security />}
+      {navitem==="users" && <Users />}
     </>
   )
 }
