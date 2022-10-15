@@ -38,7 +38,7 @@ const Users = () => {
 
   return (
     <div className="md:px-4 md:py-12 min-h-[80vh] ">
-      <div className="p-5 my-6 shadow-xl bg-gray-100">
+      <div className="p-2 md:p-5 my-6 shadow-xl bg-gray-100">
         <h1 className="text-xl mb-2">Users</h1>
 
         
@@ -138,7 +138,7 @@ const Users = () => {
                     </div>
                 </div>
               </div>
-              <div className="flex h-7 justify-between">
+              <div className="flex h-7 justify-between items-center">
                 <span
                   className={`p-1.5 text-xs font-medium tracking-wider text-gray-800 bg-gray-200 
                   ${user.position === "Manager" &&"text-green-800 bg-red-100"}
