@@ -30,13 +30,13 @@ const Login = () => {
   return (
     <>
     <div className="mt-16  bg-white">
-      <div className='w-full flex flex-col md:flex-row items-center justify-center flex-1 text-center '>
+      <div className='w-full flex flex-col md:flex-row min-h-[80vh] items-center justify-center flex-1 text-center '>
 
-      <div className='w-full md:w-3/5 p-5'>
-      <div className='py-10 items-center flex flex-col justify-center'>
-            <h2 className='text-3xl font-bold text-green-700 mb-8'>Sign in to account</h2>
-            <div className='border-4 w-10 border-green-700 inline-block mb-2' />
-            <div className='flex items-center my-3 mb-8 hover:cursor-pointer'><p>Login via google </p><FcGoogle className='text-blue-500 text-2xl ml-3' /></div>
+      <div className='w-full md:w-3/5'>
+            <div className='items-center flex flex-col justify-center'>
+                <h2 className='text-3xl font-bold text-green-700 mb-8'>Sign in to account</h2>
+                <button onClick={handleLogin} className='border border-[#003979] font-semibold rounded-lg mb-8 px-12 py-2 text-black hover:shadow-lg flex items-center'>Continue with google <FcGoogle className='ml-2 text-xl'/></button>
+                <div className='border-4 w-10 border-green-700 inline-block mb-2' />
 
                 {/* Input Divs below */}
                 <div className='flex flex-col items-center '>
@@ -58,7 +58,7 @@ const Login = () => {
             </div>
       </div>
 
-      <div className='w-full md:w-2/5 md:h-[492px] bg-green-800 text-white px-12 py-36'>  {/* signup Section */}
+        <div className='w-full md:w-2/5 bg-green-800 text-white px-12 py-36'>  {/* signup Section */}
             <h2 className='text-3xl text-white font-bold mb-2'>Hello, Store!</h2>
             <div className='border-4 w-10 border-white inline-block mb-2' />
             <div className='90%'>
