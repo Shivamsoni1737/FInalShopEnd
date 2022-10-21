@@ -1,5 +1,8 @@
 import React,{useState} from 'react'
 
+import Bar from './Bar'
+import List from './List'
+
 const Inventory = () => {
 
     const [items, setItems] = useState([
@@ -275,12 +278,8 @@ const Inventory = () => {
 
   return (
     <div className='p-4'>
-      {items.map((item) => (
-        <>
-            <div>{item.name}</div>
-            <div>{item.type}</div>
-        </>
-      ))}
+      <Bar items={items} setItems={setItems} />
+      <List items={items} setItems={setItems} />
     </div>
   )
 }
