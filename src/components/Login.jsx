@@ -32,7 +32,7 @@ const Login = () => {
     <div className="mt-16  bg-white">
       <div className='w-full flex flex-col md:flex-row min-h-[80vh] items-center justify-center flex-1 text-center '>
 
-      <div className='w-full md:w-3/5'>
+      <div className='w-full py-8 md:w-3/5'>
             <div className='items-center flex flex-col justify-center'>
                 <h2 className='text-3xl font-bold text-green-700 mb-8'>Sign in to account</h2>
                 <button onClick={handleLogin} className='border border-[#003979] font-semibold rounded-lg mb-8 px-12 py-2 text-black hover:shadow-lg flex items-center'>Continue with google <FcGoogle className='ml-2 text-xl'/></button>
@@ -61,7 +61,7 @@ const Login = () => {
         <div className='w-full md:w-2/5 bg-green-800 text-white px-12 py-36'>  {/* signup Section */}
             <h2 className='text-3xl text-white font-bold mb-2'>Hello, Store!</h2>
             <div className='border-4 w-10 border-white inline-block mb-2' />
-            <div className='90%'>
+            <div className=''>
               <p className='text-xl mb-3'>Expand your business horizon with Dhanda Paani</p>
               <p className='text-xl mb-6'>no-limit reach to your customers</p>
               <p className='mb-10'>Manage your inventory on the go, Join us now !</p>

@@ -86,7 +86,7 @@ const Security = ({UserDetails, setUserDetails}) => {
         </button>
       </div>
 
-      { state===1?  <button onClick={handleSubmit} className="border py-2 px-4 bg-green-300 text-gray-700 hover:bg-white rounded-md">Submit</button> :
+      { state===1?  <button onClick={handleSubmit} className="border py-2 px-4 hover:bg-gray-100 text-gray-700 rounded-md">Submit</button> :
         <div>
           <p className='text-left w-[256px] mt-3 mb-1'>Enter OTP</p>
           <div className='bg-gray-100 w-64 p-2 flex items-center mb-3'>
@@ -99,7 +99,7 @@ const Security = ({UserDetails, setUserDetails}) => {
             </button>
           </div>
 
-          <button onClick={handleOtpSubmit} className="border py-2 px-4 bg-green-300 text-gray-700 hover:bg-white rounded-md">Submit OTP</button>
+          <button onClick={handleOtpSubmit} className="border py-2 px-4 hover:bg-gray-100 text-gray-700 rounded-md">Submit OTP</button>
         </div>
       }
 

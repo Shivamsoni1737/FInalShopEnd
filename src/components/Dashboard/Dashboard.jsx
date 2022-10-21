@@ -3,6 +3,7 @@ import Sidebar from "./sidebar/Sidebar";
 import DashHome from "./dashhome/DashHome"
 
 import Settings from "./settings/Settings";
+import Inventory from "./inventory/Inventory";
 
 // import Yourinternships from "./yourinternships/YourInternships"
 // import Yourjobs from "./yourjobs/YourJobs"
@@ -18,11 +19,11 @@ const Dashboard = () => {
         <Sidebar option={option} setOption={setOption} />
         
         <div className="w-[100%]">
-          {option === "User Dashboard" && <DashHome setOption={setOption}/>}
-          {/* {option === "Posted Internships" && <Yourinternships setOption={setOption}/>} */}
+          {option === "User Dashboard" && <DashHome />}
+          {option === "Your Inventory" && <Inventory />}
           {/* {option === "Posted Jobs" && <Yourjobs setOption={setOption}/>} */}
           {/* {option === "Add job" && <Addjob/>} */}
-          {option === "Settings" && <Settings/>}
+          {option === "Settings" && <Settings />}
         </div>
       </div>
     </div>
