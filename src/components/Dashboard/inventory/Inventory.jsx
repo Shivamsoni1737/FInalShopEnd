@@ -291,7 +291,7 @@ const Inventory = () => {
             // recoil_gain: "1.3 units",
             in_inventory: "10",
             sold:"1",
-            price: "K",
+            price: "3K",
         },
         {
             name: "Smoke Grenade",
@@ -305,7 +305,7 @@ const Inventory = () => {
             // recoil_gain: "1.3 units",
             in_inventory: "10",
             sold:"1",
-            price: "K",
+            price: "3K",
         },
         {
             name: "Stun Grenade",
@@ -319,7 +319,7 @@ const Inventory = () => {
             // recoil_gain: "1.3 units",
             in_inventory: "10",
             sold:"1",
-            price: "K",
+            price: "2K",
         },
     ])
 
