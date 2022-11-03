@@ -30,8 +30,8 @@ import stun from "../../../data/inventory/stun.png"
 
 const Inventory = () => {
 
-    // const [type, setType] = useState("all");
-    
+    const [type, setType] = useState("All");
+
     const [items, setItems] = useState([
         {
             name: "M416",
@@ -326,7 +326,7 @@ const Inventory = () => {
   return (
     <div className='p-4'>
       <Bar items={items} setItems={setItems} />
-      <List items={items} setItems={setItems} />
+      <List items={items} setItems={setItems} type={type} setType={setType} />
     </div>
   )
 }

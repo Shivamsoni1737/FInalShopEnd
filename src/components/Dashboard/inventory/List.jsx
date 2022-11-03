@@ -1,13 +1,28 @@
 import {AiOutlineEye} from 'react-icons/ai';
 import {BsPencil, BsTrash} from 'react-icons/bs';
 
-const List = ({items,setItems}) => {
+const List = ({items, setItems, type, setType}) => {
   return (
     <div className="md:px-4 md:pb-12 md:pt-4 min-h-[80vh] ">
       <div className="p-2 md:p-5 my-6 shadow-xl bg-gray-100">
-        <h1 className="text-xl mb-4">Your inventory</h1>
-
-        
+        <div className='flex mb-4 justify-between items-center'>
+          <h1 className="md:text-xl">Your inventory</h1>
+          <div>
+            <select
+             className='py-2 px-1'
+             value={type}
+             onChange={(e)=>setType(e.target.value)}
+            >
+              <option value="All">Select type:</option>
+              <option value="All">All</option>
+              <option value="Assault rifle">Assault rifle</option>
+              <option value="SMG">SMG</option>
+              <option value="Sniper Rifle">Sniper Rifle</option>
+              <option value="Melee">Melee</option>
+              <option value="Throwable">Throwable</option>
+            </select>
+          </div>
+        </div>
 
         <div className="overflow-auto rounded-lg shadow hidden md:block">
           <table className="w-full">
@@ -42,7 +57,7 @@ const List = ({items,setItems}) => {
 
             
 
-            {items.map((item,i) => (
+            {items.map((item,i) => ( (type === item.type || type ==="All") &&
               <tbody className="divide-y divide-gray-100 ">
                 <tr className="bg-white justify-center">
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
@@ -93,7 +108,7 @@ const List = ({items,setItems}) => {
         </div>
 
         <div className="flex flex-col w-full md:hidden">
-          {items.map((item,i)=> (
+          {items.map((item,i)=> ( (type === item.type || type ==="All") &&
             <div className="bg-white space-y-3 p-4 my-2 rounded-lg shadow">
               <div className="flex justify-between items-center">
                 <img src={item.image} alt={item.name} className="h-[4rem] sm:h-[6rem] rounded-full" />
