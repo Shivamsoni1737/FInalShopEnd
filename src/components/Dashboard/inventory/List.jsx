@@ -102,21 +102,21 @@ const List = ({items,setItems}) => {
                     {item.name}
                     </div>
                     <div className="text-gray-500 text-left ">
-                    {item.email}
+                    {"Item type: "}{item.type}
                     </div>
                     <div className="text-gray-500 text-left ">
-                    {item.contact}
+                    {"Total sold: "}{item.sold}
                     </div>
                 </div>
               </div>
               <div className="flex h-7 justify-between items-center">
                 <span
                   className={`p-1.5 text-xs font-medium tracking-wider text-gray-800 bg-gray-200 
-                  ${item.position === "Manager" &&"text-green-800 bg-red-100"}
-                  ${item.position === "Owner" && "text-green-800 bg-green-200"}
+                  ${item.in_inventory < 10 &&"text-green-800 bg-red-100"}
+                  ${item.in_inventory > 20 && "text-green-800 bg-green-200"}
                   rounded-lg bg-opacity-50`}
                 >
-                  {item.position}
+                  {"In inventory: "}{item.in_inventory}
                 </span>
                 <div className="p-3 text-sm flex justify-between text-gray-700 whitespace-nowrap">
                     <div className="hover:cursor-pointer">
