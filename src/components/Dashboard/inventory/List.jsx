@@ -13,7 +13,7 @@ const List = ({items, setItems, type, setType}) => {
              value={type}
              onChange={(e)=>setType(e.target.value)}
             >
-              <option value="All">Select type:</option>
+              <option value="st">Select type:</option>
               <option value="All">All</option>
               <option value="Assault rifle">Assault rifle</option>
               <option value="SMG">SMG</option>
@@ -57,7 +57,7 @@ const List = ({items, setItems, type, setType}) => {
 
             
 
-            {items.map((item,i) => ( (type === item.type || type ==="All") &&
+            {items.map((item,i) => ( (type === item.type || type ==="All" || type==="st") &&
               <tbody className="divide-y divide-gray-100 ">
                 <tr className="bg-white justify-center">
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
@@ -108,7 +108,7 @@ const List = ({items, setItems, type, setType}) => {
         </div>
 
         <div className="flex flex-col w-full md:hidden">
-          {items.map((item,i)=> ( (type === item.type || type ==="All") &&
+          {items.map((item,i)=> ( (type === item.type || type ==="All" || type==="st") &&
             <div className="bg-white space-y-3 p-4 my-2 rounded-lg shadow">
               <div className="flex justify-between items-center">
                 <img src={item.image} alt={item.name} className="h-[4rem] sm:h-[6rem] rounded-full" />

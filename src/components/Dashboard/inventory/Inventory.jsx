@@ -30,7 +30,7 @@ import stun from "../../../data/inventory/stun.png"
 
 const Inventory = () => {
 
-    const [type, setType] = useState("All");
+    const [type, setType] = useState("st");
 
     const [items, setItems] = useState([
         {
