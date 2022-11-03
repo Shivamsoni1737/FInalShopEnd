@@ -3,9 +3,9 @@ import {BsPencil, BsTrash} from 'react-icons/bs';
 
 const List = ({items,setItems}) => {
   return (
-    <div className="md:px-4 md:py-12 min-h-[80vh] ">
+    <div className="md:px-4 md:pb-12 md:pt-4 min-h-[80vh] ">
       <div className="p-2 md:p-5 my-6 shadow-xl bg-gray-100">
-        <h1 className="text-xl mb-2">Users</h1>
+        <h1 className="text-xl mb-4">Your inventory</h1>
 
         
 
@@ -32,7 +32,7 @@ const List = ({items,setItems}) => {
                   Sold
                 </th>
                 <th className="w-24 p-3 text-sm font-semibold tracking-wide text-left">
-                  Price
+                  Price (in ₹)
                 </th>
                 <th className="w-20 p-3 text-sm font-semibold tracking-wide text-left">
                   Action
