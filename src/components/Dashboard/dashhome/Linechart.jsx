@@ -1,11 +1,11 @@
 import React from 'react'
 import{ChartComponent, SeriesCollectionDirective, SeriesDirective,LineSeries, Inject, DateTime, Legend, Tooltip} from '@syncfusion/ej2-react-charts';
-import {lineCustomSeries, LinePrimaryYAxis, LinePrimaryXAxis} from "../../../data/data"
+import {lineCustomSeries} from "../../../data/data"
 
 const Linechart = () => {
   return (
     <div>
-      <p className='text-xl font-semibold ml-4 mb-4'>Sales stats from past months :</p>
+      <p className='text-xl font-semibold ml-4 mb-10'>Sales stats from past months :</p>
       <ChartComponent
         id="line-chart"
         height='420px'
