@@ -324,8 +324,9 @@ const Inventory = () => {
     ])
 
   return (
-    <div className='p-4'>
+    <div className='p-4 '>
       <Bar items={items} setItems={setItems} />
+      <p className='text-center text-2xl text-gray-700 mt-8 md:text-3xl font-semibold'>Your Inventory</p>
       <List items={items} setItems={setItems} type={type} setType={setType} />
     </div>
   )
