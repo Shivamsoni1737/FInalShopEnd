@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@capacitor/android": "^4.4.0",
+    "@capacitor/core": "^4.4.0",
     "@react-icons/all-files": "^4.1.0",
     "@syncfusion/ej2": "^19.4.48",
     "@syncfusion/ej2-react-charts": "^19.4.50",
@@ -48,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@capacitor/cli": "^4.4.0",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.17",
     "sass": "^1.55.0",
