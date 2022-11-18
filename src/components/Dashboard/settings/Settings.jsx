@@ -1,21 +1,21 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Navbar from './navbar/Navbar'
 import Security from './security/Security'
 import Storeprofile from './storeprofile/Storeprofile'
 import Userprofile from './userprofile/Userprofile'
 import Users from './users/Users'
 
-function Settings() {
+function Settings({ profile, security, users }) {
 
   const [navitem, setNavitem] = useState("profile")
 
-  const [UserDetails,setUserDetails] = useState( {
+  const [UserDetails, setUserDetails] = useState({
     name: "Raees Alam",
     dob: "12-jan-2022",
     email: "raees786@ameen.com",
     contact: (1079654321),
     address: "Fatehpur, Gujarat -01",
-    password:"password@123",
+    password: "password@123",
   })
 
   const [StoreDetails, setStoreDetails] = useState({
@@ -34,9 +34,9 @@ function Settings() {
 
   return (
     <>
-    <Navbar setNavitem={setNavitem} navitem={navitem} />
+      <Navbar setNavitem={setNavitem} navitem={navitem} />
 
-      {navitem === "profile" && <div className='p-3 grid grid-cols-1 mt-4 md:mt-8 md:grid-cols-6 gap-6'>
+      {navitem === "profile" && profile && <div className='p-3 grid grid-cols-1 mt-4 md:mt-8 md:grid-cols-6 gap-6'>
         <div className='col-span-1 md:col-span-2 border shadow-xl rounded-md min-h-[80vh]'>
           <Userprofile user={UserDetails} setUser={setUserDetails} />
         </div>
@@ -45,8 +45,8 @@ function Settings() {
         </div>
       </div>
       }
-      {navitem==="security" && <Security UserDetails={UserDetails} setUserDetails={setStoreDetails} />}
-      {navitem==="users" && <Users />}
+      {navitem === "security" && security && <Security UserDetails={UserDetails} setUserDetails={setStoreDetails} />}
+      {navitem === "users" && users && <Users />}
     </>
   )
 }

@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
-import { ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 import Login from './components/Login';
@@ -11,22 +11,26 @@ import Ourservices from './components/Ourservices';
 import Ourmission from './components/Ourmission';
 import Whyus from './components/Whyus';
 import Dashboard from './components/Dashboard/Dashboard';
+import Customer from './components/Customer';
+import CustomerID from './components/Customer/[id]';
 
 function App() {
   return (
     <div>
       <Header />
-        <Routes>
-          <Route path="/" element={<Login />}></Route>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/about-us" element={<Aboutus />}></Route>
-          <Route path="/our-services" element={<Ourservices />}></Route>
-          <Route path="/our-mission" element={<Ourmission />}></Route>
-          <Route path="/why-us" element={<Whyus />}></Route>
-          <Route path="/dashboard" element={<Dashboard />}></Route>
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Login />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/about-us" element={<Aboutus />}></Route>
+        <Route path="/our-services" element={<Ourservices />}></Route>
+        <Route path="/our-mission" element={<Ourmission />}></Route>
+        <Route path="/why-us" element={<Whyus />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/customer" element={<Customer />}></Route>
+        <Route exact path="/customer/:id" element={<CustomerID />}></Route>
+      </Routes>
       <Footer />
-      <ToastContainer /> 
+      <ToastContainer />
     </div>
   );
 }
