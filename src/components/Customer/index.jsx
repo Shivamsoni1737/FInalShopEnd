@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 const List = ({ shops }) => {
 
     console.log(shops);
 
     const handleClick = (id) => {
-        window.location.href = `http://localhost:3000/customer/${id}`
+        window.location.href = `https://shopend.netlify.app/customer/${id}`
         console.log("clicked")
     }
 

@@ -11,7 +11,7 @@ import {MdOutlineSpaceDashboard, MdLogout} from 'react-icons/md';
 import {AiFillCaretDown} from 'react-icons/ai'
 import {IoIosNotifications} from 'react-icons/io'
 
-const Header = () => {
+const Header = ({sideview,setSideview}) => {
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,6 +41,15 @@ const Header = () => {
   return (
     <nav className="w-full top-0 bg-gray-300 shadow-md fixed text-gray-600">
       <div className="relative py-3 px-3 font-semibold sm:px-5 h-16 flex flex-row items-center justify-between  m-auto nav_container">
+
+        {location.pathname==="/dashboard" ?
+          <div onClick={()=> {setSideview(!sideview)}} className="hamburger w-7 ml-2 md:hidden cursor-pointer">
+            <div className="w-full h-0.5 bg-gray-800 line rounded-md"></div>
+            <div className="w-full h-0.5 bg-gray-800 my-1.5 rounded-md"></div>
+            <div className="w-full h-0.5 bg-gray-800 rounded-md"></div>
+          </div> : <></>
+        }
+
         <div onClick={gotohome} className="cursor-pointer">
           <p className='font-bold flex items-center text-xl'>Dhanda Paani <GiShoppingBag className='text-gray-800 ml-2'/></p>
         </div>
