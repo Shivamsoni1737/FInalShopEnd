@@ -16,12 +16,13 @@ const Dashboard = ({sidebarOpen}) => {
 
   return (
     <div>
-      <div className={` w-full min-h-[90vh] mt-16 flex flex-row`}>
-        <div className={`${sidebarOpen===false && 'hidden'} flex-shrink-0 transition-all duration-300`}>
+      <div className={` w-full  min-h-[90vh] mt-16 flex flex-row  trantition-all duration-300`}>
+
+        <div className={`${sidebarOpen===false? "hidden" : "block"} z-30 ease-in-out duration-300`}>
          <Sidebar option={option} setOption={setOption}  />
         </div>
 
-        <div className="w-[100%]">
+        <div className="w-[100%] ease-in-out duration-300">
           {option === "User Dashboard" && <DashHome />}
           {option === "Your Inventory" && <Inventory />}
           {/* {option === "Posted Jobs" && <Yourjobs setOption={setOption}/>} */}
