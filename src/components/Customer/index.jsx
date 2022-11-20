@@ -15,7 +15,8 @@ const List = ({ shops }) => {
                 {shops.map((shop) => {
                     return (
                         <div style={{ cursor: 'pointer' }} key={shop.shopID} onClick={() => { handleClick(shop.shopID) }} className='col-span-1 border shadow-lg rounded-md pt-3 m-2 text-left pl-8 pr-12'>
-                            <p>{shop.shopID}</p>
+                            <p>Shopname: {shop.shopID}</p>
+                            <p>Shoptype: {shop.shopType}</p>
                         </div>
                     )
                 })}
@@ -28,7 +29,7 @@ const Customer = () => {
 
     return (
         <div>
-            <div className="w-full min-h-[90vh] mt-16 flex flex-row">
+            <div className="mt-16">
                 <List shops={shopsList} />
             </div>
         </div>
@@ -50,5 +51,23 @@ const shopsList = [
         shopImage: "",
         showOwner: "Shivam Soni",
         shopType: "Ammunition",
-    }
+    },
+    {
+        shopID: "The Hell's Shop",
+        shopImage: "",
+        showOwner: "King Crucio",
+        shopType: "Demons for sale",
+    },
+    {
+        shopID: "The Hell's Shop",
+        shopImage: "",
+        showOwner: "King Crucio",
+        shopType: "Demons for sale",
+    },
+    {
+        shopID: "The Hell's Shop",
+        shopImage: "",
+        showOwner: "King Crucio",
+        shopType: "Demons for sale",
+    },
 ]

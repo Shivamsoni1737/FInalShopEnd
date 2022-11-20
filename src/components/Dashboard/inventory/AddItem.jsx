@@ -31,6 +31,7 @@ const AddItem = ({items, setItems, setState}) => {
         setState("inventory")
         // setItems(...items, {newitem})
     }
+    console.log(newitem);
 
   return (
     <div className='mt-8'>

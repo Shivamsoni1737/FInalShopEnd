@@ -22,17 +22,19 @@ function App() {
   return (
     <div>
       <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-      <Routes>
-        <Route path="/" element={<Login />}></Route>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/about-us" element={<Aboutus />}></Route>
-        <Route path="/our-services" element={<Ourservices />}></Route>
-        <Route path="/our-mission" element={<Ourmission />}></Route>
-        <Route path="/why-us" element={<Whyus />}></Route>
-        <Route path="/dashboard" element={<Dashboard sidebarOpen={sidebarOpen} />}></Route>
-        <Route path="/customer" element={<Customer />}></Route>
-        <Route exact path="/customer/:id" element={<CustomerID />}></Route>
-      </Routes>
+      <div className='min-h-[70vh]'>
+        <Routes>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/about-us" element={<Aboutus />}></Route>
+          <Route path="/our-services" element={<Ourservices />}></Route>
+          <Route path="/our-mission" element={<Ourmission />}></Route>
+          <Route path="/why-us" element={<Whyus />}></Route>
+          <Route path="/dashboard" element={<Dashboard sidebarOpen={sidebarOpen} />}></Route>
+          <Route path="/customer" element={<Customer />}></Route>
+          <Route exact path="/customer/:id" element={<CustomerID />}></Route>
+        </Routes>
+      </div>
       <Footer />
       <ToastContainer />
     </div>
