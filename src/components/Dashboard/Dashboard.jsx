@@ -10,14 +10,14 @@ import { Side } from "@syncfusion/ej2/svg-base";
 // import Yourjobs from "./yourjobs/YourJobs"
 // import Addjob from "./addJob/Addjob"
 
-const Dashboard = ({sideview}) => {
+const Dashboard = ({sidebarOpen}) => {
 
   const [option, setOption] = useState("User Dashboard");
 
   return (
     <div>
       <div className={` w-full min-h-[90vh] mt-16 flex flex-row`}>
-        <div className={`${sideview===false && 'hidden'}`}>
+        <div className={`${sidebarOpen===false && 'hidden'} flex-shrink-0 transition-all duration-300`}>
          <Sidebar option={option} setOption={setOption}  />
         </div>
 

@@ -35,8 +35,7 @@ const Sidebar = ({ option, setOption }) => {
             <MdOutlineSpaceDashboard className="nav-icon" />
           </span>
           <h1
-            className={`text-gray-600  group-hover:text-black xl:flex hidden ${option === "User Dashboard" && "text-black"
-              }`}
+            className={`${option === "User Dashboard"? "text-black font-semibold" : "text-gray-600"} group-hover:text-black xl:flex hidden`}
           >
             Dashboard
           </h1>
@@ -53,8 +52,7 @@ const Sidebar = ({ option, setOption }) => {
             <MdInventory className="nav-icon" />
           </span>
           <h1
-            className={`text-gray-600  group-hover:text-black xl:flex hidden ${option === "Your Inventory" && "text-black"
-              }`}
+            className={`${option === "Your Inventory"? "text-black font-semibold" : "text-gray-600"} group-hover:text-black xl:flex hidden`}
           >
             Your Inventory
           </h1>
@@ -71,8 +69,7 @@ const Sidebar = ({ option, setOption }) => {
             <CgInsights className="nav-icon" />
           </span>
           <h1
-            className={`text-gray-600  group-hover:text-black xl:flex hidden ${option === "Customer Insights" && "text-black"
-              }`}
+            className={`${option === "Customer Insights"? "text-black font-semibold" : "text-gray-600"}  group-hover:text-black xl:flex hidden`}
           >
             Customer Insights
           </h1>
@@ -89,8 +86,7 @@ const Sidebar = ({ option, setOption }) => {
             <MdInsights className="nav-icon" />
           </span>
           <h1
-            className={`text-gray-600  group-hover:text-black xl:flex hidden ${option === "Sales Insights" && "text-black"
-              }`}
+            className={`${option === "Sales Insights"? "text-black font-semibold" : "text-gray-600"} group-hover:text-black xl:flex hidden`}
           >
             Sales Insights
           </h1>
@@ -109,8 +105,7 @@ const Sidebar = ({ option, setOption }) => {
             <FiSettings className="nav-icon" />
           </span>
           <h1
-            className={`text-gray-600  group-hover:text-black xl:flex hidden ${option === "Settings" && "text-black"
-              }`}
+            className={`${option === "Settings"? "text-black font-semibold" : "text-gray-600"}   group-hover:text-black xl:flex hidden`}
           >
             Settings
           </h1>
@@ -126,8 +121,7 @@ const Sidebar = ({ option, setOption }) => {
             <MdLogout className="nav-icon" />
           </span>
           <h1
-            className={`text-gray-600  group-hover:text-black xl:flex hidden ${option === "Posted Internships" && "text-black"
-              }`}
+            className={`text-gray-600  group-hover:text-black xl:flex hidden`}
           >
             Sign out
           </h1>
@@ -142,7 +136,7 @@ const Sidebar = ({ option, setOption }) => {
             <IoMdArrowBack className="nav-icon" />
           </span>
           <h1
-            className={`text-gray-600  group-hover:text-black xl:flex hidden ${option === "BackButton" && "text-black"
+            className={`text-gray-600  group-hover:text-black xl:flex hidden ${option === "BackButton" && "text-black font-semibold"
               }`}
           >
             Back

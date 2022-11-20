@@ -11,7 +11,7 @@ import {MdOutlineSpaceDashboard, MdLogout} from 'react-icons/md';
 import {AiFillCaretDown} from 'react-icons/ai'
 import {IoIosNotifications} from 'react-icons/io'
 
-const Header = ({sideview,setSideview}) => {
+const Header = ({sidebarOpen,setSidebarOpen}) => {
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -43,7 +43,7 @@ const Header = ({sideview,setSideview}) => {
       <div className="relative py-3 px-3 font-semibold sm:px-5 h-16 flex flex-row items-center justify-between  m-auto nav_container">
 
         {location.pathname==="/dashboard" ?
-          <div onClick={()=> {setSideview(!sideview)}} className="hamburger w-7 ml-2 md:hidden cursor-pointer">
+          <div onClick={()=> {setSidebarOpen(!sidebarOpen)}} className="hamburger w-7 ml-2 md:hidden cursor-pointer">
             <div className="w-full h-0.5 bg-gray-800 line rounded-md"></div>
             <div className="w-full h-0.5 bg-gray-800 my-1.5 rounded-md"></div>
             <div className="w-full h-0.5 bg-gray-800 rounded-md"></div>
