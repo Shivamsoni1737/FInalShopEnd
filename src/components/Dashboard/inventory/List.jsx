@@ -1,7 +1,16 @@
+import { useState } from 'react';
 import {AiOutlineEye} from 'react-icons/ai';
 import {BsPencil, BsTrash, BsPlusCircle} from 'react-icons/bs';
+import Edititem from './Edititem';
+
+import Viewitem from './Viewitem';
 
 const List = ({items, setItems, type, setType, setState}) => {
+
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
+  const [theItem, setTheItem] = useState("");
+
   return (
     <div className="md:px-4 md:pb-12 md:pt-4 min-h-[80vh] ">
       <div className="p-2 md:p-5 my-6 shadow-xl bg-gray-100">
@@ -67,7 +76,7 @@ const List = ({items, setItems, type, setType, setState}) => {
                     {i + 1}
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                    <img src={item.image} alt={item.name} className="h-[6rem] rounded-full" />
+                    <img src={item.image} alt={item.name} className="h-[6rem] object-cover rounded-full" />
                   </td>
                   <td className="p-3 text-md font-semibold text-gray-700 whitespace-nowrap">
                     {item.name}
@@ -93,10 +102,10 @@ const List = ({items, setItems, type, setType, setState}) => {
                     {item.price}
                   </td>
                   <td className="p-3 text-sm flex mt-9 items-center text-gray-700 whitespace-nowrap">
-                        <div className="hover:cursor-pointer">
+                        <div onClick={()=>{setShowModal1(true) ;setTheItem(item)}} className="hover:cursor-pointer">
                             <AiOutlineEye className="h-4 mt-1 text-blue-600"/>
                         </div>
-                        <div className="hover:cursor-pointer mx-6">
+                        <div onClick={()=>{setShowModal2(true) ;setTheItem(item)}} className="hover:cursor-pointer mx-6">
                             <BsPencil className="h-4 mt-1 text-blue-400" />
                         </div>
                         <div className="hover:cursor-pointer">
@@ -114,7 +123,7 @@ const List = ({items, setItems, type, setType, setState}) => {
           {items.map((item,i)=> ( (type === item.type || type ==="All" || type==="st") &&
             <div className="bg-white space-y-3 p-4 my-2 rounded-lg shadow">
               <div className="flex justify-between items-center">
-                <img src={item.image} alt={item.name} className="h-[4rem] sm:h-[6rem] rounded-full" />
+                <img src={item.image} alt={item.name} className="h-[4rem] object-cover sm:h-[6rem] rounded-full" />
                 <div className="flex flex-col text-left w-[60%] text-sm">
                     <div className="text-sm text-left font-medium text-black">
                     {item.name}
@@ -152,6 +161,8 @@ const List = ({items, setItems, type, setType, setState}) => {
           ))}
         </div>
       </div>
+      <Viewitem showModal={showModal1} setShowModal={setShowModal1} item={theItem} />
+      <Edititem showModal={showModal2} setShowModal={setShowModal2} item={theItem} />
     </div>
   )
 }

@@ -66,7 +66,7 @@ export const inventory = [
         in_inventory: "23",
         sold: "42",
         price: "20K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:2,
@@ -82,7 +82,7 @@ export const inventory = [
         in_inventory: "14",
         sold: "37",
         price: "22K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:3,
@@ -98,7 +98,7 @@ export const inventory = [
         in_inventory: "20",
         sold: "28",
         price: "19K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:4,
@@ -114,7 +114,7 @@ export const inventory = [
         in_inventory: "9",
         sold: "2",
         price: "16K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
 
 
@@ -132,7 +132,7 @@ export const inventory = [
         in_inventory: "20",
         sold: "28",
         price: "14K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:6,
@@ -148,7 +148,7 @@ export const inventory = [
         in_inventory: "10",
         sold: "30",
         price: "16K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:7,
@@ -164,7 +164,7 @@ export const inventory = [
         in_inventory: "21",
         sold: "15",
         price: "17K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:8,
@@ -180,7 +180,7 @@ export const inventory = [
         in_inventory: "12",
         sold: "5",
         price: "14K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
 
 
@@ -198,7 +198,7 @@ export const inventory = [
         in_inventory: "10",
         sold: "5",
         price: "30K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:10,
@@ -214,7 +214,7 @@ export const inventory = [
         in_inventory: "15",
         sold: "10",
         price: "34K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:11,
@@ -230,7 +230,7 @@ export const inventory = [
         in_inventory: "5",
         sold: "3",
         price: "50K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:12,
@@ -246,7 +246,7 @@ export const inventory = [
         in_inventory: "10",
         sold: "1",
         price: "25K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
 
 
@@ -264,7 +264,7 @@ export const inventory = [
         in_inventory: "6",
         sold: "14",
         price: "2K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:14,
@@ -280,7 +280,7 @@ export const inventory = [
         in_inventory: "10",
         sold: "1",
         price: "1K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:15,
@@ -296,7 +296,7 @@ export const inventory = [
         in_inventory: "8",
         sold: "5",
         price: "4K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:16,
@@ -312,7 +312,7 @@ export const inventory = [
         in_inventory: "10",
         sold: "0",
         price: "900",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
 
 
@@ -330,7 +330,7 @@ export const inventory = [
         in_inventory: "10",
         sold: "1",
         price: "500",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:18,
@@ -346,7 +346,7 @@ export const inventory = [
         in_inventory: "10",
         sold: "1",
         price: "3K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:19,
@@ -362,7 +362,7 @@ export const inventory = [
         in_inventory: "10",
         sold: "1",
         price: "3K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
     {
         id:20,
@@ -378,6 +378,6 @@ export const inventory = [
         in_inventory: "10",
         sold: "1",
         price: "2K",
-        desc: "Toys",
+        desc: "It is a toy! :)",
     },
 ]

@@ -15,7 +15,7 @@ const Dashboard = ({sidebarOpen}) => {
     <div>
       <div className={` w-full  min-h-[90vh] mt-16 flex flex-row  trantition-all duration-300`}>
 
-        <div className={`${sidebarOpen===false? "hidden" : "block"} z-30 ease-in-out duration-300`}>
+        <div className={`${sidebarOpen===false? "hidden" : "block"} `}>
          <Sidebar option={option} setOption={setOption}  />
         </div>
 
