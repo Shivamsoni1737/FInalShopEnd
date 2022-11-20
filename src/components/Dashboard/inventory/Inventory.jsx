@@ -32,7 +32,7 @@ import AddItem from './AddItem'
 const Inventory = () => {
 
     const [type, setType] = useState("st")
-    const [state,setState] = useState("add item")
+    const [state,setState] = useState("inventory")
 
     const [items, setItems] = useState(inventory)
 
