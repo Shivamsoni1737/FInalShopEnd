@@ -1,14 +1,14 @@
 import {AiOutlineEye} from 'react-icons/ai';
 import {BsPencil, BsTrash, BsPlusCircle} from 'react-icons/bs';
 
-const List = ({items, setItems, type, setType}) => {
+const List = ({items, setItems, type, setType, setState}) => {
   return (
     <div className="md:px-4 md:pb-12 md:pt-4 min-h-[80vh] ">
       <div className="p-2 md:p-5 my-6 shadow-xl bg-gray-100">
         <div className='flex flex-wrap mb-4 justify-between items-center'>
           {/* <h1 className="md:text-xl">Your inventory</h1> */}
 
-          <button className='border bg-gray-200 text-gray-800 font-semibold px-2 md:px-12 py-2 flex items-center hover:bg-gray-500 hover:text-white hover:cursor-pointer'><BsPlusCircle className='mr-3' />Add item</button>
+          <button onClick={()=>{setState("add item")}} className='border bg-gray-200 text-gray-800 font-semibold px-2 md:px-12 py-2 flex items-center hover:bg-gray-500 hover:text-white hover:cursor-pointer'><BsPlusCircle className='mr-3' />Add item</button>
 
           <div>
             <select

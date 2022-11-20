@@ -4,11 +4,8 @@ import DashHome from "./dashhome/DashHome"
 
 import Settings from "./settings/Settings";
 import Inventory from "./inventory/Inventory";
-import { Side } from "@syncfusion/ej2/svg-base";
+// import { Side } from "@syncfusion/ej2/svg-base";
 
-// import Yourinternships from "./yourinternships/YourInternships"
-// import Yourjobs from "./yourjobs/YourJobs"
-// import Addjob from "./addJob/Addjob"
 
 const Dashboard = ({sidebarOpen}) => {
 
