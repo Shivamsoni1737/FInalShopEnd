@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
 import Navbar from './navbar/Navbar'
 import Security from './security/Security'
-import Storeprofile from './storeprofile/Storeprofile'
-import Userprofile from './userprofile/Userprofile'
 import Users from './users/Users'
 
 function Settings({ profile, security, users }) {
 
-  const [navitem, setNavitem] = useState("profile")
+  const [navitem, setNavitem] = useState("security")
 
   const [UserDetails, setUserDetails] = useState({
     name: "Raees Alam",
@@ -35,16 +33,6 @@ function Settings({ profile, security, users }) {
   return (
     <>
       <Navbar setNavitem={setNavitem} navitem={navitem} />
-
-      {navitem === "profile" && profile && <div className='p-3 grid grid-cols-1 mt-4 md:mt-8 md:grid-cols-6 gap-6'>
-        <div className='col-span-1 md:col-span-2 border shadow-xl rounded-md min-h-[80vh]'>
-          <Userprofile user={UserDetails} setUser={setUserDetails} />
-        </div>
-        <div className='col-span-1 md:col-span-4 border shadow-xl rounded-md min-h-[80vh]'>
-          <Storeprofile store={StoreDetails} setStore={setStoreDetails} />
-        </div>
-      </div>
-      }
       {navitem === "security" && security && <Security UserDetails={UserDetails} setUserDetails={setStoreDetails} />}
       {navitem === "users" && users && <Users />}
     </>

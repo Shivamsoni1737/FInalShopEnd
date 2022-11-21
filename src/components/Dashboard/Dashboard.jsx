@@ -4,6 +4,7 @@ import DashHome from "./dashhome/DashHome"
 
 import Settings from "./settings/Settings";
 import Inventory from "./inventory/Inventory";
+import Profile from "./profile/Profile";
 // import { Side } from "@syncfusion/ej2/svg-base";
 
 
@@ -24,6 +25,7 @@ const Dashboard = ({sidebarOpen}) => {
           {option === "Your Inventory" && <Inventory />}
           {/* {option === "Posted Jobs" && <Yourjobs setOption={setOption}/>} */}
           {/* {option === "Add job" && <Addjob/>} */}
+          {option === "Profile" && <Profile profile users security />}
           {option === "Settings" && <Settings profile users security />}
         </div>
       </div>
