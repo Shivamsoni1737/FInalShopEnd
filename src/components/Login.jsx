@@ -13,13 +13,18 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
+  const [LoginAs, setLoginAs] = useState("customer");
 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value.toLowerCase());
   };
   const handleLogin = () => {
-    navigate("/dashboard")
+    if(LoginAs==="business"){
+      navigate("/dashboard")
+    }else{
+      navigate("/customer")
+    }
     toast.success("Login successful!");
   }
 
@@ -35,6 +40,11 @@ const Login = () => {
       <div className='w-full py-8 md:w-3/5'>
             <div className='items-center flex flex-col justify-center'>
                 <h2 className='text-3xl font-bold text-green-700 mb-8'>Sign in to account</h2>
+                <p className='text-xl mb-3'>
+                  Signin as 
+                  <button onClick={()=>{setLoginAs("customer")}} className={`${LoginAs==="customer"? "border-b-2 border-green-700 font-semibold" : ""} ml-2`}>Customer</button> / 
+                  <button onClick={()=>{setLoginAs("business")}} className={`${LoginAs==="business"? "border-b-2 border-green-700 font-semibold" : ""} ml-2`}>Business</button>
+                </p>
                 <button onClick={handleLogin} className='border border-[#003979] font-semibold rounded-lg mb-8 px-12 py-2 text-black hover:shadow-lg flex items-center'>Continue with google <FcGoogle className='ml-2 text-xl'/></button>
                 <div className='border-4 w-10 border-green-700 inline-block mb-2' />
 
