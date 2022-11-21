@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {GoAlert} from "react-icons/go"
-import {AiOutlineRise} from "react-icons/ai"
+import {AiOutlineRise, AiTwotoneStar} from "react-icons/ai"
 
 import { inventory } from '../inventory/Inventory'
 
@@ -67,7 +67,7 @@ const DashHome = () => {
           </div>
 
           <div className='col-span-1 border shadow-lg rounded-md pt-3 m-2 text-left pl-8 pr-12'>
-            <p className='text-xl font-semibold'>Best sold product</p>
+            <p className='text-xl font-semibold flex items-center'>Best sold product <AiTwotoneStar className='ml-2 text-amber-400' /></p>
             <p className='border-b pb-2'>Last month</p>
             
             {inventory.sort((a, b) => parseFloat(b.sold) - parseFloat(a.sold)).slice(0,1).map((item) => (<div className='flex my-3 items-center flex-col md:flex-row md:justify-between'>
