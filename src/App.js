@@ -15,12 +15,14 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Customer from './components/Customer';
 import CustomerID from './components/Customer/[id]';
 
+import Chat from './components/Chat';
+
 function App() {
 
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div>
+    <><div>
       <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <div className='min-h-[70vh]'>
         <Routes>
@@ -37,7 +39,7 @@ function App() {
       </div>
       <Footer />
       <ToastContainer />
-    </div>
+    </div><Chat /></>
   );
 }
 
