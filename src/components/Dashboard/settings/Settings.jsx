@@ -3,7 +3,7 @@ import Navbar from './navbar/Navbar'
 import Security from './security/Security'
 import Users from './users/Users'
 
-function Settings({ profile, security, users }) {
+function Settings() {
 
   const [navitem, setNavitem] = useState("security")
 
@@ -16,25 +16,12 @@ function Settings({ profile, security, users }) {
     password: "password@123",
   })
 
-  const [StoreDetails, setStoreDetails] = useState({
-    name: "AMMU-NATION",
-    description: "Got some rare things on sale, stranger",
-    website: "shopend.netlify.app",
-    ratings: (4),
-    email: "contact@noammunation.com",
-    contact: (2345567891),
-    address: "Fatehpur, Gujarat -01",
-    gmaps: "demoLink",
-    zipcode: (365601),
-    daysopened: "Mon-Fri",
-    timing: "9AM to 10PM",
-  })
 
   return (
     <>
       <Navbar setNavitem={setNavitem} navitem={navitem} />
-      {navitem === "security" && security && <Security UserDetails={UserDetails} setUserDetails={setStoreDetails} />}
-      {navitem === "users" && users && <Users />}
+      {navitem === "security" && <Security UserDetails={UserDetails} setUserDetails={setUserDetails} />}
+      {navitem === "users" && <Users />}
     </>
   )
 }

@@ -15,6 +15,13 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Customer from './components/Customer';
 import CustomerID from './components/Customer/[id]';
 
+import Inventory from './components/Dashboard/inventory/Inventory';
+import DashHome from './components/Dashboard/dashhome/DashHome';
+import SalesInsights from './components/Dashboard/salesInsights/SalesInsights';
+import CustomerInsights from './components/Dashboard/customerinsights/CustomerInsights';
+import Profile from './components/Dashboard/profile/Profile';
+import Settings from './components/Dashboard/settings/Settings';
+
 import Chat from './components/Chat';
 
 function App() {
@@ -32,7 +39,16 @@ function App() {
           <Route path="/our-services" element={<Ourservices />}></Route>
           <Route path="/our-mission" element={<Ourmission />}></Route>
           <Route path="/why-us" element={<Whyus />}></Route>
-          <Route path="/dashboard" element={<Dashboard sidebarOpen={sidebarOpen} />}></Route>
+
+          <Route path="/dashboard" element={<Dashboard sidebarOpen={sidebarOpen} />}>
+            <Route path='' element={<DashHome />} />
+            <Route path='inventory' element={<Inventory />} />
+            <Route path='customer-insights' element={<CustomerInsights />} />
+            <Route path='sales-insights' element={<SalesInsights />} />
+            <Route path='profile' element={<Profile />} />
+            <Route path='settings' element={<Settings />} />
+          </Route>
+
           <Route path="/customer" element={<Customer />}></Route>
           <Route exact path="/customer/:id" element={<CustomerID />}></Route>
         </Routes>

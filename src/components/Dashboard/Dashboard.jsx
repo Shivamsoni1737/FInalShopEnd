@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "./sidebar/Sidebar";
-import DashHome from "./dashhome/DashHome"
-
-import Settings from "./settings/Settings";
-import Inventory from "./inventory/Inventory";
-import Profile from "./profile/Profile";
-import SalesInsights from "./salesInsights/SalesInsights";
-// import { Side } from "@syncfusion/ej2/svg-base";
+import { Outlet } from "react-router-dom";
 
 
 const Dashboard = ({sidebarOpen}) => {
@@ -22,13 +16,7 @@ const Dashboard = ({sidebarOpen}) => {
         </div>
 
         <div className="w-[100%] ease-in-out duration-300">
-          {option === "User Dashboard" && <DashHome />}
-          {option === "Your Inventory" && <Inventory />}
-          {option === "Sales Insights" && <SalesInsights />}
-          {/* {option === "Posted Jobs" && <Yourjobs setOption={setOption}/>} */}
-          {/* {option === "Add job" && <Addjob/>} */}
-          {option === "Profile" && <Profile profile users security />}
-          {option === "Settings" && <Settings profile users security />}
+          <Outlet />
         </div>
       </div>
     </div>

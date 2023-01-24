@@ -1,9 +1,7 @@
-import React,{useState} from 'react'
+import React from 'react'
 import {AiOutlineCloseCircle} from "react-icons/ai"
 
 const Edititem = ({showModal, setShowModal, item}) => {
-
-  const [stage, setStage] = useState(1);
 
   if(!showModal) return null;
 
@@ -27,10 +25,7 @@ const Edititem = ({showModal, setShowModal, item}) => {
                 <p className='my-2'>Upload Image: </p>
                 <input type='file' name='image'  placeholder="Item image" accept='image/jpg, image/jpg' className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
                 
-                {stage===1 && <button className='border-2 border-gray-500 mt-8 text-gray-600 font-semibold rounded-lg px-12 py-2 inline-block hover:bg-gray-500 hover:text-white hover:cursor-pointer'>Add item</button>}
-                {stage===2 && <p className='mt-12'>Enter OTP</p>}
-                {stage===2 && <input type='text' name='otp'  placeholder="Enter OTP" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />}
-                {stage===2 && <button className='border-2 border-gray-500 mt-8 text-gray-600 font-semibold rounded-lg px-12 py-2 inline-block hover:bg-gray-500 hover:text-white hover:cursor-pointer'>Submit</button>}
+                <button className='border-2 border-gray-500 mt-8 text-gray-600 font-semibold rounded-lg px-12 py-2 inline-block hover:bg-gray-500 hover:text-white hover:cursor-pointer'>Add item</button>
 
         </form>            
       </div>

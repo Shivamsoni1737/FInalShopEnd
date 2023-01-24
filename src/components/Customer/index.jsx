@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
-import { RiQrScan2Line } from 'react-icons/ri';
 const List = ({ shops }) => {
 
     console.log(shops);
@@ -65,7 +64,7 @@ const List = ({ shops }) => {
                                 class="px-2 py-1 rounded-full text-black-500 bg-green-400 font-semibold text-sm flex align-center w-max cursor-pointer transition duration-300 ease">
                                 New
                             </span>}
-                            <img src={shop.shopImage} />
+                            <img src={shop.shopImage} alt="my name" />
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                 <p style={{ fontWeight: "bolder" }}>{shop.shopID}</p>
                                 <div className="grid grid-cols-2 gap-1" style={{ direction: 'rtl' }}>
