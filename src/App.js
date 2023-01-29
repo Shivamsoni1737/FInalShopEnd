@@ -23,18 +23,24 @@ import Profile from './components/Dashboard/profile/Profile';
 import Settings from './components/Dashboard/settings/Settings';
 
 import Chat from './components/Chat';
+import Signup from './Signup';
+import Welcome from './components/Welcome';
+import ShopForm from './components/ShopForm';
 
 function App() {
 
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <><div>
+    <div>
       <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <div className='min-h-[70vh]'>
         <Routes>
           <Route path="/" element={<Login />}></Route>
           <Route path="/login" element={<Login />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/welcome" element={<Welcome />}></Route>
+          <Route path="/list-shop" element={<ShopForm />}></Route>
           <Route path="/about-us" element={<Aboutus />}></Route>
           <Route path="/our-services" element={<Ourservices />}></Route>
           <Route path="/our-mission" element={<Ourmission />}></Route>
@@ -54,8 +60,10 @@ function App() {
         </Routes>
       </div>
       <Footer />
+
+      <Chat />
       <ToastContainer />
-    </div><Chat /></>
+    </div>
   );
 }
 

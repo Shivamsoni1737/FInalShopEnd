@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 import {GiShoppingBag} from "react-icons/gi"
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import {CgProfile} from "react-icons/cg"
 import "./header.scss"
@@ -113,8 +113,8 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
                         </div>
                         :
                         <div className="flex items-center gap-3">
-                            <a href="/login"><li className="mt-2 flex gap-2 items-center hover:text-black cursor-pointer"><span>Login</span></li></a>
-                            <a href="/signup"><li className="mt-2 flex gap-2 border border-gray-400 rounded-md p-2 items-center hover:border-black hover:text-black cursor-pointer"><span>Sign up</span></li></a>
+                            <Link to="/login"><li className="mt-2 flex gap-2 items-center hover:text-black cursor-pointer"><span>Login</span></li></Link>
+                            <Link to="/signup"><li className="mt-2 flex gap-2 border border-gray-400 rounded-md p-2 items-center hover:border-black hover:text-black cursor-pointer"><span>Sign up</span></li></Link>
                         </div>
                     }
                     {location.pathname==="/dashboard" ? <></> :

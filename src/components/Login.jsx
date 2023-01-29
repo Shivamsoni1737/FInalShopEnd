@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import {FaRegEnvelope} from 'react-icons/fa'
 import {MdLockOutline} from 'react-icons/md'
 import {FcGoogle} from 'react-icons/fc'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
 
@@ -76,7 +76,7 @@ const Login = () => {
               <p className='text-xl mb-6'>no-limit reach to your customers</p>
               <p className='mb-10'>Manage your inventory on the go, Join us now !</p>
             </div>
-            <a href='/companySignUp' className='border-2 border-white font-semibold rounded-full px-12 py-2 inline-block hover:bg-white hover:text-green-800'>Signup</a>
+            <Link to='/signup' className='border-2 border-white font-semibold rounded-full px-12 py-2 inline-block hover:bg-white hover:text-green-800'>Signup</Link>
         </div>
 
       </div>
