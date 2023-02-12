@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -6,20 +6,28 @@ import {FaRegEnvelope} from 'react-icons/fa'
 import {MdLockOutline} from 'react-icons/md'
 import {FcGoogle} from 'react-icons/fc'
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { LoadUser } from '../Actions/Register';
 
 const Login = () => {
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
   const [LoginAs, setLoginAs] = useState("customer");
+
+  const {loading, error, user, merchant} = useSelector(state => state.user)
+  console.log(user)
+  console.log(merchant)
 
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value.toLowerCase());
   };
   const handleLogin = () => {
+    
     if(LoginAs==="business"){
       navigate("/dashboard")
     }else{
@@ -31,6 +39,21 @@ const Login = () => {
   const handlePassChange = (e) => {
     setPass(e.target.value);
   };
+
+  useEffect(()=>{
+
+    dispatch(LoadUser())
+
+    if(user){
+      navigate("/")
+    }
+    if(merchant){
+      navigate("/dashboard")
+    }
+    if(error){
+      toast.error(error)
+    }
+  },[user, merchant])
 
   return (
     <>
@@ -63,7 +86,7 @@ const Login = () => {
                     <div className='flex justify-between w-64 mb-5'>
                         <div className='text-xs hover:cursor-pointer'>Forgot Password?</div>
                     </div>
-                    <button onClick={handleLogin} className='border-2 border-green-800 text-green-800 font-semibold rounded-full px-12 py-2 inline-block hover:bg-green-800 hover:text-white hover:cursor-pointer'>Login</button>
+                    <button onClick={handleLogin} className='border-2 border-green-800 text-green-800 font-semibold rounded-full px-12 py-2 inline-block hover:bg-green-800 hover:text-white hover:cursor-pointer'>{loading? "Loading.." : "Login"}</button>
                 </div>
             </div>
       </div>

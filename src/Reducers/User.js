@@ -68,6 +68,41 @@ export const userReducer = createReducer(initialState, {
         state.isAuthenticated = false;
     },
 
+    toBusinessRequest: (state) => {
+        state.loading = true
+    },
+    toBusinessSuccess: (state, action) => {
+        state.loading = false;
+        state.user = null;
+        state.merchant = action.payload;
+        state.isAuthenticated = true;
+    },
+    toBusinessFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+        state.isAuthenticated = false;
+    },
+
+    //Manipulating Load User or Merchant
+    LoadRequest: (state, action) => {
+        state.loading = true
+    },
+    LoadUserSuccess: (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+        state.isAuthenticated = true;
+    },
+    LoadMerchantSuccess: (state, action) => {
+        state.loading = false;
+        state.merchant = action.payload;
+        state.isAuthenticated = true;
+    },
+    LoadFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+        state.isAuthenticated = false;
+    },
+
     clearErrors: (state) =>{
         state.error = null
     }

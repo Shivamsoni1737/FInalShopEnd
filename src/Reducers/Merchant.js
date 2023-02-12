@@ -59,7 +59,7 @@ export const merchantReducer = createReducer(initialState, {
     },
     LoadMerchantSuccess: (state, action) => {
         state.loading = false;
-        state.merchant = action.payload;
+        state.message = action.payload;
         state.isAuthenticated = true;
     },
     LoadMerchantFailure: (state, action) => {
