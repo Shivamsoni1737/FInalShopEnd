@@ -11,7 +11,7 @@ export const LoginUser = (email, password) => async (dispatch) => {
         })
 
         //data will contain: success:true, user and token
-        const {data} = await axios.post("/api/v1/login", {email,password}, {
+        const {data} = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/login`, {email,password}, {
             headers:{
                 "Content-Type":"application/json"
             }

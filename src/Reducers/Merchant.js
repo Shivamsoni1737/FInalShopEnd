@@ -68,6 +68,7 @@ export const merchantReducer = createReducer(initialState, {
         state.isAuthenticated = false;
     },
 
+    //Clear error
     clearErrors: (state) =>{
         state.error = null
     }
