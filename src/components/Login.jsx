@@ -8,6 +8,8 @@ import {FcGoogle} from 'react-icons/fc'
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LoadUser } from '../Actions/Register';
+import { LoginUser } from '../Actions/Login';
+import { myShops } from '../Actions/Shop';
 
 const Login = () => {
 
@@ -16,24 +18,16 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPass] = useState("");
-  const [LoginAs, setLoginAs] = useState("customer");
 
-  const {loading, error, user, merchant} = useSelector(state => state.user)
-  console.log(user)
-  console.log(merchant)
-
+  const {loading, error , user, merchant} = useSelector(state => state.user)
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value.toLowerCase());
   };
-  const handleLogin = () => {
-    
-    if(LoginAs==="business"){
-      navigate("/dashboard")
-    }else{
-      navigate("/customer")
-    }
-    toast.success("Login successful!");
+
+  const handleLogin = async (e) => {
+    e.preventDefault()
+    await dispatch(LoginUser(email,password))
   }
 
   const handlePassChange = (e) => {
@@ -44,16 +38,22 @@ const Login = () => {
 
     dispatch(LoadUser())
 
-    if(user){
-      navigate("/")
-    }
     if(merchant){
       navigate("/dashboard")
+      dispatch(myShops())
+      toast.success("Login successful!");
+    }else if(user){
+      navigate("/customer")
+      toast.success("Login successful!");
     }
+
+    if(user || merchant) return;
+
     if(error){
       toast.error(error)
     }
-  },[user, merchant])
+
+  },[user, merchant, error])
 
   return (
     <>
@@ -63,16 +63,16 @@ const Login = () => {
       <div className='w-full py-8 md:w-3/5'>
             <div className='items-center flex flex-col justify-center'>
                 <h2 className='text-3xl font-bold text-green-700 mb-8'>Sign in to account</h2>
-                <p className='text-xl mb-3'>
+                {/* <p className='text-xl mb-3'>
                   Signin as 
                   <button onClick={()=>{setLoginAs("customer")}} className={`${LoginAs==="customer"? "border-b-2 border-green-700 font-semibold" : ""} ml-2`}>Customer</button> / 
                   <button onClick={()=>{setLoginAs("business")}} className={`${LoginAs==="business"? "border-b-2 border-green-700 font-semibold" : ""} ml-2`}>Business</button>
-                </p>
+                </p> */}
                 <button onClick={handleLogin} className='border border-[#003979] font-semibold rounded-lg mb-8 px-12 py-2 text-black hover:shadow-lg flex items-center'>Continue with google <FcGoogle className='ml-2 text-xl'/></button>
                 <div className='border-4 w-10 border-green-700 inline-block mb-2' />
 
                 {/* Input Divs below */}
-                <div className='flex flex-col items-center '>
+                <form onSubmit={handleLogin} className='flex flex-col items-center '>
                     <div className='bg-gray-100 w-64 p-2 flex items-center mb-3'>
                         <FaRegEnvelope className='text-gray-400 m-2' />
                         <input type='email' name='email' value={email} onChange={handleEmailChange} placeholder="Email" className='bg-gray-100 outline-none text-sm flex-1' />
@@ -86,8 +86,8 @@ const Login = () => {
                     <div className='flex justify-between w-64 mb-5'>
                         <div className='text-xs hover:cursor-pointer'>Forgot Password?</div>
                     </div>
-                    <button onClick={handleLogin} className='border-2 border-green-800 text-green-800 font-semibold rounded-full px-12 py-2 inline-block hover:bg-green-800 hover:text-white hover:cursor-pointer'>{loading? "Loading.." : "Login"}</button>
-                </div>
+                    <button type="submit" className='border-2 border-green-800 text-green-800 font-semibold rounded-full px-12 py-2 inline-block hover:bg-green-800 hover:text-white hover:cursor-pointer'>{loading? "Loading.." : "Login"}</button>
+                </form>
             </div>
       </div>
 

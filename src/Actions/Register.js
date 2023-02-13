@@ -62,7 +62,7 @@ export const LoadUser = () => async (dispatch) => {
             type:"LoadRequest"
         })
 
-        const {data} = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/me`)
+        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/me`)
 
         {data.user && dispatch({
             type:"LoadUserSuccess",

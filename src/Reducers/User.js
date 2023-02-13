@@ -4,16 +4,26 @@ const initialState = {}
 
 export const userReducer = createReducer(initialState, {
 
-    //Manipulating Login
-    UserLoginRequest: (state) => {
+    LoginRequest: (state) => {
         state.loading= true;                                               //This is an arrow function not an object
     },
+
+    //Manipulating User Login
     UserLoginSuccess: (state, action) => {
         state.loading = false;
         state.user = action.payload;
         state.isAuthenticated= true;
     },
-    UserLoginFailure: (state, action) => {
+
+     //Manipulating Merchant Login
+    MerchantLoginSuccess: (state, action) => {
+        state.loading = false;
+        state.merchant = action.payload;
+        state.isAuthenticated= true;
+    },
+
+    //Login failure
+    LoginFailure: (state, action) => {
         state.loading = false;
         state.error = action.payload;
         state.isAuthenticated = false;
@@ -27,6 +37,8 @@ export const userReducer = createReducer(initialState, {
     LogoutSuccess: (state, action) => {
         state.loading = false;
         state.user = null;
+        state.merchant = null;
+        state.message = action.payload;
         state.isAuthenticated= false;
     },
     LogoutFailure: (state, action) => {
@@ -52,21 +64,6 @@ export const userReducer = createReducer(initialState, {
         state.isAuthenticated = false;
     },
 
-
-    //Manipulating Load User
-    LoadUserRequest: (state) => {
-        state.loading = true
-    },
-    LoadUserSuccess: (state, action) => {
-        state.loading = false;
-        state.user = action.payload;
-        state.isAuthenticated = true;
-    },
-    LoadUserFailure: (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-        state.isAuthenticated = false;
-    },
 
     toBusinessRequest: (state) => {
         state.loading = true
@@ -99,11 +96,12 @@ export const userReducer = createReducer(initialState, {
     },
     LoadFailure: (state, action) => {
         state.loading = false;
-        state.error = action.payload;
+        state.LoadError = action.payload;
         state.isAuthenticated = false;
     },
 
     clearErrors: (state) =>{
-        state.error = null
+        state.error = null;
+        state.message = null
     }
 })

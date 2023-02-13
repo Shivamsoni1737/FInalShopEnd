@@ -1,15 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {AiOutlineEye} from 'react-icons/ai';
 import {BsPencil, BsTrash, BsPlusCircle} from 'react-icons/bs';
+import { useSelector } from 'react-redux';
 import Edititem from './Edititem';
 
 import Viewitem from './Viewitem';
 
 const List = ({items, setItems, type, setType, setState}) => {
 
+  const {products} = useSelector(state => state.product)
+  console.log(products)
+
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
   const [theItem, setTheItem] = useState("");
+
+  useEffect(()=>{
+
+  },[products])
 
   return (
     <div className="md:px-4 md:pb-12 md:pt-4 min-h-[80vh] ">
@@ -69,43 +77,44 @@ const List = ({items, setItems, type, setType, setState}) => {
 
             
 
-            {items.map((item,i) => ( (type === item.type || type ==="All" || type==="st") &&
+            {/* {items.map((item,i) => ( (type === item.type || type ==="All" || type==="st") && */}
+            {products && products.map((product,i) => (
               <tbody className="divide-y divide-gray-100 ">
                 <tr className="bg-white justify-center">
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
                     {i + 1}
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                    <img src={item.image} alt={item.name} className="h-[6rem] object-cover rounded-full" />
+                    <img src={product.image.url} alt={product.name} className="h-[6rem] object-cover rounded-full" />
                   </td>
                   <td className="p-3 text-md font-semibold text-gray-700 whitespace-nowrap">
-                    {item.name}
+                    {product.name}
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                    {item.type}
+                    {product.category}
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
                     <span
                       className={`p-1.5 text-xs font-medium tracking-wider text-gray-800 bg-gray-200
-                        ${item.in_inventory < 10 && "text-green-800 bg-red-300"}
-                        ${item.in_inventory > 20 && "text-green-800 bg-green-200"}
+                        ${product.stock < 10 && "text-green-800 bg-red-300"}
+                        ${product.stock > 20 && "text-green-800 bg-green-200"}
                          rounded-lg bg-opacity-50`}
                     >
-                      {item.in_inventory}
+                      {product.stock}
                     </span>
                     
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                    {item.sold}
+                    {product.sold}
                   </td>
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
-                    {item.price}
+                    {product.price}
                   </td>
                   <td className="p-3 text-sm flex mt-9 items-center text-gray-700 whitespace-nowrap">
-                        <div onClick={()=>{setShowModal1(true) ;setTheItem(item)}} className="hover:cursor-pointer">
+                        <div onClick={()=>{setShowModal1(true) ;setTheItem(product)}} className="hover:cursor-pointer">
                             <AiOutlineEye className="h-4 mt-1 text-blue-600"/>
                         </div>
-                        <div onClick={()=>{setShowModal2(true) ;setTheItem(item)}} className="hover:cursor-pointer mx-6">
+                        <div onClick={()=>{setShowModal2(true) ;setTheItem(product)}} className="hover:cursor-pointer mx-6">
                             <BsPencil className="h-4 mt-1 text-blue-400" />
                         </div>
                         <div className="hover:cursor-pointer">
@@ -120,30 +129,30 @@ const List = ({items, setItems, type, setType, setState}) => {
         </div>
 
         <div className="flex flex-col w-full md:hidden">
-          {items.map((item,i)=> ( (type === item.type || type ==="All" || type==="st") &&
-            <div className="bg-white space-y-3 p-4 my-2 rounded-lg shadow">
+          {products && products.map((product)=> (
+            <div key={product._id} className="bg-white space-y-3 p-4 my-2 rounded-lg shadow">
               <div className="flex justify-between items-center">
-                <img src={item.image} alt={item.name} className="h-[4rem] object-cover sm:h-[6rem] rounded-full" />
+                <img src={product.image.url} alt={product.name} className="h-[4rem] object-cover sm:h-[6rem] rounded-full" />
                 <div className="flex flex-col text-left w-[60%] text-sm">
                     <div className="text-sm text-left font-medium text-black">
-                    {item.name}
+                    {products.name}
                     </div>
                     <div className="text-gray-500 text-left ">
-                    {"Item type: "}{item.type}
+                    {"Item type: "}{product.category}
                     </div>
                     <div className="text-gray-500 text-left ">
-                    {"Total sold: "}{item.sold}
+                    {"Total sold: "}{product.sold}
                     </div>
                 </div>
               </div>
               <div className="flex h-7 justify-between items-center">
                 <span
                   className={`p-1.5 text-xs font-medium tracking-wider text-gray-800 bg-gray-200 
-                  ${item.in_inventory < 10 &&"text-green-800 bg-red-100"}
-                  ${item.in_inventory > 20 && "text-green-800 bg-green-200"}
+                  ${product.stock < 10 &&"text-green-800 bg-red-100"}
+                  ${product.stock > 20 && "text-green-800 bg-green-200"}
                   rounded-lg bg-opacity-50`}
                 >
-                  {"In inventory: "}{item.in_inventory}
+                  {"In inventory: "}{product.stock}
                 </span>
                 <div className="p-3 text-sm flex justify-between text-gray-700 whitespace-nowrap">
                     <div className="hover:cursor-pointer">

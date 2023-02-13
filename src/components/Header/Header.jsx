@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,11 +10,19 @@ import "./header.scss"
 import {MdOutlineSpaceDashboard, MdLogout} from 'react-icons/md';
 import {AiFillCaretDown} from 'react-icons/ai'
 import {IoIosNotifications} from 'react-icons/io'
+import { useDispatch, useSelector } from 'react-redux';
+import { LogoutUser } from '../../Actions/Login';
+import ShopDropdown from './ShopDropdown';
+import { myShops } from '../../Actions/Shop';
 
 const Header = ({sidebarOpen,setSidebarOpen}) => {
 
   const navigate = useNavigate();
+  const dispatch = useDispatch()
   const location = useLocation();
+
+  const {message, isAuthenticated, merchant} = useSelector(state => state.user)
+  const {shops} = useSelector(state => state.shop)
 
   const [active, setActive] = useState(false);
   const [loginActive, setloginActive] = useState(false);
@@ -26,9 +34,8 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
     navigate("/");
   }
 
-  const logout = () => {
-    navigate("/");
-    toast.success("Logout successful!");
+  const logout =async () => {
+    await dispatch(LogoutUser())    
   };
 
   const toggle = ()=>{
@@ -36,6 +43,21 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
     if(signupActive) setSignupActive(false)
     setActive(!active)
   }
+
+  useEffect(()=>{
+
+    dispatch(myShops())
+    // console.log(shops[0]._id)
+
+    if(message){
+      toast.success(message)
+      navigate("/")
+      dispatch({
+        type:"clearErrors"
+      })
+    }
+
+  },[message, isAuthenticated])
 
 
   return (
@@ -53,8 +75,11 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
         <div onClick={gotohome} className="cursor-pointer">
           <p className='font-bold flex items-center text-xl'>Dhanda Paani <GiShoppingBag className='text-gray-800 ml-2'/></p>
         </div>
+
+        
+
         <div>
-          <div className={`nav_dropLinks ${active && location.pathname!=="/dashboard"?'show':'hide'} `}>
+          <div className={`nav_dropLinks ${active && !isAuthenticated?'show':'hide'} `}>
               <div className="absolute top-20 left-0 right-0 w-full px-2 rounded-b-md">
                   <ul className="bg-gray-200 flex flex-col items-center text-lg rounded-md transition-all">
                       <li className="p-1 cursor-pointer hover:text-black"><a href="/our-mission" className="hover:text-black">Our mission</a></li>
@@ -65,7 +90,7 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
               </div>
             </div>
             <div className="nav_horizontalLinks" >
-              {location.pathname==="/dashboard" ? <></> : 
+              {isAuthenticated ? <></> : 
                 <ul className="flex gap-4">
                   <li className="cursor-pointer hover:text-black hover:underline hover:underline-offset-4"><a href="/our-mission" className="hover:text-black">Our mission</a></li>
                   <li className="cursor-pointer hover:text-black hover:underline hover:underline-offset-4"><a href="/about-us" className="hover:text-black">About us</a></li>
@@ -74,12 +99,16 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
                 </ul>
               }
             </div>
+
+            {merchant && isAuthenticated && shops && <ShopDropdown />}
+            
         </div>
+
 
         <div className="flex items-center gap-2">
                     {
                         // need to access from cookies when cookies applied over whole site
-                        (location.pathname==="/dashboard") ?
+                        isAuthenticated ?
                         <div className="flex relative items-center text-gray-600 gap-2">
                               <div className='hover:cursor-pointer relative hover:text-black'>
                                 <div onClick={()=>{setNotify(!notify); setOpen(false)}}>
@@ -108,8 +137,6 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
                                 </div>
                               }
                             
-
-                            {/* <div onClick={()=>logout()} className="cursor-pointer hover:text-black">Sign out</div> */}
                         </div>
                         :
                         <div className="flex items-center gap-3">
@@ -117,7 +144,7 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
                             <Link to="/signup"><li className="mt-2 flex gap-2 border border-gray-400 rounded-md p-2 items-center hover:border-black hover:text-black cursor-pointer"><span>Sign up</span></li></Link>
                         </div>
                     }
-                    {location.pathname==="/dashboard" ? <></> :
+                    {isAuthenticated ? <></> :
                       <div onClick={toggle} className="hamburger w-7 ml-2 md:hidden cursor-pointer">
                         <div className="w-full h-0.5 bg-gray-800 line rounded-md"></div>
                         <div className="w-full h-0.5 bg-gray-800 my-1.5 rounded-md"></div>

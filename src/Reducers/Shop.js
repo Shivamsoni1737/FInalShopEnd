@@ -10,9 +10,22 @@ export const shopReducer = createReducer(initialState, {
     },
     addShopSuccess: (state, action) => {
         state.loading = false;
-        state.shop = action.payload;
+        state.message = action.payload;
     },
     addShopFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+
+    //Get all my shops
+    GetMyShopsRequest: (state) => {
+        state.loading= true;                                               //This is an arrow function not an object
+    },
+    GetMyShopsSuccess: (state, action) => {
+        state.loading = false;
+        state.shops = action.payload;
+    },
+    GetMyShopsFailure: (state, action) => {
         state.loading = false;
         state.error = action.payload;
     },
@@ -21,3 +34,4 @@ export const shopReducer = createReducer(initialState, {
         state.error = null
     }
 })
+

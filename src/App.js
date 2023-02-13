@@ -26,17 +26,26 @@ import Chat from './components/Chat';
 import Signup from './Signup';
 import Welcome from './components/Welcome';
 import ShopForm from './components/ShopForm';
+import Home from './components/Home';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { LoadUser } from './Actions/Register';
 
 function App() {
 
+  const dispatch = useDispatch()
   const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  useEffect(()=>{
+    dispatch(LoadUser())
+  },[])
 
   return (
     <div>
       <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <div className='min-h-[70vh]'>
         <Routes>
-          <Route path="/" element={<Login />}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/welcome" element={<Welcome />}></Route>

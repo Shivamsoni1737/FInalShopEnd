@@ -1,9 +1,11 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { addShop } from '../Actions/Merchant'
+import { myShops } from '../Actions/Shop'
 
 const ShopForm = () => {
 
@@ -25,9 +27,17 @@ const ShopForm = () => {
       e.preventDefault()
 
       await dispatch(addShop(name, description, category,gstin, state,city, pincode))
-        toast.success(message)
+      await dispatch(myShops())
+      navigate("/dashboard")
+        
       // navigate("/dashboard/profile")
     }
+
+    useEffect(()=>{
+      if(message){
+        toast.success(message)
+      }
+    },[message])
 
 
   return (

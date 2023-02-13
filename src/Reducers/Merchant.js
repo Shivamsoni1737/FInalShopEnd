@@ -20,23 +20,6 @@ export const merchantReducer = createReducer(initialState, {
     },
 
 
-    //Manipulating Logout
-    LogoutRequest: (state) => {
-        state.loading= true;
-    },
-    LogoutSuccess: (state) => {
-        state.loading = false;
-        state.merchant = null;
-        state.isAuthenticated= false;
-    },
-    LogoutFailure: (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-        state.isAuthenticated = true;
-    },
-
-
-
     //manipulating Register Merchant
     RegisterRequest: (state) => {
         state.loading = true;
