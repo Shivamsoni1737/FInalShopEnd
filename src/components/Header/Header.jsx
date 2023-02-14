@@ -100,7 +100,7 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
               }
             </div>
 
-            {merchant && isAuthenticated && shops && <ShopDropdown />}
+            {merchant && isAuthenticated && <ShopDropdown />}
             
         </div>
 

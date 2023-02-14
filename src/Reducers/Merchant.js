@@ -51,8 +51,22 @@ export const merchantReducer = createReducer(initialState, {
         state.isAuthenticated = false;
     },
 
+   // change password
+    ChangeMerchantPasswordRequest: (state) => {
+        state.loading= true;                                               //This is an arrow function not an object
+    },
+    ChangeMerchantPasswordSuccess: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    ChangeMerchantPasswordFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+
     //Clear error
     clearErrors: (state) =>{
         state.error = null
+        state.message=null
     }
 })
