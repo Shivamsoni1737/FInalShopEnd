@@ -34,3 +34,35 @@ export const addShop = (shopname, description, category, GSTIN, state, city, pin
         })
     }
 }
+
+
+export const changeMerchantPassword = (oldPassword,newPassword,confirmPassword) => async(dispatch) => {
+
+    try {
+
+        dispatch({
+            type:"ChangeMerchantPasswordRequest"
+        })
+
+        const {data} = await axios.put(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/password/change`,{
+            oldPassword,
+            newPassword,
+            confirmPassword
+        },{
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+
+        dispatch({
+            type:"ChangeMerchantPasswordSuccess",
+            payload:data.message
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"ChangeMerchantPasswordFailure",
+            payload:error.response.data.message
+        })
+    }
+}
