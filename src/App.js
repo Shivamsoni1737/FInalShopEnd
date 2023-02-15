@@ -30,6 +30,7 @@ import Home from './components/Home';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { LoadUser } from './Actions/Register';
+import Usersecurity from './components/Dashboard/settings/security/Usersecurity';
 
 function App() {
 
@@ -66,6 +67,7 @@ function App() {
 
           <Route path="/customer" element={<Customer />}></Route>
           <Route exact path="/customer/:id" element={<CustomerID />}></Route>
+          <Route path="/user/changepassword" element={<Usersecurity />}></Route>
         </Routes>
       </div>
       <Footer />

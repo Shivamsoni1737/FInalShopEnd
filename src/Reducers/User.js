@@ -100,6 +100,19 @@ export const userReducer = createReducer(initialState, {
         state.isAuthenticated = false;
     },
 
+    // change password
+    ChangeUserPasswordRequest: (state) => {
+        state.loading= true;                                               //This is an arrow function not an object
+    },
+    ChangeUserPasswordSuccess: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    ChangeUserPasswordFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+
     clearErrors: (state) =>{
         state.error = null;
         state.message = null

@@ -4,24 +4,22 @@ import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai'
 import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeMerchantPassword } from '../../../../Actions/Merchant';
-//import { changeUserPassword } from '../../../../Actions/User';
+import { changeUserPassword } from '../../../../Actions/User';
 
-const Security = () => {
+const Usersecurity= () => {
   const dispatch=useDispatch();
   const[pass, setPass]=useState("");
   const[newpass, setNewpass]=useState("");
   const[confirmpass, setConfirmpass]=useState("");
 
-  const{loading,message,error}=useSelector(state=>state.merchant);
+  const{loading,message,error}=useSelector(state=>state.user);
 
   const[view, setView] = useState(false);
   const[viewnew, setViewnew] = useState(false);
   const[viewconf, setViewconf] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(changeMerchantPassword(pass,newpass,confirmpass));
-    //dispatch(changeUserPassword(pass,newpass,confirmpass));
+    dispatch(changeUserPassword(pass,newpass,confirmpass));
   }
 
 
@@ -29,12 +27,12 @@ const Security = () => {
     if(error){
       toast.error(error)
     }
-    if(message){
-      toast.success(message)
-    }
+    // if(message){
+    //   toast.success(message)
+    // }
     dispatch({
-      type:"clearErrors"
-  })
+        type:"clearErrors"
+    })
   },[error,message])
   return (
     <form onSubmit={handleSubmit} className='flex flex-col items-center justify-center min-h-[70vh]'>
@@ -80,4 +78,4 @@ const Security = () => {
   )
 }
 
-export default Security
+export default Usersecurity

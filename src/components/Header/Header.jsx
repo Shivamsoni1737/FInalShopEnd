@@ -8,6 +8,8 @@ import { useLocation } from 'react-router-dom';
 import {CgProfile} from "react-icons/cg"
 import "./header.scss"
 import {MdOutlineSpaceDashboard, MdLogout} from 'react-icons/md';
+import {ImProfile} from 'react-icons/im';
+import { FiSettings } from 'react-icons/fi';
 import {AiFillCaretDown} from 'react-icons/ai'
 import {IoIosNotifications} from 'react-icons/io'
 import { useDispatch, useSelector } from 'react-redux';
@@ -133,6 +135,8 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
                               { open &&
                                 <div className="bg-white absolute right-4 shadow-lg top-8 w-[153px] rounded-lg py-1">
                                   <div onClick={() => {navigate("/dashboard"); setOpen(!open)} } className="flex flex-row px-3 py-1 text-gray-600 hover:text-black hover:bg-gray-100 hover:cursor-pointer"><MdOutlineSpaceDashboard className="h-6 mr-2" /> Dashboard</div>
+                                  <div onClick={() => {navigate("/dashboard/profile"); setOpen(!open)} } className="flex flex-row px-3 py-1 text-gray-600 hover:text-black hover:bg-gray-100 hover:cursor-pointer"><ImProfile className="h-6 mr-2" /> Profile</div>
+                                  <div onClick={() => {navigate("/dashboard/settings"); setOpen(!open)} } className="flex flex-row px-3 py-1 text-gray-600 hover:text-black hover:bg-gray-100 hover:cursor-pointer"><FiSettings className="h-6 mr-2" /> Settings</div>
                                   <div onClick={()=>{setOpen(!open); logout()} } className="flex flex-row px-3 py-1 text-gray-600 hover:text-black hover:bg-gray-100 hover:cursor-pointer"><MdLogout className="h-6 mr-2" /> Sign out</div>
                                 </div>
                               }
