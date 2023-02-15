@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "./sidebar/Sidebar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 
 const Dashboard = ({sidebarOpen}) => {
 
+  const navigate=useNavigate();
   const [option, setOption] = useState("User Dashboard");
-
+  const {user}=useSelector(state=>state.user);
+  useEffect(()=>{
+    user && toast.error("You have Logged in as User")
+    user && navigate("/")
+  },[user])
   return (
     <div>
       <div className={` w-full  min-h-[90vh] mt-16 flex flex-row  trantition-all duration-300`}>
