@@ -95,3 +95,28 @@ export const addProduct = (shopid) => async (dispatch) => {
         })        
     }
 }
+
+
+//Get all shops for user
+export const showAllShops = ()=> async (dispatch) => {
+
+    try {
+
+        dispatch({
+            type:"GetAllShopsRequest"
+        })
+
+        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/shops`)
+
+        dispatch({
+            type:"GetAllShopsSuccess",
+            payload:data.shops
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"GetAllShopsFailure",
+            payload:error.response.data.message
+        })        
+    }
+}
