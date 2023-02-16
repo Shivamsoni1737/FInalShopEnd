@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
+// const {shops} = useSelector((state) => state.shops)
 const List = ({ shops }) => {
 
     console.log(shops);
