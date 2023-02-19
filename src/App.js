@@ -31,6 +31,8 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { LoadUser } from './Actions/Register';
 import Usersecurity from './components/Dashboard/settings/security/Usersecurity';
+import Viewitem from './components/Dashboard/inventory/Viewitem';
+import Edititem from './components/Dashboard/inventory/Edititem';
 
 function App() {
 
@@ -58,13 +60,19 @@ function App() {
 
           <Route path="/dashboard" element={<Dashboard sidebarOpen={sidebarOpen} />}>
             <Route path='' element={<DashHome />} />
-            <Route path='inventory' element={<Inventory />} />
+            <Route path='inventory' element={<Inventory />} >
+
+              {/* <Route path='/view/:id' element={<Viewitem />} /> */}
+              {/* <Route path='/update/:id' element={<Edititem/>} /> */}
+
+            </Route>
             <Route path='customer-insights' element={<CustomerInsights />} />
             <Route path='sales-insights' element={<SalesInsights />} />
             <Route path='profile' element={<Profile />} />
             <Route path='settings' element={<Settings />} />
+            
           </Route>
-
+          <Route path='/dashboard/inventory/view/:id' element={<Viewitem />} />
           <Route path="/customer" element={<Customer />}></Route>
           <Route exact path="/customer/:id" element={<CustomerID />}></Route>
           <Route path="/user/changepassword" element={<Usersecurity />}></Route>

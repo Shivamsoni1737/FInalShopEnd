@@ -27,7 +27,7 @@ const ShopForm = () => {
 
       e.preventDefault()
 
-      await dispatch(addShop(name, description, category,gstin, state,city, pincode))
+      await dispatch(addShop(name, description, category,gstin, state,city, pincode,image))
       await dispatch(myShops())
       navigate("/dashboard/inventory")
         

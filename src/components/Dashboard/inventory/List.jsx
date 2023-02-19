@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import {AiOutlineEye} from 'react-icons/ai';
 import {BsPencil, BsTrash, BsPlusCircle} from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import ConfirmDelete from './ConfirmDelete';
 import Edititem from './Edititem';
@@ -15,10 +16,10 @@ const List = ({items, setItems, type, setType, setState}) => {
   const {products, message, error} = useSelector(state => state.product)
   console.log(products)
 
-  // const [showModal1, setShowModal1] = useState(false);
-  // const [showModal2, setShowModal2] = useState(false);
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
   const [showModal3, setShowModal3] = useState(false);
-  console.log(showModal3)
+  //console.log(showModal3)
   const [theItem, setTheItem] = useState("");
   const [oneproduct, setOneProduct] = useState(null);
 
@@ -133,9 +134,9 @@ const List = ({items, setItems, type, setType, setState}) => {
                     {product.price}
                   </td>
                   <td className="p-3 text-sm flex mt-9 items-center text-gray-700 whitespace-nowrap">
-                        <div onClick={()=>{setTheItem(product)}} className="hover:cursor-pointer">
+                        <Link to={`/dashboard/inventory/view/${product._id}`} className="hover:cursor-pointer">
                             <AiOutlineEye className="h-4 mt-1 text-blue-600"/>
-                        </div>
+                        </Link>
                         <div onClick={()=>{setTheItem(product)}} className="hover:cursor-pointer mx-6">
                             <BsPencil className="h-4 mt-1 text-blue-400" />
                         </div>
@@ -192,8 +193,8 @@ const List = ({items, setItems, type, setType, setState}) => {
           ))}
         </div>
       </div>
-      {/* <Viewitem showModal={showModal1} setShowModal={setShowModal1} item={theItem} /> */}
-      {/* <Edititem showModal={showModal2} setShowModal={setShowModal2} item={theItem} /> */}
+      {/* <Viewitem showModal={showModal1} setShowModal={setShowModal1} item={theItem} />
+      <Edititem showModal={showModal2} setShowModal={setShowModal2} item={theItem} /> */}
       <ConfirmDelete showModal={showModal3} setShowModal3={setShowModal3} product={oneproduct} />
     </div>
   )
