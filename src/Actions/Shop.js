@@ -96,7 +96,7 @@ export const addProduct = (shopid) => async (dispatch) => {
     }
 }
 
-//Add product to shop
+//Add delete product to shop
 export const deleteProduct = (id) => async (dispatch) => {
 
     try {
@@ -140,6 +140,53 @@ export const showAllShops = ()=> async (dispatch) => {
     } catch (error) {
         dispatch({
             type:"GetAllShopsFailure",
+            payload:error.response.data.message
+        })        
+    }
+}
+// get the details of particular product of shop
+export const showProductDetail = (id) => async (dispatch) => {
+
+    try {
+
+        dispatch({
+            type:"showProductDetailRequest"
+        })
+
+        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/product/${id}`)
+
+        dispatch({
+            type:"showProductDetailSuccess",
+            payload:data.product
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"showProductDetailFailure",
+            payload:error.response.data.message
+        })        
+    }
+}
+
+// edit the details of particular product of shop
+export const editProductDetail = (id) => async (dispatch) => {
+
+    try {
+
+        dispatch({
+            type:"editProductDetailRequest"
+        })
+
+        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/product/${id}`)
+
+        dispatch({
+            type:"editProductDetailSuccess",
+            payload:data.message
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"editProductDetailFailure",
             payload:error.response.data.message
         })        
     }

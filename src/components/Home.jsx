@@ -16,6 +16,9 @@ const Home = () => {
     {
       toast.error(error);
     }
+    dispatch({
+      type:"clearErrors"
+    })
 
   },[allShops,error,dispatch])
   return (
