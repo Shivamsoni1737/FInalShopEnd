@@ -8,7 +8,7 @@ export const myShops = () => async (dispatch) => {
             type:"GetMyShopsRequest"
         })
 
-        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/shops`)
+        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/myshops`)
 
         dispatch({
             type:"GetMyShopsSuccess",
@@ -91,6 +91,30 @@ export const addProduct = (shopid) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type:"addProductFailure",
+            payload:error.response.data.message
+        })        
+    }
+}
+
+//Add product to shop
+export const deleteProduct = (id) => async (dispatch) => {
+
+    try {
+
+        dispatch({
+            type:"deleteProductRequest"
+        })
+
+        const {data} = await axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/product/${id}`)
+
+        dispatch({
+            type:"deleteProductSuccess",
+            payload:data.message
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"deleteProductFailure",
             payload:error.response.data.message
         })        
     }

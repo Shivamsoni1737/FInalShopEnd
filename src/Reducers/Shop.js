@@ -35,7 +35,7 @@ export const shopReducer = createReducer(initialState, {
     },
     GetAllShopsSuccess: (state, action) => {
         state.loading = false;
-        state.shops = action.payload;
+        state.allShops = action.payload;
     },
     GetAllShopsFailure: (state, action) => {
         state.loading = false;

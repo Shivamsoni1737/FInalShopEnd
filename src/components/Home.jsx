@@ -9,7 +9,7 @@ const Home = () => {
 
 
   const dispatch = useDispatch();
-  const { shops, loading, error } = useSelector(state => state.shop);
+  const { allShops, loading, error } = useSelector(state => state.shop);
   useEffect(()=>{
     dispatch(showAllShops())
     if(error)
@@ -17,13 +17,13 @@ const Home = () => {
       toast.error(error);
     }
 
-  },[shops,error,dispatch])
+  },[allShops,error,dispatch])
   return (
     <div className='flex items-center justify-center min-h-screen'>
       <div className='flex flex-wrap items-center justify-center'>
         
         {/* {loading && <Loader></Loader>} */}
-        {shops && shops.map((shop) => (
+        {allShops && allShops.map((shop) => (
           <Link
             className='relative shadow-lg rounded-md h-[348px] w-[282px] m-6 hover:cursor-pointer'
             // onClick={() => { setShowModal(true); setMovie(shop) }}
@@ -45,7 +45,7 @@ const Home = () => {
           </Link>
         ))}
 
-        {shops && shops.length === 0 && <p className='flex items-center justify-center text-3xl h-[70vh]'>No shops found..</p>}
+        {allShops && allShops.length === 0 && <p className='flex items-center justify-center text-3xl h-[70vh]'>No shops found..</p>}
 
       </div>
     </div>

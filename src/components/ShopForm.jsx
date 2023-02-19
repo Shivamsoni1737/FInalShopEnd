@@ -15,6 +15,7 @@ const ShopForm = () => {
     const {loading, message} = useSelector(state => state.shop)
 
     const[name, setName] = useState("")
+    const [image, setImage] = useState(null)
     const[gstin, setGstin] = useState(null)
     const[description, setDescription] = useState(null)
     const[category, setCategory] = useState(null)
@@ -28,10 +29,26 @@ const ShopForm = () => {
 
       await dispatch(addShop(name, description, category,gstin, state,city, pincode))
       await dispatch(myShops())
-      navigate("/dashboard")
+      navigate("/dashboard/inventory")
         
       // navigate("/dashboard/profile")
     }
+
+    const handleImageChange = (e) => {
+      const file = e.target.files[0]
+
+      const Reader = new FileReader();
+      Reader.readAsDataURL(file)
+
+      //readyState = 0 => initialState
+      //readyState = 1 => processing
+      //readyState = 2 => Processed
+      Reader.onload = () => {
+          if(Reader.readyState === 2) {
+              setImage(Reader.result);
+          }
+      }
+  }
 
     useEffect(()=>{
       if(message){
@@ -41,9 +58,20 @@ const ShopForm = () => {
 
 
   return (
-    <div className='flex items-center min-h-screen justify-center'>
+    <div className='flex items-center min-h-screen pt-20 justify-center'>
         <form onSubmit={handleSubmit} className=''>
             <p className='text-xl'>Enter shop details</p>
+
+            <img className='h-[13rem] w-[13rem] mb-4 object-cover rounded-full' src={image || "/shopImage.jpeg"} alt="post" />
+                <p className='my-2'>Upload Image: </p>
+                <input 
+                    type='file' 
+                    name='image'  
+                    placeholder="Item image" 
+                    accept='image/*' 
+                    onChange={handleImageChange}
+                    className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' 
+                />
 
             <input type='text' name='type' value={name} onChange={(e)=>setName(e.target.value)}  placeholder="Shop name" className='bg-gray-100 mt-6 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
             <input type='text' name='price' value={gstin} onChange={(e)=>setGstin(e.target.value)}  placeholder="GSTIN" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />

@@ -44,6 +44,19 @@ export const productReducer = createReducer(initialState, {
         state.error = action.payload;
     },
 
+    //A product reducer
+    deleteProductRequest: (state) => {
+        state.loading= true;
+    },
+    deleteProductSuccess: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    deleteProductFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+
     //clear all messages and errors
     clearErrors:(state)=>{
         state.error=null

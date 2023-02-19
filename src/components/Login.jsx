@@ -53,6 +53,10 @@ const Login = () => {
       toast.error(error)
     }
 
+    dispatch({
+      type:"clearErrors"
+    })
+
   },[user, merchant, error])
 
   return (

@@ -4,11 +4,12 @@ import { allProductsOfShop, myShops } from '../../Actions/Shop';
 
 import {IoMdArrowDropdown, IoMdArrowDropup} from "react-icons/io"
 import {BsPlusCircle} from "react-icons/bs"
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const ShopDropdown = () => {
 
     const dispatch = useDispatch()
+    const location = useLocation()
     const {shops} = useSelector(state => state.shop)
     const {isAuthenticated} = useSelector(state => state.user)
 
@@ -31,8 +32,8 @@ const ShopDropdown = () => {
         shops && shops[0] && dispatch(allProductsOfShop(shops[0]._id))
     },[])
 
-  return (!isAuthenticated ? <p>Not autorised</p> :
-    <div className='text-lg w-full relative'>
+  return (!isAuthenticated ? <></> :
+    <div className={`text-lg w-full relative ${location.pathname==="/dashboard/inventory"?"block" : 'hidden' } `}>
         { <div onClick={()=>setOpenShopBar(!openShopBar)} className="hover:cursor-pointer flex items-center">
             {shop? shop.shopname : 'No shop found'}
             {openShopBar ? <IoMdArrowDropup /> : <IoMdArrowDropdown />}

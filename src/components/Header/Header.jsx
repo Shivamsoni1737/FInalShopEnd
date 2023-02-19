@@ -25,6 +25,7 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
 
   const {message, isAuthenticated, merchant} = useSelector(state => state.user)
   const {shops} = useSelector(state => state.shop)
+  console.log(shops)
 
   const [active, setActive] = useState(false);
   const [loginActive, setloginActive] = useState(false);
@@ -47,13 +48,16 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
   }
 
   useEffect(()=>{
-
     dispatch(myShops())
+  },[])
+
+  useEffect(()=>{
     // console.log(shops[0]._id)
 
     if(message){
       toast.success(message)
       navigate("/")
+
       dispatch({
         type:"clearErrors"
       })

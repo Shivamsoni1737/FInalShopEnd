@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const addShop = (shopname, description, category, GSTIN, state, city, pincode) => async(dispatch) => {
+export const addShop = (shopname, description, category, GSTIN, state, city, pincode, image) => async(dispatch) => {
 
     try {
 
@@ -15,7 +15,8 @@ export const addShop = (shopname, description, category, GSTIN, state, city, pin
             GSTIN,
             state,
             city,
-            pincode
+            pincode,
+            image
         },{
             headers:{
                 "Content-Type":"application/json"
