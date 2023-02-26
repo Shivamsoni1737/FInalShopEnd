@@ -47,9 +47,9 @@ const Header = ({sidebarOpen,setSidebarOpen}) => {
     setActive(!active)
   }
 
-  useEffect(()=>{
-    dispatch(myShops())
-  },[])
+  // useEffect(()=>{
+  //   dispatch(myShops())
+  // },[])
 
   useEffect(()=>{
     // console.log(shops[0]._id)

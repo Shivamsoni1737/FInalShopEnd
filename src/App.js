@@ -40,6 +40,7 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   useEffect(()=>{
+    console.log("Loading user details")
     dispatch(LoadUser())
   },[])
 

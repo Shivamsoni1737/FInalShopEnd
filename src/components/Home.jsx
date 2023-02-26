@@ -10,8 +10,12 @@ const Home = () => {
 
   const dispatch = useDispatch();
   const { allShops, loading, error } = useSelector(state => state.shop);
+
   useEffect(()=>{
     dispatch(showAllShops())
+  },[])
+
+  useEffect(()=>{
     if(error)
     {
       toast.error(error);
@@ -19,8 +23,7 @@ const Home = () => {
     dispatch({
       type:"clearErrors"
     })
-
-  },[allShops,error,dispatch])
+  },[error,dispatch])
   return (
     <div className='flex items-center justify-center min-h-screen'>
       <div className='flex flex-wrap items-center justify-center'>

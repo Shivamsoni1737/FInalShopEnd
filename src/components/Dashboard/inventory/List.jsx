@@ -102,7 +102,7 @@ const List = ({items, setItems, type, setType, setState}) => {
 
             {/* {items.map((item,i) => ( (type === item.type || type ==="All" || type==="st") && */}
             {products && products.map((product,i) => (
-              <tbody className="divide-y divide-gray-100 ">
+              <tbody key={product._id} className="divide-y divide-gray-100 ">
                 <tr className="bg-white justify-center">
                   <td className="p-3 text-sm text-gray-700 whitespace-nowrap">
                     {i + 1}
