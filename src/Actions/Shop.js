@@ -73,7 +73,7 @@ export const allProductsOfShop = (shopid) => async (dispatch) => {
 
 
 //Add product to shop
-export const addProduct = (shopid) => async (dispatch) => {
+export const addProduct = (shopid,name, category,price,sold,stock,description,image) => async (dispatch) => {
 
     try {
 
@@ -81,7 +81,19 @@ export const addProduct = (shopid) => async (dispatch) => {
             type:"addProductRequest"
         })
 
-        const {data} = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/add/product/${shopid}`)
+        const {data} = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/add/product/${shopid}`,{
+            name,
+            category,
+            price,
+            sold,
+            stock,
+            description,
+            image
+        },{
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
 
         dispatch({
             type:"addProductSuccess",

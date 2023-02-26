@@ -1,17 +1,21 @@
 import React, { useEffect,useState } from 'react';
 import {AiOutlineCloseCircle} from "react-icons/ai";
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
-import { editProductDetail, showProductDetail } from '../../../Actions/Shop';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { allProductsOfShop, editProductDetail, showProductDetail } from '../../../Actions/Shop';
 import Loader from '../../Loader';
 
 const Edititem = () => {
   const { loading, error, product} = useSelector((state) => state.product);
   const params=useParams();
+  const navigate=useNavigate();
   useEffect (()=>{
     dispatch(showProductDetail(params.id))
     setProduct(product)
 },[])
+useEffect (()=>{
+  setProduct(product)
+},[product])
 //console.log(product);
 const oldProduct={
   name:null,
@@ -20,18 +24,9 @@ const oldProduct={
   sold:null,
   stock:null,
   description:null,
-  previmage:null,
   image:null
 }
 const [newProduct,setProduct]=useState(oldProduct);
-  // const [name, setName] = useState("");
-  // const [category, setCategory] = useState(product.category);
-  // const [price, setPrice] = useState(product.price);
-  // const [sold, setSold] = useState(product.sold);
-  // const [stock, setStock] = useState(product.stock);
-  // const [description, setDescription] = useState(product.description);
-  // const [previmage, setPrevImage] = useState(product.image.url);
-  // const [image, setImage] = useState("");
   const dispatch = useDispatch();
   
 const handleImageChange = (value) => {
@@ -51,16 +46,18 @@ const handleImageChange = (value) => {
 };
 const handleChange = (e) => {
   const { name, value } = e.target;
-  if(name==="image"){
-    handleImageChange(value); 
-  }
+  // if(name==="image"){
+  //   handleImageChange(value); 
+  // }
   setProduct({ ...newProduct, [name]: value });
   
 }
 const submitHandler = async (e) => {
   e.preventDefault();
-  await dispatch(editProductDetail(params.id,{...newProduct}));
-  console.log(newProduct);
+  await dispatch(editProductDetail(params.id,newProduct.name,newProduct.category,newProduct.price,newProduct.sold,newProduct.stock,newProduct.description,newProduct.image));
+  await dispatch(allProductsOfShop(product.shop))
+  navigate(`/dashboard/inventory`)
+  
 };
   return (
     <div className='fixed inset-0 bg-opacity-30 backdrop-blur-sm flex justify-center items-center'>
@@ -69,7 +66,7 @@ const submitHandler = async (e) => {
       <Link to={`/dashboard/inventory`} className='w-full flex justify-end item-right relative'><AiOutlineCloseCircle className='text-2xl right-0 absolute'/></Link>
       <button className='w-full text-right relative'></button>
 
-        {product && <form onSubmit={submitHandler} className='flex flex-col justify-center w-[70%] items-center mt-4'>
+        {product && newProduct && <form onSubmit={submitHandler} className='flex flex-col justify-center w-[70%] items-center mt-4'>
             {/* <div className='bg-gray-100 w-64 p-2 flex items-center mb-3'> */}
                 <p className='my-2'>Upload Image: </p>
                 {/* <input type='file' name='image'  value={newProduct.image} accept='image/jpg, image/jpg' className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' onChange={handleImageChange}/> */}
