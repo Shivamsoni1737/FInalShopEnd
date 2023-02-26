@@ -168,16 +168,29 @@ export const showProductDetail = (id) => async (dispatch) => {
     }
 }
 
+
 // edit the details of particular product of shop
-export const editProductDetail = (id) => async (dispatch) => {
+export const editProductDetail = (id,name,category,price,sold,stock,description,image) => async (dispatch) => {
 
     try {
 
         dispatch({
             type:"editProductDetailRequest"
         })
-
-        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/product/${id}`)
+        console.log(name);
+        const {data} = await axios.put(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/product/${id}`,{
+            name,
+            category,
+            price,
+            sold,
+            stock,
+            description,
+            image
+        },{
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
 
         dispatch({
             type:"editProductDetailSuccess",

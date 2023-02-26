@@ -30,7 +30,7 @@ const Home = () => {
           <Link
             className='relative shadow-lg rounded-md h-[348px] w-[282px] m-6 hover:cursor-pointer'
             // onClick={() => { setShowModal(true); setMovie(shop) }}
-            to={`/shop/${shop._id}`}
+            to={`/shop/products/${shop._id}`}
             key={shop._id}
           >
             <div className='absolute border border-black top-2 left-3 rounded-full bg-white h-[34px] w-[34px] flex justify-center items-center'>

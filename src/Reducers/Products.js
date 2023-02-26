@@ -31,7 +31,7 @@ export const productReducer = createReducer(initialState, {
     },
 
 
-    //A product reducer
+    //Add product reducer
     addProductRequest: (state) => {
         state.loading= true;                                               //This is an arrow function not an object
     },
@@ -44,7 +44,7 @@ export const productReducer = createReducer(initialState, {
         state.error = action.payload;
     },
 
-    //A product reducer
+    //delete product reducer
     deleteProductRequest: (state) => {
         state.loading= true;
     },
@@ -66,6 +66,18 @@ export const productReducer = createReducer(initialState, {
         state.product = action.payload;
     },
     showProductDetailFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+    //edit product details 
+    editProductDetailRequest: (state) => {
+        state.loading= true;
+    },
+    editProductDetailSuccess: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    editProductDetailFailure: (state, action) => {
         state.loading = false;
         state.error = action.payload;
     },
