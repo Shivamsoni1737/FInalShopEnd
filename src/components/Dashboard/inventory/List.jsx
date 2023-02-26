@@ -137,9 +137,9 @@ const List = ({items, setItems, type, setType, setState}) => {
                         <Link to={`/dashboard/inventory/view/${product._id}`} className="hover:cursor-pointer">
                             <AiOutlineEye className="h-4 mt-1 text-blue-600"/>
                         </Link>
-                        <div onClick={()=>{setTheItem(product)}} className="hover:cursor-pointer mx-6">
+                        <Link to={`/dashboard/inventory/update/${product._id}`} className="hover:cursor-pointer mx-6">
                             <BsPencil className="h-4 mt-1 text-blue-400" />
-                        </div>
+                        </Link>
                         <div onClick={()=>{setShowModal3(true);setOneProduct(product)}} className="hover:cursor-pointer">
                             <BsTrash className="h-4 mt-1 text-red-600"/>
                         </div>

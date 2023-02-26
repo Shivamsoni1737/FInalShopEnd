@@ -24,7 +24,7 @@ const Viewitem = () => {
         <Link to={`/dashboard/inventory`} className='w-full flex justify-end item-right relative'><AiOutlineCloseCircle className='text-2xl right-0 absolute'/></Link>
 
         {product && <div className='mt-3 flex flex-col '>
-          <img src={"kuh bhi"} alt={"mere naam"} className="h-[10rem] object-cover" />
+          <img src={product.image.url} alt={product.name} className="h-[10rem] object-cover" />
           <p className='my-1'><b>Name:</b>  {product.name}</p>
           <p className='my-1'><b>Type:</b>  {product.category}</p>
           <p className='my-1'><b>Price:</b>  {product.price}</p>

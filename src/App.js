@@ -73,6 +73,8 @@ function App() {
             
           </Route>
           <Route path='/dashboard/inventory/view/:id' element={<Viewitem />} />
+          <Route path='/dashboard/inventory/update/:id' element={<Edititem />} />
+
           <Route path="/customer" element={<Customer />}></Route>
           <Route exact path="/customer/:id" element={<CustomerID />}></Route>
           <Route path="/user/changepassword" element={<Usersecurity />}></Route>
