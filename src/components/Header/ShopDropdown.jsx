@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { allProductsOfShop, myShops } from '../../Actions/Shop';
+import { allProductsOfShop, getShopDetails, myShops } from '../../Actions/Shop';
 
 import {IoMdArrowDropdown, IoMdArrowDropup} from "react-icons/io"
 import {BsPlusCircle} from "react-icons/bs"
@@ -23,6 +23,7 @@ const ShopDropdown = () => {
         console.log(item)
         setOpenShopBar(!openShopBar);
         dispatch(allProductsOfShop(item._id))
+        dispatch(getShopDetails(item._id))
     }
 
     useEffect(()=>{
@@ -34,6 +35,7 @@ const ShopDropdown = () => {
             setShop(shops[0])
         }
         shops && shops[0] && dispatch(allProductsOfShop(shops[0]._id))
+        shops && shops[0] && dispatch(getShopDetails(shops[0]._id))
     },[shops])
 
   return (loading ? <p>loading shops...</p> :
