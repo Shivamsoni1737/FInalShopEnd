@@ -14,6 +14,7 @@ const List = ({items, setItems, type, setType, setState}) => {
   const dispatch = useDispatch()
 
   const {products, message, error} = useSelector(state => state.product)
+  const {shop} = useSelector(state => state.shop)
   console.log(products)
 
   const [showModal1, setShowModal1] = useState(false);
@@ -22,6 +23,9 @@ const List = ({items, setItems, type, setType, setState}) => {
   //console.log(showModal3)
   const [theItem, setTheItem] = useState("");
   const [oneproduct, setOneProduct] = useState(null);
+  // useEffect(()=>{
+  //   dispatch(getShopDetails(params.id))
+  // },[])
 
   useEffect(()=>{
   },[products])
@@ -48,7 +52,7 @@ const List = ({items, setItems, type, setType, setState}) => {
         <div className='flex flex-wrap mb-4 justify-between items-center'>
           {/* <h1 className="md:text-xl">Your inventory</h1> */}
 
-          <button onClick={()=>{setState("add item")}} className='border bg-gray-200 text-gray-800 font-semibold px-2 md:px-12 py-2 flex items-center hover:bg-gray-500 hover:text-white hover:cursor-pointer'><BsPlusCircle className='mr-3' />Add item</button>
+          {shop && <Link to={`/dashboard/inventory/add/${shop._id}`} className='border bg-gray-200 text-gray-800 font-semibold px-2 md:px-12 py-2 flex items-center hover:bg-gray-500 hover:text-white hover:cursor-pointer'><BsPlusCircle className='mr-3' />Add Item</Link>}
 
           <div>
             <select

@@ -33,6 +33,7 @@ import { LoadUser } from './Actions/Register';
 import Usersecurity from './components/Dashboard/settings/security/Usersecurity';
 import Viewitem from './components/Dashboard/inventory/Viewitem';
 import Edititem from './components/Dashboard/inventory/Edititem';
+import AddItem from './components/Dashboard/inventory/AddItem';
 
 function App() {
 
@@ -75,7 +76,7 @@ function App() {
           </Route>
           <Route path='/dashboard/inventory/view/:id' element={<Viewitem />} />
           <Route path='/dashboard/inventory/update/:id' element={<Edititem />} />
-
+          <Route path='/dashboard/inventory/add/:id' element={<AddItem />} />
           <Route path="/customer" element={<Customer />}></Route>
           <Route exact path="/customer/:id" element={<CustomerID />}></Route>
           <Route path="/user/changepassword" element={<Usersecurity />}></Route>

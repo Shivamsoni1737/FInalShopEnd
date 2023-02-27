@@ -73,7 +73,7 @@ export const allProductsOfShop = (shopid) => async (dispatch) => {
 
 
 //Add product to shop
-export const addProduct = (shopid,name, category,price,sold,stock,description,image) => async (dispatch) => {
+export const addProduct = (shopid,name,category,price,sold,stock,description,image) => async (dispatch) => {
 
     try {
 
@@ -212,6 +212,29 @@ export const editProductDetail = (id,name,category,price,sold,stock,description,
     } catch (error) {
         dispatch({
             type:"editProductDetailFailure",
+            payload:error.response.data.message
+        })        
+    }
+}
+
+// edit the details of particular product of shop
+export const getShopDetails = (id) => async (dispatch) => {
+
+    try {
+
+        dispatch({
+            type:"GetShopDetailsRequest"
+        })
+        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/shop/${id}`)
+
+        dispatch({
+            type:"GetShopDetailsSuccess",
+            payload:data.shop
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"GetShopDetailsFailure",
             payload:error.response.data.message
         })        
     }
