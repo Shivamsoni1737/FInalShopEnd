@@ -9,9 +9,10 @@ import {BiLinkExternal} from "react-icons/bi"
 // import DatePicker from 'react-date-picker'
 import "react-date-picker/dist/DatePicker.css"
 
-const Storeprofile = ({store, setStore}) => {
+const Storeprofile = ({shop}) => {
 
   const[editStore, setEditStore] = useState(false)
+  const[store,setStore] = useState(shop)
   const iter = [0,1,2,3,4];
 
   const submitHandler = () => {

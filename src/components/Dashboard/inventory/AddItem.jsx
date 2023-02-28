@@ -3,7 +3,7 @@ import {IoIosArrowBack} from "react-icons/io"
 import cube from "./cube.png"
 import Loader from '../../Loader';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { addProduct, allProductsOfShop, getShopDetails} from '../../../Actions/Shop';
@@ -80,8 +80,8 @@ const AddItem = () => {
 
   return (
     <div className='mt-8'>
-        {/* onClick={()=>{setState("inventory")}} */}
-        <button className="flex items-center text-gray-600 hover:text-black"><IoIosArrowBack/> Back</button>
+        {/* onClick={()=>{setState("inventory")}}  */}
+        <Link to={'/dashboard/inventory'} className="flex items-center mb-3 text-gray-600 hover:text-black"><IoIosArrowBack/> Back</Link>
 
         {<form onSubmit={submitHandler} className='flex flex-col justify-center items-center my-12'>
             {/* <div className='bg-gray-100 w-64 p-2 flex items-center mb-3'> */}

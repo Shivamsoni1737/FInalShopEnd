@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from './navbar/Navbar'
 import Security from './security/Security'
-import Users from './users/Users'
+// import Users from './users/Users'
 
 function Settings() {
 
@@ -21,7 +21,7 @@ function Settings() {
     <>
       <Navbar setNavitem={setNavitem} navitem={navitem} />
       {navitem === "security" && <Security UserDetails={UserDetails} setUserDetails={setUserDetails} />}
-      {navitem === "users" && <Users />}
+      {/* {navitem === "users" && <Users />} */}
     </>
   )
 }
