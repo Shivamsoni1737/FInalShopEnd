@@ -1,4 +1,5 @@
 import React from 'react'
+import {IoIosArrowBack} from "react-icons/io"
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { addShop } from '../Actions/Merchant'
 import { myShops } from '../Actions/Shop'
+import { Link } from 'react-router-dom';
 
 const ShopForm = () => {
 
@@ -59,6 +61,7 @@ const ShopForm = () => {
 
   return (
     <div className='flex items-center min-h-screen pt-20 justify-center'>
+     <Link to={`/dashboard/inventory`} className="flex items-left text-gray-600 hover:text-black"><IoIosArrowBack/> Back</Link>
         <form onSubmit={handleSubmit} className=''>
             <p className='text-xl'>Enter shop details</p>
 

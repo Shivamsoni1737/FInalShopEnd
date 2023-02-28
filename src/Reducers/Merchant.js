@@ -64,6 +64,19 @@ export const merchantReducer = createReducer(initialState, {
         state.error = action.payload;
     },
 
+    // get merhant profile
+    GetMerchantProfileRequest: (state) => {
+        state.loading= true;                                               //This is an arrow function not an object
+    },
+    GetMerchantProfileSuccess: (state, action) => {
+        state.loading = false;
+        state.merchant = action.payload;
+    },
+    GetMerchantProfileFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+
     //Clear error
     clearErrors: (state) =>{
         state.error = null

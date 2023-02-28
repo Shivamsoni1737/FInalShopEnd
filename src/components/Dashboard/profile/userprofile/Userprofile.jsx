@@ -6,11 +6,13 @@ import {TiTick} from "react-icons/ti"
 // import DatePicker from 'react-date-picker'
 import "react-date-picker/dist/DatePicker.css"
 
-const Userprofile = ({user, setUser}) => {
+const Userprofile = ({merchant}) => {
 
   const[editProfile, setEditProfile] = useState(false)
+  const[user, setUser] = useState(merchant)
 
   const submitHandler = () => {
+    
     setEditProfile(false);
   }
 

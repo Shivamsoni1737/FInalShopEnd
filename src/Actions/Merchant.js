@@ -67,3 +67,26 @@ export const changeMerchantPassword = (oldPassword,newPassword,confirmPassword) 
         })
     }
 }
+
+export const getMerchantProfile = () => async(dispatch) => {
+
+    try {
+
+        dispatch({
+            type:"GetMerchantProfileRequest"
+        })
+
+        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/me`)
+
+        dispatch({
+            type:"GetMerchantProfileSuccess",
+            payload:data.merchant
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"GetMerchantProfileFailure",
+            payload:error.response.data.message
+        })
+    }
+}
