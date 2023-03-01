@@ -11,12 +11,12 @@ const Profile = () => {
   const params=useParams();
   
   const {merchant}=useSelector(state=>state.merchant)
-  const {shop, loading} = useSelector(state => state.shop)
+  const {shop} = useSelector(state => state.shop)
   //console.log(params.id);
   useEffect  (()=>{
     dispatch(getMerchantProfile())
 },[])
-    console.log(merchant);
+    //console.log(shop);
     // const [UserDetails, setUserDetails] = useState({
     //     name: "",//merchant.name,
     //     dob: "12-jan-2022",
@@ -47,7 +47,7 @@ const Profile = () => {
          {merchant && <Userprofile merchant={merchant}/>}
         </div>
         <div className='col-span-1 md:col-span-4 border shadow-xl rounded-md min-h-[80vh]'>
-        {shop && <Storeprofile shop={shop}/>}
+        {shop && <Storeprofile shop={shop} shopId={shop._id}/>}
         </div>
       </div>
       }
