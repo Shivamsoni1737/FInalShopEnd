@@ -54,6 +54,19 @@ export const shopReducer = createReducer(initialState, {
         state.loading = false;
         state.error = action.payload;
     },
+
+    // get shop details
+    EditShopDetailsRequest: (state) => {
+        state.loading= true;                                               //This is an arrow function not an object
+    },
+    EditShopDetailsSuccess: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    EditShopDetailsFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
     clearErrors: (state) =>{
         state.error = null
         state.message=null

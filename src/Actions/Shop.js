@@ -217,7 +217,7 @@ export const editProductDetail = (id,name,category,price,sold,stock,description,
     }
 }
 
-// edit the details of particular product of shop
+// get the details of particular shop
 export const getShopDetails = (id) => async (dispatch) => {
 
     try {
@@ -235,6 +235,39 @@ export const getShopDetails = (id) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type:"GetShopDetailsFailure",
+            payload:error.response.data.message
+        })        
+    }
+}
+// edit the details of particular shop
+export const editShopDetails = (id,shopname,description,category,GSTIN,pincode,contact) => async (dispatch) => {
+
+    try {
+
+        dispatch({
+            type:"EditShopDetailsRequest"
+        })
+        const {data} = await axios.put(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/shop/${id}`,{
+            shopname,
+            description,
+            category,
+            GSTIN,
+            pincode,
+            contact
+        },{
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+
+        dispatch({
+            type:"EditShopDetailsSuccess",
+            payload:data.message
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"EditShopDetailsFailure",
             payload:error.response.data.message
         })        
     }

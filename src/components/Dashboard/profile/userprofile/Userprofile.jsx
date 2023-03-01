@@ -17,7 +17,7 @@ const Userprofile = ({merchant}) => {
     await dispatch(editMerchantProfile(user.name,user.email,user.contact,user.dob,user.pincode))
     setEditProfile(false);
   }
-
+  
   return (
     <div className='flex flex-col justify-center p-4 items-center'>
       <p className='text-3xl text-gray-700 font-semibold mb-12 border-b pb-2'>user details</p>
