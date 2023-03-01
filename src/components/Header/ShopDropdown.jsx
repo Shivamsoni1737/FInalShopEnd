@@ -35,6 +35,8 @@ const ShopDropdown = () => {
             setShop(shops[0])
         }
         shops && shops[0] && dispatch(allProductsOfShop(shops[0]._id))
+        if(shop)
+          return
         shops && shops[0] && dispatch(getShopDetails(shops[0]._id))
     },[shops])
 

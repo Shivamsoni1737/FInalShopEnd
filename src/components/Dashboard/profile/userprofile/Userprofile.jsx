@@ -14,6 +14,7 @@ const Userprofile = ({merchant}) => {
   const[user, setUser] = useState(merchant)
 
   const submitHandler =async (e) => {
+    e.preventDefault()
     await dispatch(editMerchantProfile(user.name,user.email,user.contact,user.dob,user.pincode))
     setEditProfile(false);
   }
