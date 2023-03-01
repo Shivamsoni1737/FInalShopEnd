@@ -5,14 +5,16 @@ import {TiTick} from "react-icons/ti"
 
 // import DatePicker from 'react-date-picker'
 import "react-date-picker/dist/DatePicker.css"
+import { useDispatch } from 'react-redux'
+import { editMerchantProfile } from '../../../../Actions/Merchant'
 
 const Userprofile = ({merchant}) => {
-
+  const dispatch = useDispatch();
   const[editProfile, setEditProfile] = useState(false)
   const[user, setUser] = useState(merchant)
 
-  const submitHandler = () => {
-    
+  const submitHandler =async (e) => {
+    await dispatch(editMerchantProfile(user.name,user.email,user.contact,user.dob,user.pincode))
     setEditProfile(false);
   }
 
@@ -43,8 +45,8 @@ const Userprofile = ({merchant}) => {
             <input onChange={(e)=>{setUser({...user, dob: e.target.value})}} value={user.dob} type="text" className='px-2 md:px-4 md:mx-2 w-[8rem] md:w-full border-b outline-none' />
           </div>
           <div className='flex my-3'>
-            <span className='font-semibold'>Address: </span>
-            <input onChange={(e)=>{setUser({...user, address: e.target.value})}} value={user.address} type="text" className='px-2 md:px-4 md:mx-2 w-[8rem] md:w-full border-b outline-none' />
+            <span className='font-semibold'>zipcode: </span>
+            <input onChange={(e)=>{setUser({...user, pincode: e.target.value})}} value={user.pincode} type="text" className='px-2 md:px-4 md:mx-2 w-[8rem] md:w-full border-b outline-none' />
           </div>
           <button onClick={submitHandler} className="w-full flex justify-center items-center text-gray-600 hover:text-green-600 mt-8"><p className='mr-1'>Save Changes</p><TiTick className='text-lg text-green-600' /></button>
         </form>
@@ -55,7 +57,7 @@ const Userprofile = ({merchant}) => {
           <p className='my-3 flex'><span className='font-semibold'>Email: </span><p className='px-4 mx-2 border-b border-white'>{user.email}</p> </p>
           <p className='my-3 flex'><span className='font-semibold'>Contact: </span><p className='px-4 mx-2 border-b border-white'>{user.contact}</p> </p>
           <p className='my-3 flex'><span className='font-semibold'>DOB: </span><p className='px-4 mx-2 border-b border-white'>{user.dob}</p> </p>
-          <p className='my-3 flex'><span className='font-semibold'>Address: </span><p className='px-4 mx-2 border-b border-white'>{user.address}</p> </p>
+          <p className='my-3 flex'><span className='font-semibold'>zipcode: </span><p className='px-4 mx-2 border-b border-white'>{user.pincode}</p> </p>
           <button onClick={()=> {setEditProfile(true)}} className="w-full flex justify-center items-center text-gray-600 hover:text-blue-800 mt-8"><p className='mr-2'>Edit Profile</p><AiOutlineEdit /></button>
         </div>
       </>
