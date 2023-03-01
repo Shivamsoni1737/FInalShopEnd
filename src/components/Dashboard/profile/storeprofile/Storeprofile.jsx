@@ -20,6 +20,7 @@ const Storeprofile = ({shop,shopId}) => {
   const iter = [0,1,2,3,4];
 
   const submitHandler = async (e) => {
+    e.preventDefault()
     await dispatch(editShopDetails(shopId,store.shopname,store.description,store.category,store.GSTIN,store.pincode,store.contact))
     setEditStore(false);
   }
