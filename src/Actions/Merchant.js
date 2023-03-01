@@ -90,3 +90,36 @@ export const getMerchantProfile = () => async(dispatch) => {
         })
     }
 }
+
+export const editMerchantProfile = (name,email,contact,dob,pincode) => async(dispatch) => {
+
+    try {
+
+        dispatch({
+            type:"EditMerchantProfileRequest"
+        })
+
+        const {data} = await axios.put(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/me`,{
+            name,
+            email,
+            contact,
+            dob,
+            pincode
+        },{
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+
+        dispatch({
+            type:"EditMerchantProfileSuccess",
+            payload:data.message
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"EditMerchantProfileFailure",
+            payload:error.response.data.message
+        })
+    }
+}
