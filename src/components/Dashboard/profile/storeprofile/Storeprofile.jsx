@@ -28,7 +28,7 @@ const Storeprofile = ({shop,shopId}) => {
   return (
     <div className='flex flex-col justify-center p-4 items-center'>
       <p className='text-3xl text-gray-700 font-semibold mb-12 border-b pb-2'>store details</p>
-      <img src={storepic} alt="store_pic" className='h-[13rem] object-cover md:h-[20rem] border shadow-2xl ' />
+      <img src={shop.shopimage.url} alt="store_pic" className='h-[13rem] object-cover md:h-[20rem] border shadow-2xl ' />
       
 
       {/* store Details */}

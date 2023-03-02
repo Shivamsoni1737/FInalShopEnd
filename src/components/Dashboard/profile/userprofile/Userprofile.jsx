@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import userpic from "../../../../data/profile/user.jpg"
+import userpic from "../../../../data/profile/omkar.jpeg"
 import {AiOutlineEdit} from "react-icons/ai"
 import {TiTick} from "react-icons/ti"
 
