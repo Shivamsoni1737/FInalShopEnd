@@ -26,10 +26,20 @@ const ShopForm = () => {
     const[pincode, setPincode] = useState(null)
 
     const handleSubmit = async (e) => {
-
       e.preventDefault()
+      let newLatitude = null
+      let newLongitude = null
+      navigator.geolocation.watchPosition(position => {
+        const{ latitude, longitude } = position.coords;
+        console.log(latitude, longitude);
+        newLatitude = latitude
+        newLongitude = longitude
+        
+        });
 
-      dispatch(addShop(name, description, category,gstin, state,city, pincode,image))
+     console.log(newLatitude,newLongitude);
+     
+      dispatch(addShop(name, description, category,gstin, state,city, pincode,image,newLatitude,newLongitude ))
       dispatch(myShops())
       navigate("/dashboard/inventory")
         
