@@ -16,29 +16,7 @@ const Profile = () => {
   useEffect  (()=>{
     dispatch(getMerchantProfile())
 },[])
-    //console.log(shop);
-    // const [UserDetails, setUserDetails] = useState({
-    //     name: "",//merchant.name,
-    //     dob: "12-jan-2022",
-    //     email: "",// merchant.email,
-    //     contact: (1079654321),
-    //     address: "Fatehpur, Gujarat -01"
-    //   })
-    
-    //   const [StoreDetails, setStoreDetails] = useState({
-    //     name: "AMMU-NATION",
-    //     description: "Got some rare things on sale, stranger",
-    //     website: "shopend.netlify.app",
-    //     ratings: (4),
-    //     email: "contact@noammunation.com",
-    //     contact: (2345567891),
-    //     address: "Fatehpur, Gujarat -01",
-    //     gmaps: "demoLink",
-    //     zipcode: (365601),
-    //     daysopened: "Mon-Fri",
-    //     timing: "9AM to 10PM",
-    //   })
-    
+      
 
   return (
     <div>

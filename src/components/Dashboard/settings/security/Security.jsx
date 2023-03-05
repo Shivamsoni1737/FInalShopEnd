@@ -73,7 +73,7 @@ const Security = () => {
           }
         </button>
       </div>
-       <button type="submit" disabled={loading} className="border py-2 px-4 hover:bg-gray-100 text-gray-700 rounded-md">{loading?"Loading...":"Submit"}</button>
+       <button type="submit" disabled={loading} className="border py-2 px-4 border-gray-700 hover:text-white mt-8 hover:bg-gray-700 text-gray-700 rounded-md">{loading?"Loading...":"Submit"}</button>
 
       <ToastContainer /> 
     </form>

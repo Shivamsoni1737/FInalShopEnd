@@ -56,7 +56,7 @@ const submitHandler = async (e) => {
   return (
     <div className=' inset-0 bg-opacity-30 backdrop-blur-sm flex justify-center items-center'>
       
-      {loading? <Loader/>:<div className='p-8 bg-white shadow-lg '>
+      {loading? <Loader/>:<div className='p-8 mt-20 bg-white shadow-lg '>
       <Link to={`/dashboard/inventory`} className='w-full flex justify-end item-right relative'><AiOutlineCloseCircle className='text-2xl right-0 absolute'/></Link>
       <button className='w-full text-right relative'></button>
 

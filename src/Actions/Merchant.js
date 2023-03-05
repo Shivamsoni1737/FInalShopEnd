@@ -91,7 +91,7 @@ export const getMerchantProfile = () => async(dispatch) => {
     }
 }
 
-export const editMerchantProfile = (name,email,contact,dob,pincode) => async(dispatch) => {
+export const editMerchantProfile = (name,email,contact,dob,pincode, image) => async(dispatch) => {
 
     try {
 
@@ -104,7 +104,8 @@ export const editMerchantProfile = (name,email,contact,dob,pincode) => async(dis
             email,
             contact,
             dob,
-            pincode
+            pincode,
+            image
         },{
             headers:{
                 "Content-Type":"application/json"

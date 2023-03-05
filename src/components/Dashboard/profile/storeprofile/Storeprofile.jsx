@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import storepic from "../../../../data/shop/shop.png"
 import {AiOutlineEdit} from "react-icons/ai"
 import {AiFillStar} from "react-icons/ai"
@@ -9,11 +9,12 @@ import {BiLinkExternal} from "react-icons/bi"
 // import DatePicker from 'react-date-picker'
 import "react-date-picker/dist/DatePicker.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { editShopDetails } from '../../../../Actions/Shop'
+import { editShopDetails, getShopDetails } from '../../../../Actions/Shop'
+import { toast } from 'react-toastify'
 
 const Storeprofile = ({shop,shopId}) => {
   const dispatch = useDispatch();
-  //const {shops, loading} = useSelector(state => state.shop)
+  const {message, error} = useSelector(state => state.shop)
   // console.log(shops);
   const[editStore, setEditStore] = useState(false)
   const[store,setStore] = useState(shop)
@@ -22,8 +23,20 @@ const Storeprofile = ({shop,shopId}) => {
   const submitHandler = async (e) => {
     e.preventDefault()
     await dispatch(editShopDetails(shopId,store.shopname,store.description,store.category,store.GSTIN,store.pincode,store.contact))
+    dispatch(getShopDetails(shopId))
     setEditStore(false);
   }
+
+  useEffect(() => {
+    if(message){
+      toast.success(message)
+    }
+    if(error){
+      toast.error(error)
+    }
+    dispatch({type:"clearErrors"})
+  }, [message, error])
+  
 
   return (
     <div className='flex flex-col justify-center p-4 items-center'>

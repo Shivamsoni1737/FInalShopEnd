@@ -19,7 +19,7 @@ function Settings() {
 
   return (
     <>
-      <Navbar setNavitem={setNavitem} navitem={navitem} />
+      {/* <Navbar setNavitem={setNavitem} navitem={navitem} /> */}
       {navitem === "security" && <Security UserDetails={UserDetails} setUserDetails={setUserDetails} />}
       {/* {navitem === "users" && <Users />} */}
     </>
