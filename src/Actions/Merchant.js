@@ -1,13 +1,13 @@
 import axios from "axios"
 
-export const addShop = (shopname, description, category, GSTIN, state, city, pincode, image) => async(dispatch) => {
+export const addShop = (shopname, description, category, GSTIN, state, city, pincode, image,latitude,longitude) => async(dispatch) => {
 
     try {
 
         dispatch({
             type:"addShopRequest"
         })
-
+          console.log(latitude,longitude);
         const {data} = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/add/shop`,{
             shopname,
             description,
@@ -16,7 +16,9 @@ export const addShop = (shopname, description, category, GSTIN, state, city, pin
             state,
             city,
             pincode,
-            image
+            image,
+            latitude,
+            longitude
         },{
             headers:{
                 "Content-Type":"application/json"
