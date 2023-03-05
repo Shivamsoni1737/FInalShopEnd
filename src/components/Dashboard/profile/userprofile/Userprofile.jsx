@@ -121,7 +121,9 @@ const Userprofile = ({ merchant }) => {
                   setUser({ ...user, contact: e.target.value });
                 }}
                 value={user.contact}
-                type="number"
+                type='tel' 
+                maxlength={10} 
+                minlength={10}
                 className="px-2 md:px-4 w-[8rem] md:w-full md:mx-2 border-b outline-none"
               />
             </div>
