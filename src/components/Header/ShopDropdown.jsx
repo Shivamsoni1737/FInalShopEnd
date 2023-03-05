@@ -13,6 +13,7 @@ const ShopDropdown = () => {
     const location = useLocation()
     const {shops, loading} = useSelector(state => state.shop)
     const {isAuthenticated} = useSelector(state => state.user)
+    console.log(shops)
 
     const [ shop, setShop] = useState(null);
     // console.log(shop)
@@ -29,6 +30,12 @@ const ShopDropdown = () => {
     useEffect(()=>{
         dispatch(myShops())
     },[])
+
+    useEffect(()=>{
+        if(shop){
+            setShop(shops)
+        }
+    },[shops])
     
     useEffect(()=>{
         if(shops){
