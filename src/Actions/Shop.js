@@ -240,7 +240,7 @@ export const getShopDetails = (id) => async (dispatch) => {
     }
 }
 // edit the details of particular shop
-export const editShopDetails = (id,shopname,description,category,GSTIN,pincode,contact) => async (dispatch) => {
+export const editShopDetails = (id,shopname,description,category,GSTIN,pincode,contact, image) => async (dispatch) => {
 
     try {
 
@@ -253,7 +253,8 @@ export const editShopDetails = (id,shopname,description,category,GSTIN,pincode,c
             category,
             GSTIN,
             pincode,
-            contact
+            contact,
+            image
         },{
             headers:{
                 "Content-Type":"application/json"

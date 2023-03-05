@@ -14,15 +14,32 @@ import { toast } from 'react-toastify'
 
 const Storeprofile = ({shop,shopId}) => {
   const dispatch = useDispatch();
-  const {message, error} = useSelector(state => state.shop)
+  const {message, error, loading} = useSelector(state => state.shop)
   // console.log(shops);
   const[editStore, setEditStore] = useState(false)
   const[store,setStore] = useState(shop)
+  const [image, setImage] = useState(null);
   const iter = [0,1,2,3,4];
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+
+    const Reader = new FileReader();
+    Reader.readAsDataURL(file);
+
+    //readyState = 0 => initialState
+    //readyState = 1 => processing
+    //readyState = 2 => Processed
+    Reader.onload = () => {
+      if (Reader.readyState === 2) {
+        setImage(Reader.result);
+      }
+    };
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault()
-    await dispatch(editShopDetails(shopId,store.shopname,store.description,store.category,store.GSTIN,store.pincode,store.contact))
+    await dispatch(editShopDetails(shopId,store.shopname,store.description,store.category,store.GSTIN,store.pincode,store.contact, image))
     dispatch(getShopDetails(shopId))
     setEditStore(false);
   }
@@ -41,7 +58,17 @@ const Storeprofile = ({shop,shopId}) => {
   return (
     <div className='flex flex-col justify-center p-4 items-center'>
       <p className='text-3xl text-gray-700 font-semibold mb-12 border-b pb-2'>store details</p>
-      <img src={shop.shopimage.url} alt="store_pic" className='h-[13rem] object-cover md:h-[20rem] border shadow-2xl ' />
+      <img src={image || shop.shopimage.url || "/shopImage.jpg"} alt="store_pic" className='h-[13rem] object-cover md:h-[20rem] border shadow-2xl ' />
+
+      {editStore && <input
+        type="file"
+        name="image"
+        placeholder="Item image"
+        accept="image/*"
+        required={true}
+        onChange={handleImageChange}
+        className="bg-gray-100 w-64 mt-12 p-2 flex items-center mb-3 outline-none text-sm flex-1"
+      />}
       
 
       {/* store Details */}
@@ -98,7 +125,7 @@ const Storeprofile = ({shop,shopId}) => {
             <span className='font-semibold'>Timing: </span>
             <input onChange={(e)=>{setStore({...store, timing: e.target.value})}} value={store.timing} type="text" className='px-2 md:px-4 md:mx-2 w-[8rem] md:w-[24rem] border-b outline-none' />
           </div>
-          <button onClick={submitHandler} className="w-full flex justify-center items-center text-gray-600 hover:text-green-600 mt-8"><p className='mr-1'>Save Changes</p><TiTick className='text-lg text-green-600' /></button>
+          <button onClick={submitHandler} disabled={loading} className="w-full flex justify-center items-center text-gray-600 hover:text-green-600 mt-8"><p className='mr-1'>{loading? "Updating..." : 'Save changes'}</p><TiTick className='text-lg text-green-600' /></button>
         </form>
       </div> : 
       <>
