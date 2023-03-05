@@ -103,7 +103,7 @@ const Storeprofile = ({shop,shopId}) => {
           </div>
           <div className='flex my-3'>
             <span className='font-semibold'>Contact: </span>
-            <input onChange={(e)=>{setStore({...store, contact: e.target.value})}} value={store.contact} type="text" className='px-2 md:px-4 md:mx-2 w-[8rem] md:w-[24rem] border-b outline-none' />
+            <input onChange={(e)=>{setStore({...store, contact: e.target.value})}} value={store.contact} type='tel' maxlength={10} minlength={10} className='px-2 md:px-4 md:mx-2 w-[8rem] md:w-[24rem] border-b outline-none' />
           </div>
           {/* <div className='flex my-3'>
             <span className='font-semibold'>Address: </span>
