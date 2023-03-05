@@ -1,6 +1,6 @@
 import axios from "axios"
 
-export const registerUser = (name, email, password) => async (dispatch) => {
+export const registerUser = (name, email, password, phone) => async (dispatch) => {
 
     try {
 
@@ -12,6 +12,7 @@ export const registerUser = (name, email, password) => async (dispatch) => {
             name,
             email,
             password,
+            phone
         },{
             headers:{
                 "Content-Type":"application/json"

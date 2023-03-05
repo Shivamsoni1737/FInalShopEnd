@@ -21,7 +21,7 @@ const ConfirmDelete = ({setShowModal3,showModal,product}) => {
         <button className='w-full text-right relative' onClick={()=>{setShowModal3(false)}}><AiOutlineCloseCircle className='text-2xl right-0 absolute'/></button>
 
         <div className='mt-3 flex flex-col '>
-          <img src={product.image} alt={`${product.name}`} className="h-[10rem] object-cover" />
+          <img src={product.image.url} alt={`${product.name}`} className="h-[10rem] md:h-[20rem] object-cover" />
           <p className='my-1'><b>Name:</b>  {product.name}</p>
           <p className='my-1'><b>Description:</b>  {product.description}</p>
           <p className='my-1'><b>In Inventory:</b>  {product.stock}</p>

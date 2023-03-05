@@ -60,34 +60,37 @@ const ShopForm = () => {
 
 
   return (
-    <div className='flex items-center min-h-screen pt-20 justify-center'>
-     <Link to={`/dashboard/inventory`} className="flex items-left text-gray-600 hover:text-black"><IoIosArrowBack/> Back</Link>
+    <>
+     <Link to={`/dashboard/inventory`} className="flex items-center w-[5rem] mt-20 border border-gray-500 py-1 px-2 hover:text-white text-gray-700 hover:bg-gray-500 ml-3 md:ml-8 rounded-lg"><IoIosArrowBack/> Back</Link>
+    <div className='flex items-center min-h-screen justify-center'>
         <form onSubmit={handleSubmit} className=''>
             <p className='text-xl'>Enter shop details</p>
 
-            <img className='h-[13rem] w-[13rem] mb-4 object-cover rounded-full' src={image || "/shopImage.jpeg"} alt="post" />
+            <img className='h-[13rem] w-[13rem] mb-4 object-cover rounded-full' src={image || "/shopImage.jpg"} alt="post" />
                 <p className='my-2'>Upload Image: </p>
                 <input 
                     type='file' 
                     name='image'  
                     placeholder="Item image" 
-                    accept='image/*' 
+                    accept='image/*'
+                    required={true}
                     onChange={handleImageChange}
                     className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' 
                 />
 
-            <input type='text' name='type' value={name} onChange={(e)=>setName(e.target.value)}  placeholder="Shop name" className='bg-gray-100 mt-6 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
-            <input type='text' name='price' value={gstin} onChange={(e)=>setGstin(e.target.value)}  placeholder="GSTIN" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
-            <input type='text' name='description' value={description} onChange={(e)=>setDescription(e.target.value)}  placeholder="Description" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
-            <input type='text' name='category' value={category} onChange={(e)=>setCategory(e.target.value)}  placeholder="Category" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
-            <input type='text' name='state' value={state} onChange={(e)=>setState(e.target.value)}  placeholder="State" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
-            <input type='text' name='city' value={city} onChange={(e)=>setCity(e.target.value)}  placeholder="City" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
-            <input type='text' name='pin code' value={pincode} onChange={(e)=>setPincode(e.target.value)}  placeholder="Pin code" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
+            <input type='text' name='type' required={true} value={name} onChange={(e)=>setName(e.target.value)}  placeholder="Shop name" className='bg-gray-100 mt-6 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
+            <input type='text' name='price' required={true} value={gstin} onChange={(e)=>setGstin(e.target.value)}  placeholder="GSTIN" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
+            <input type='text' name='description' required={true} value={description} onChange={(e)=>setDescription(e.target.value)}  placeholder="Description" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
+            <input type='text' name='category' required={true} value={category} onChange={(e)=>setCategory(e.target.value)}  placeholder="Category" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
+            <input type='text' name='state' required={true} value={state} onChange={(e)=>setState(e.target.value)}  placeholder="State" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
+            <input type='text' name='city' required={true} value={city} onChange={(e)=>setCity(e.target.value)}  placeholder="City" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
+            <input type='text' name='pin code' required={true} value={pincode} onChange={(e)=>setPincode(e.target.value)}  placeholder="Pin code" className='bg-gray-100 w-64 p-2 flex items-center mb-3 outline-none text-sm flex-1' />
 
-            <button type='submit' disabled={loading} className='border-2 w-full border-gray-500 mt-8 text-gray-600 font-semibold rounded-lg px-12 py-2 inline-block hover:bg-gray-500 hover:text-white hover:cursor-pointer'>{loading? "Loading..." : "Add Shop"}</button>
+            <button type='submit' disabled={loading} className='border-2 mb-12 w-full border-gray-500 mt-8 text-gray-600 font-semibold rounded-lg px-12 py-2 inline-block hover:bg-gray-500 hover:text-white hover:cursor-pointer'>{loading? "Loading..." : "Add Shop"}</button>
         
         </form>
     </div>
+    </>
   )
 }
 

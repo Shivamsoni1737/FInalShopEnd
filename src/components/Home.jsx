@@ -25,7 +25,7 @@ const Home = () => {
     })
   },[error,dispatch])
   return (
-    <div className='flex items-center justify-center min-h-screen'>
+    <div className='flex items-center mt-20 justify-center min-h-screen'>
       <div className='flex flex-wrap items-center justify-center'>
         
         {/* {loading && <Loader></Loader>} */}

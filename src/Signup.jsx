@@ -5,6 +5,7 @@ import {FaRegEnvelope} from 'react-icons/fa'
 import {MdLockOutline} from 'react-icons/md'
 import {AiOutlineUser} from 'react-icons/ai'
 import {FcGoogle} from 'react-icons/fc'
+import {BsFillTelephoneFill} from 'react-icons/bs'
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 
@@ -19,6 +20,7 @@ const Signup = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPass] = useState("");
+    const [phone, setPhone] = useState(null);
 
     const {loading, error} = useSelector((state) => state.user)  
   
@@ -28,7 +30,7 @@ const Signup = () => {
 
     const handleSignup = async (e) => {
         e.preventDefault();
-        await dispatch(registerUser(name,email,password))
+        await dispatch(registerUser(name,email,password, phone))
         navigate("/welcome")
     }
   
@@ -83,6 +85,11 @@ const Signup = () => {
                     <div className='bg-gray-100 w-64 p-2 flex items-center mb-3'>
                         <MdLockOutline className='text-gray-400 m-2' />
                         <input type='password' name='password' value={password} onChange={handlePassChange} placeholder="Password" className='bg-gray-100 outline-none text-sm flex-1' />
+                        {/* using flex-1 above to expand full width */}
+                    </div>
+                    <div className='bg-gray-100 w-64 p-2 flex items-center mb-3'>
+                        <BsFillTelephoneFill className='text-gray-400 m-2' />
+                        <input type='tel' maxlength={10} minlength={10} name='phone' value={phone} onChange={(e)=>setPhone(e.target.value)} placeholder="Contact" className='bg-gray-100 outline-none text-sm flex-1' />
                         {/* using flex-1 above to expand full width */}
                     </div>
                     <button type='submit' className='border-2 w-full mt-4 border-green-800 text-green-800 transition-all duration-500 font-semibold rounded-full px-12 py-2 inline-block hover:bg-green-800 hover:text-white hover:cursor-pointer'>{loading? "Loading.." : "Sign up"}</button>
