@@ -39,10 +39,23 @@ function App() {
 
   const dispatch = useDispatch()
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const[newLatitude, setLatitude] = useState(null)
+  const[newLongitude, setLongitude] = useState(null)
+
+  console.log(newLatitude)
+  console.log(newLongitude)
 
   useEffect(()=>{
     console.log("Loading user details")
     dispatch(LoadUser())
+
+    //gettign user's current location
+    navigator.geolocation.watchPosition(position => {
+      const{ latitude, longitude } = position.coords;
+      
+      setLatitude(latitude)
+      setLongitude(longitude)      
+    });
   },[])
 
   return (
