@@ -24,25 +24,28 @@ const ShopForm = () => {
     const[state, setState] = useState(null)
     const[city, setCity] = useState(null)
     const[pincode, setPincode] = useState(null)
+    const[newLatitude, setLatitude] = useState(null)
+    const[newLongitude, setLongitude] = useState(null)
 
     const handleSubmit = async (e) => {
       e.preventDefault()
-      let newLatitude = null
-      let newLongitude = null
-      navigator.geolocation.watchPosition(position => {
-        const{ latitude, longitude } = position.coords;
-        console.log(latitude, longitude);
-        newLatitude = latitude
-        newLongitude = longitude
+    //   let newLatitude = null
+    //   let newLongitude = null
+    //   navigator.geolocation.watchPosition(position => {
+    //     const{ latitude, longitude } = position.coords;
         
-        });
+    //     newLatitude = latitude
+    //     newLongitude = longitude
+    //     console.log(latitude)
+    //     console.log(longitude)
+        
+    //     });
 
-     console.log(newLatitude,newLongitude);
+     console.log(newLatitude,newLongitude,name);
      
       dispatch(addShop(name, description, category,gstin, state,city, pincode,image,newLatitude,newLongitude ))
       dispatch(myShops())
       navigate("/dashboard/inventory")
-        
       // navigate("/dashboard/profile")
     }
 
@@ -67,6 +70,16 @@ const ShopForm = () => {
         toast.success(message)
       }
     },[message])
+
+  useEffect(()=>{
+    navigator.geolocation.watchPosition(position => {
+      const{ latitude, longitude } = position.coords;
+      
+      setLatitude(latitude)
+      setLongitude(longitude)      
+    });
+    
+  },[])
 
 
   return (
