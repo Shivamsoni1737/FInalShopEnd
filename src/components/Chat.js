@@ -6,7 +6,10 @@ export class Chat extends Component {
     // <script type="text/javascript">
     (function(d, m){
         var kommunicateSettings = 
-            {"appId":"7eb8a2f71fba2f2af8ae00ac83a568c7","popupWidget":true,"automaticChatOpenOnNavigation":true};
+            {"appId":"184a2d2dd3b01bec24a369dfe4fb50786","popupWidget":true,"automaticChatOpenOnNavigation":true,
+            "voiceInput":true,
+            "voiceOutput":true,"voiceName":"Rishi",
+            "voiceRate":1};
         var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
         s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
         var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
