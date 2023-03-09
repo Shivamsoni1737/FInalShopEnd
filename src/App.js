@@ -52,10 +52,12 @@ function App() {
     //gettign user's current location
     navigator.geolocation.watchPosition(position => {
       const{ latitude, longitude } = position.coords;
-      
+      // console.log(latitude);
+      // console.log(longitude);
       setLatitude(latitude)
       setLongitude(longitude)      
     });
+    
   },[])
 
   return (
