@@ -67,6 +67,19 @@ export const shopReducer = createReducer(initialState, {
         state.loading = false;
         state.error = action.payload;
     },
+
+    // get all shops under the rabge of 1 km
+    GetAllLocalShopsRequest: (state) => {
+        state.loading= true;                                               //This is an arrow function not an object
+    },
+    GetAllLocalShopsSuccess: (state, action) => {
+        state.loading = false;
+        state.allShops = action.payload;
+    },
+    GetAllLocalShopsFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
     clearErrors: (state) =>{
         state.error = null
         state.message=null

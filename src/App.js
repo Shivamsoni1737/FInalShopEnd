@@ -34,6 +34,7 @@ import Usersecurity from './components/Dashboard/settings/security/Usersecurity'
 import Viewitem from './components/Dashboard/inventory/Viewitem';
 import Edititem from './components/Dashboard/inventory/Edititem';
 import AddItem from './components/Dashboard/inventory/AddItem';
+import { showAllLocalShops } from './Actions/Shop';
 
 function App() {
 
@@ -41,7 +42,10 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const[newLatitude, setLatitude] = useState(null)
   const[newLongitude, setLongitude] = useState(null)
-
+  var location={
+    latitude:"",
+    longitude:""
+  }
   console.log(newLatitude)
   console.log(newLongitude)
 
@@ -52,13 +56,25 @@ function App() {
     //gettign user's current location
     navigator.geolocation.watchPosition(position => {
       const{ latitude, longitude } = position.coords;
-      // console.log(latitude);
-      // console.log(longitude);
+      console.log(latitude, longitude, "here");
+      dispatch(showAllLocalShops({latitude: latitude, longitude: longitude}))
+      location.latitude=latitude
+      location.longitude=longitude
       setLatitude(latitude)
       setLongitude(longitude)      
     });
     
   },[])
+  
+  // useEffect(()=>{
+  //   if (newLatitude && newLongitude) 
+  //   {
+  //     dispatch(showAllLocalShops({latitude: newLatitude, longitude: newLongitude}))
+  //     console.log(newLatitude, "inside");
+  //   }
+
+    
+  // },[])
 
   return (
     <div>
