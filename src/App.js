@@ -109,7 +109,7 @@ function App() {
           <Route path="/customer" element={<Customer />}></Route>
           <Route exact path="/customer/:id" element={<CustomerID />}></Route>
           <Route path="/user/changepassword" element={<Usersecurity />}></Route>
-          <Route exact path="/shop/:id" element={<ShopInventroy />} />
+          <Route exact path="/shop/products/:id" element={<ShopInventroy />} />
         </Routes>
       </div>
       <Footer />
