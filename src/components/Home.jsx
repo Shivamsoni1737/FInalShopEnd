@@ -11,23 +11,22 @@ const Home = () => {
   const dispatch = useDispatch();
   const { allShops, loading, error } = useSelector(state => state.shop);
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(showAllLocalShops())
-  },[])
+  }, [])
 
-  useEffect(()=>{
-    if(error)
-    {
+  useEffect(() => {
+    if (error) {
       toast.error(error);
     }
     dispatch({
-      type:"clearErrors"
+      type: "clearErrors"
     })
-  },[error,dispatch])
+  }, [error, dispatch])
   return (
     <div className='flex items-center mt-20 justify-center min-h-screen'>
       <div className='flex flex-wrap items-center justify-center'>
-        
+
         {/* {loading && <Loader></Loader>} */}
         {allShops && allShops.map((shop) => (
           <Link
@@ -45,8 +44,8 @@ const Home = () => {
               className='rounded-md h-[348px] w-[282px] object-cover'
             />
             <div className={`absolute bottom-0 bg-white w-full px-1 text-center py-2 rounded-b-md`}>
-            <p className="text-xl">{shop.shopname}</p>
-            <p>{shop.description}</p>
+              <p className="text-xl">{shop.shopname}</p>
+              <p>{shop.description}</p>
             </div>
           </Link>
         ))}

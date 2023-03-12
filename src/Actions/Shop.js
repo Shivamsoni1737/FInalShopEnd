@@ -5,21 +5,21 @@ export const myShops = () => async (dispatch) => {
     try {
 
         dispatch({
-            type:"GetMyShopsRequest"
+            type: "GetMyShopsRequest"
         })
 
-        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/myshops`)
+        const { data } = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/myshops`)
 
         dispatch({
-            type:"GetMyShopsSuccess",
-            payload:data.shops
+            type: "GetMyShopsSuccess",
+            payload: data.shops
         })
-        
+
     } catch (error) {
         dispatch({
-            type:"GetMyShopsFailure",
-            payload:error.response.data.message
-        })        
+            type: "GetMyShopsFailure",
+            payload: error.response.data.message
+        })
     }
 }
 
@@ -29,21 +29,21 @@ export const shopDetails = (shopId) => async (dispatch) => {
     try {
 
         dispatch({
-            type:"GetMyShopsRequest"
+            type: "GetMyShopsRequest"
         })
 
-        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/shop/${shopId}`)
+        const { data } = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/shop/${shopId}`)
 
         dispatch({
-            type:"GetMyShopsSuccess",
-            payload:data.shops
+            type: "GetMyShopsSuccess",
+            payload: data.shops
         })
-        
+
     } catch (error) {
         dispatch({
-            type:"GetMyShopsFailure",
-            payload:error.response.data.message
-        })        
+            type: "GetMyShopsFailure",
+            payload: error.response.data.message
+        })
     }
 }
 
@@ -53,35 +53,36 @@ export const allProductsOfShop = (shopid) => async (dispatch) => {
     try {
 
         dispatch({
-            type:"allShopProductsRequest"
+            type: "allShopProductsRequest"
         })
 
-        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/shop/products/${shopid}`)
+        const { data } = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/shop/products/${shopid}`)
+        console.log(data);
 
         dispatch({
-            type:"allShopProductsSuccess",
-            payload:data.products
+            type: "allShopProductsSuccess",
+            payload: data.products
         })
-        
+
     } catch (error) {
         dispatch({
-            type:"allShopProductsFailure",
-            payload:error.response.data.message
-        })        
+            type: "allShopProductsFailure",
+            payload: error.response.data.message
+        })
     }
 }
 
 
 //Add product to shop
-export const addProduct = (shopid,name,category,price,sold,stock,description,image) => async (dispatch) => {
+export const addProduct = (shopid, name, category, price, sold, stock, description, image) => async (dispatch) => {
 
     try {
 
         dispatch({
-            type:"addProductRequest"
+            type: "addProductRequest"
         })
 
-        const {data} = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/add/product/${shopid}`,{
+        const { data } = await axios.post(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/add/product/${shopid}`, {
             name,
             category,
             price,
@@ -89,22 +90,22 @@ export const addProduct = (shopid,name,category,price,sold,stock,description,ima
             stock,
             description,
             image
-        },{
-            headers:{
-                "Content-Type":"application/json"
+        }, {
+            headers: {
+                "Content-Type": "application/json"
             }
         })
 
         dispatch({
-            type:"addProductSuccess",
-            payload:data.message
+            type: "addProductSuccess",
+            payload: data.message
         })
-        
+
     } catch (error) {
         dispatch({
-            type:"addProductFailure",
-            payload:error.response.data.message
-        })        
+            type: "addProductFailure",
+            payload: error.response.data.message
+        })
     }
 }
 
@@ -114,46 +115,46 @@ export const deleteProduct = (id) => async (dispatch) => {
     try {
 
         dispatch({
-            type:"deleteProductRequest"
+            type: "deleteProductRequest"
         })
 
-        const {data} = await axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/product/${id}`)
+        const { data } = await axios.delete(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/product/${id}`)
 
         dispatch({
-            type:"deleteProductSuccess",
-            payload:data.message
+            type: "deleteProductSuccess",
+            payload: data.message
         })
-        
+
     } catch (error) {
         dispatch({
-            type:"deleteProductFailure",
-            payload:error.response.data.message
-        })        
+            type: "deleteProductFailure",
+            payload: error.response.data.message
+        })
     }
 }
 
 
 //Get all shops for user
-export const showAllShops = ()=> async (dispatch) => {
+export const showAllShops = () => async (dispatch) => {
 
     try {
 
         dispatch({
-            type:"GetAllShopsRequest"
+            type: "GetAllShopsRequest"
         })
 
-        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/shops`)
+        const { data } = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/shops`)
 
         dispatch({
-            type:"GetAllShopsSuccess",
-            payload:data.shops
+            type: "GetAllShopsSuccess",
+            payload: data.shops
         })
-        
+
     } catch (error) {
         dispatch({
-            type:"GetAllShopsFailure",
-            payload:error.response.data.message
-        })        
+            type: "GetAllShopsFailure",
+            payload: error.response.data.message
+        })
     }
 }
 // get the details of particular product of shop
@@ -162,35 +163,35 @@ export const showProductDetail = (id) => async (dispatch) => {
     try {
 
         dispatch({
-            type:"showProductDetailRequest"
+            type: "showProductDetailRequest"
         })
 
-        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/product/${id}`)
+        const { data } = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/product/${id}`)
 
         dispatch({
-            type:"showProductDetailSuccess",
-            payload:data.product
+            type: "showProductDetailSuccess",
+            payload: data.product
         })
-        
+
     } catch (error) {
         dispatch({
-            type:"showProductDetailFailure",
-            payload:error.response.data.message
-        })        
+            type: "showProductDetailFailure",
+            payload: error.response.data.message
+        })
     }
 }
 
 
 // edit the details of particular product of shop
-export const editProductDetail = (id,name,category,price,sold,stock,description,image) => async (dispatch) => {
+export const editProductDetail = (id, name, category, price, sold, stock, description, image) => async (dispatch) => {
 
     try {
 
         dispatch({
-            type:"editProductDetailRequest"
+            type: "editProductDetailRequest"
         })
         console.log(name);
-        const {data} = await axios.put(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/product/${id}`,{
+        const { data } = await axios.put(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/product/${id}`, {
             name,
             category,
             price,
@@ -198,22 +199,22 @@ export const editProductDetail = (id,name,category,price,sold,stock,description,
             stock,
             description,
             image
-        },{
-            headers:{
-                "Content-Type":"application/json"
+        }, {
+            headers: {
+                "Content-Type": "application/json"
             }
         })
 
         dispatch({
-            type:"editProductDetailSuccess",
-            payload:data.message
+            type: "editProductDetailSuccess",
+            payload: data.message
         })
-        
+
     } catch (error) {
         dispatch({
-            type:"editProductDetailFailure",
-            payload:error.response.data.message
-        })        
+            type: "editProductDetailFailure",
+            payload: error.response.data.message
+        })
     }
 }
 
@@ -223,31 +224,31 @@ export const getShopDetails = (id) => async (dispatch) => {
     try {
 
         dispatch({
-            type:"GetShopDetailsRequest"
+            type: "GetShopDetailsRequest"
         })
-        const {data} = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/shop/${id}`)
+        const { data } = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/shop/${id}`)
 
         dispatch({
-            type:"GetShopDetailsSuccess",
-            payload:data.shop
+            type: "GetShopDetailsSuccess",
+            payload: data.shop
         })
-        
+
     } catch (error) {
         dispatch({
-            type:"GetShopDetailsFailure",
-            payload:error.response.data.message
-        })        
+            type: "GetShopDetailsFailure",
+            payload: error.response.data.message
+        })
     }
 }
 // edit the details of particular shop
-export const editShopDetails = (id,shopname,description,category,GSTIN,pincode,contact, image) => async (dispatch) => {
+export const editShopDetails = (id, shopname, description, category, GSTIN, pincode, contact, image) => async (dispatch) => {
 
     try {
 
         dispatch({
-            type:"EditShopDetailsRequest"
+            type: "EditShopDetailsRequest"
         })
-        const {data} = await axios.put(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/shop/${id}`,{
+        const { data } = await axios.put(`${process.env.REACT_APP_API_ENDPOINT}/api/v1/merchant/shop/${id}`, {
             shopname,
             description,
             category,
@@ -255,48 +256,48 @@ export const editShopDetails = (id,shopname,description,category,GSTIN,pincode,c
             pincode,
             contact,
             image
-        },{
-            headers:{
-                "Content-Type":"application/json"
+        }, {
+            headers: {
+                "Content-Type": "application/json"
             }
         })
 
         dispatch({
-            type:"EditShopDetailsSuccess",
-            payload:data.message
+            type: "EditShopDetailsSuccess",
+            payload: data.message
         })
-        
+
     } catch (error) {
         dispatch({
-            type:"EditShopDetailsFailure",
-            payload:error.response.data.message
-        })        
+            type: "EditShopDetailsFailure",
+            payload: error.response.data.message
+        })
     }
 }
 
 //Get all local shops under 1km
-export const showAllLocalShops = (location)=> async (dispatch) => {
+export const showAllLocalShops = (location) => async (dispatch) => {
 
     try {
 
         dispatch({
-            type:"GetAllLocalShopsRequest"
+            type: "GetAllLocalShopsRequest"
         })
 
         const url = `${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/local-shops?latitude=${location.latitude}&longitude=${location.longitude}`
 
         console.log(url)
-        const {data} = await axios.get(url)
+        const { data } = await axios.get(url)
 
         dispatch({
-            type:"GetAllLocalShopsSuccess",
-            payload:data.shops
+            type: "GetAllLocalShopsSuccess",
+            payload: data.shops
         })
-        
+
     } catch (error) {
         dispatch({
-            type:"GetAllLocalShopsFailure",
-            payload:error.response.data.message
-        })        
+            type: "GetAllLocalShopsFailure",
+            payload: error.response.data.message
+        })
     }
 }
