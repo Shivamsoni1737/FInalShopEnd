@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { showAllShops } from '../Actions/Shop';
+import { showAllLocalShops, showAllShops } from '../Actions/Shop';
 import Loader from './Loader';
 
 const Home = () => {
@@ -12,7 +12,7 @@ const Home = () => {
   const { allShops, loading, error } = useSelector(state => state.shop);
 
   useEffect(()=>{
-    dispatch(showAllShops())
+    dispatch(showAllLocalShops())
   },[])
 
   useEffect(()=>{

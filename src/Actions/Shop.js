@@ -273,3 +273,30 @@ export const editShopDetails = (id,shopname,description,category,GSTIN,pincode,c
         })        
     }
 }
+
+//Get all local shops under 1km
+export const showAllLocalShops = (location)=> async (dispatch) => {
+
+    try {
+
+        dispatch({
+            type:"GetAllLocalShopsRequest"
+        })
+
+        const url = `${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/local-shops?latitude=${location.latitude}&longitude=${location.longitude}`
+
+        console.log(url)
+        const {data} = await axios.get(url)
+
+        dispatch({
+            type:"GetAllLocalShopsSuccess",
+            payload:data.shops
+        })
+        
+    } catch (error) {
+        dispatch({
+            type:"GetAllLocalShopsFailure",
+            payload:error.response.data.message
+        })        
+    }
+}
