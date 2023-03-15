@@ -57,7 +57,7 @@ function App() {
     //gettign user's current location
     navigator.geolocation.watchPosition(position => {
       const { latitude, longitude } = position.coords;
-      console.log(latitude, longitude, "here");
+      //console.log(latitude, longitude, "here");
       dispatch(showAllLocalShops({ latitude: latitude, longitude: longitude }))
       location.latitude = latitude
       location.longitude = longitude
