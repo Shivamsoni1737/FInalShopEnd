@@ -43,7 +43,7 @@ const Login = () => {
       dispatch(myShops())
       toast.success("Login successful!");
     }else if(user){
-      navigate("/customer")
+      navigate("/")
       toast.success("Login successful!");
     }
 
