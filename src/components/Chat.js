@@ -6,7 +6,7 @@ export class Chat extends Component {
     // <script type="text/javascript">
     (function(d, m){
         var kommunicateSettings = 
-            {"appId":"184a2d2dd3b01bec24a369dfe4fb50786","popupWidget":true,"automaticChatOpenOnNavigation":true,
+            {"appId":"1deab5d086b99b79bc00b4b6799aac895","popupWidget":true,"automaticChatOpenOnNavigation":true,
             "voiceInput":true,
             "voiceOutput":true,"voiceName":"Rishi",
             "voiceRate":1};
