@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import userpic from "../../../../data/profile/omkar.jpeg";
 import { AiOutlineEdit } from "react-icons/ai";
 import { TiTick } from "react-icons/ti";
+import dayjs from "dayjs";
+import "dayjs/locale/en"; // import the English locale for month names
 
 // import DatePicker from 'react-date-picker'
 import "react-date-picker/dist/DatePicker.css";
@@ -138,7 +140,7 @@ const Userprofile = ({ merchant }) => {
                   setUser({ ...user, dob: e.target.value });
                 }}
                 value={user.dob}
-                type="text"
+                type="date"
                 className="px-2 md:px-4 md:mx-2 w-[8rem] md:w-full border-b outline-none"
               />
             </div>
@@ -181,7 +183,7 @@ const Userprofile = ({ merchant }) => {
             </p>
             <p className="my-3 flex">
               <span className="font-semibold">DOB: </span>
-              <p className="px-4 mx-2 border-b border-white">{user.dob}</p>{" "}
+              <p className="px-4 mx-2 border-b border-white">{dayjs(user.dob).locale("en").format("D MMMM, YYYY")}</p>{" "}
             </p>
             <p className="my-3 flex">
               <span className="font-semibold">zipcode: </span>

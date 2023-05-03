@@ -119,6 +119,25 @@ const Storeprofile = ({shop,shopId}) => {
           </div>
           <div className='flex my-3'>
             <span className='font-semibold'>Open on: </span>
+            {/* <select value={" "} >
+        <option value="Mon">Mon</option>
+        <option value="Tues">Tues</option>
+        <option value="Wednes">Wed</option>
+        <option value="Thurs">Thurs</option>
+        <option value="Fri">Fri</option>
+        <option value="Satur">Sat</option>
+        <option value="Sun">Sun</option>
+      </select>
+      <h1> To </h1>
+      <select value={" "} >
+        <option value="Mon">Mon</option>
+        <option value="Tues">Tues</option>
+        <option value="Wednes">Wed</option>
+        <option value="Thurs">Thurs</option>
+        <option value="Fri">Fri</option>
+        <option value="Satur">Sat</option>
+        <option value="Sun">Sun</option>
+      </select> */}
             <input onChange={(e)=>{setStore({...store, daysopened: e.target.value})}} value={store.daysopened} type="text" className='px-2 md:px-4 md:mx-2 w-[8rem] md:w-[24rem] border-b outline-none' />
           </div>
           <div className='flex my-3'>
