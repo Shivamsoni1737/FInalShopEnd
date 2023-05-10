@@ -1,75 +1,94 @@
-import React, { useEffect,useState } from "react";
-import L from "leaflet";
-import "leaflet-routing-machine";
-import "leaflet/dist/leaflet.css";
-import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
+import React, { useState } from 'react';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
+import 'leaflet-routing-machine';
+import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
+import 'leaflet/dist/leaflet.css'
 
+function NavigationControl(props) {
+  const map = useMap();
 
-const Geolocation = () => {
-    const [newLatitude, setLatitude] = useState(null)
-    const [newLongitude, setLongitude] = useState(null)
-    useEffect(() => {
-        var location = {
-            latitude: "",
-            longitude: ""
-          }
-        //console.log("Loading user details")
-        //dispatch(LoadUser())
-    
-        //gettign user's current location
-        navigator.geolocation.watchPosition(position => {
-          const { latitude, longitude } = position.coords;
-          //console.log(latitude, longitude, "here");
-          //dispatch(showAllLocalShops({ latitude: latitude, longitude: longitude }))
-          location.latitude = latitude
-          location.longitude = longitude
-          setLatitude(latitude)
-          setLongitude(longitude)
-        });
-    
-      }, [])
+  const handleNavigation = (event) => {
+    event.preventDefault();
 
-  useEffect(() => {
-    if(! newLatitude && ! newLongitude)
-    return;
-    const map = L.map("map").setView([newLatitude, newLongitude], 10);
-    const mapLink = "<a href='http://openstreetmap.org'>OpenStreetMap</a>";
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: `© OpenStreetMap contributors`,
-    }).addTo(map);
+    const lat = parseFloat(event.target.dataset.lat);
+    const lng = parseFloat(event.target.dataset.lng);
 
-    const taxiIcon = L.icon({
-      iconUrl: "https://raw.githubusercontent.com/iamtekson/Leaflet-Basic/master/routing/img/taxi.png",
-      iconSize: [70, 70],
-    });
+    props.handleNavigation(lat, lng);
 
+    map.flyTo([lat, lng], map.getZoom());
+  };
 
-    const marker = L.marker([20.952048786860452, 79.02300794596553], { icon: taxiIcon }).addTo(map);
+  return (
+    <div className="leaflet-bottom leaflet-right">
+      <div className="leaflet-control">
+        <button onClick={handleNavigation} data-lat="51.505" data-lng="-0.09">
+          London
+        </button>
+        <button onClick={handleNavigation} data-lat="40.7128" data-lng="-74.006">
+          New York
+        </button>
+        <button onClick={handleNavigation} data-lat="48.8566" data-lng="2.3522">
+          Paris
+        </button>
+      </div>
+    </div>
+  );
+}
 
-    map.on("click", function (e) {
-      console.log(e);
-      const newMarker = L.marker([20.950594, 79.029613]).addTo(map);
-      L.Routing.control({
-        waypoints: [
-          L.latLng(20.952048786860452, 79.02300794596553),
-          L.latLng(20.950594, 79.029613),
-        ],
-        routeWhileDragging: true,
+function Maproute() {
+  const [map, setMap] = useState(null);
+  const [route, setRoute] = useState(null);
+
+  const start = L.latLng(51.505, -0.09); // London
+  const end = L.latLng(48.8566, 2.3522); // Paris
+
+  const onMapLoad = (map) => {
+    setMap(map);
+
+    L.Routing.control({
+      waypoints: [start, end],
+      router: L.Routing.osrmv1({
+        serviceUrl: 'https://api.openrouteservice.org/v2/directions',
+        timeout: 30 * 1000,
+        profile: 'driving-car',
+        api_key: '5b3ce3597851110001cf6248c9bac1607c8c4995b2fa02b9b911c609'
       })
-        .on("routesfound", function (e) {
-          const routes = e.routes;
-          console.log(routes);
-          e.routes[0].coordinates.forEach(function (coord, index) {
-            setTimeout(function () {
-              marker.setLatLng([coord.lat, coord.lng]);
-            }, 100 * index);
-          });
-        })
-        .addTo(map);
+    }).addTo(map).on('routesfound', (e) => {
+      const routes = e.routes;
+      const route = routes[0];
+      setRoute(route);
     });
-  }, [newLatitude, newLongitude]);
+  };
 
-  return <div id="map" style={{ width: "100%", height: "100vh" }}></div>;
-};
+  return (
+    <MapContainer center={start} zoom={6} style={{ height: '100vh' }} whenCreated={onMapLoad}>
+      <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
 
-export default Geolocation;
+      {route && (
+        <React.Fragment>
+          <Marker position={start}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+
+          <Marker position={end}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+
+          <L.Routing.Line route={route} />
+        </React.Fragment>
+      )}
+
+      <NavigationControl handleNavigation={(lat, lng) => setMap(map => {
+        map.flyTo([lat, lng], map.getZoom());
+        return map;
+      })} />
+    </MapContainer>
+  );
+}
+
+export default Maproute;

@@ -37,6 +37,7 @@ import Edititem from './components/Dashboard/inventory/Edititem';
 import AddItem from './components/Dashboard/inventory/AddItem';
 import { showAllLocalShops } from './Actions/Shop';
 import Geolocation from './components/Maproute';
+import MapContainers from './components/Mapcontainer';
 
 function App() {
 
@@ -93,6 +94,7 @@ function App() {
           <Route path="/our-mission" element={<Ourmission />}></Route>
           <Route path="/why-us" element={<Whyus />}></Route>
           <Route path="/geolocation" element={<Geolocation />}></Route>
+          <Route path="/mapcontainer" element={<MapContainers />}></Route>
           <Route path="/dashboard" element={<Dashboard sidebarOpen={sidebarOpen} />}>
             <Route path='' element={<DashHome />} />
             <Route path='inventory' element={<Inventory />} >
