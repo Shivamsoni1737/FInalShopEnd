@@ -15,7 +15,7 @@ export const stackedCustomSeries = [
   { dataSource: stackedChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Total sold',
+    name: 'Sold Items',
     type: 'StackingColumn',
     background: 'blue',
 
@@ -83,7 +83,7 @@ export const LinePrimaryXAxis = {
     { dataSource: lineChartData[0],
       xName: 'x',
       yName: 'y',
-      name: 'Sales in L',
+      name: 'Months',
       width: '2',
       marker: { visible: true, width: 10, height: 10 },
       type: 'Line' },
