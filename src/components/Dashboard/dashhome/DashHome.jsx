@@ -10,10 +10,10 @@ import { inventory } from '../inventory/Inventory'
 const DashHome = () => {
 
   const trends = [
-    "Karuta",
-    "Discord",
-    // "Kalash Nikov",
-    "Vecna",
+"Stock cubes",
+"Honey",
+"Vinegar ",
+"Sugar"
   ]
 
   var i=0;
