@@ -1,11 +1,11 @@
 export const stackedChartData = [
   [
-    { x: 'One', y: 2827 },
-    { x: 'Vodka', y: 2439 },
-    { x: 'Martini', y: 2000 },
-    { x: 'Shaken', y: 1704 },
-    { x: 'Not', y: 1600 },
-    { x: 'Stirred', y: 1509 },
+    { x: 'Nirma Salt', y: 150 },
+    { x: 'Tata Chaat Masala', y: 243 },
+    { x: 'Soya Bean Oil', y: 200 },
+    { x: 'Peeper chicken Masala', y: 104 },
+    // { x: 'Not', y: 1600 },
+    // { x: 'Stirred', y: 1509 },
     // { x: 'Please', y: 1402 },
   ],
 ];
@@ -15,7 +15,7 @@ export const stackedCustomSeries = [
   { dataSource: stackedChartData[0],
     xName: 'x',
     yName: 'y',
-    name: 'Total sold',
+    name: 'Sold Items',
     type: 'StackingColumn',
     background: 'blue',
 
@@ -35,9 +35,9 @@ export const stackedPrimaryXAxis = {
 
 export const stackedPrimaryYAxis = {
   lineStyle: { width: 0 },
-  minimum: 500,
-  maximum: 3000,
-  interval: 400,
+  minimum: 50,
+  maximum: 250,
+  interval: 10,
   majorTickLines: { width: 0 },
   majorGridLines: { width: 1 },
   minorGridLines: { width: 1 },
@@ -83,7 +83,7 @@ export const LinePrimaryXAxis = {
     { dataSource: lineChartData[0],
       xName: 'x',
       yName: 'y',
-      name: 'Sales in L',
+      name: 'Months',
       width: '2',
       marker: { visible: true, width: 10, height: 10 },
       type: 'Line' },

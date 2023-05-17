@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Bar from './Bar'
 import List from './List'
 
-import m416 from "../../../data/inventory/m416.png"
+import m416 from "../../../data/inventory/akm.png"
 import akm from "../../../data/inventory/akm.png"
 import scarl from "../../../data/inventory/scarl.png"
 import m16a4 from "../../../data/inventory/m16a4.png"
@@ -54,7 +54,7 @@ export default Inventory
 export const inventory = [
     {
         id:1,
-        name: "M416",
+        name: "Tata Chaat Masala",
         image: m416,
         Cartridge: "5.56 mm",
         type: "Assault rifle",
@@ -64,8 +64,8 @@ export const inventory = [
         bullet_spread: "4 units",
         recoil_gain: "1.30 units",
         in_inventory: "23",
-        sold: "42",
-        price: "20K",
+        sold: "200",
+        price: "49",
         desc: "It is a toy! :)",
     },
     {
@@ -102,7 +102,7 @@ export const inventory = [
     },
     {
         id:4,
-        name: "M16-A4",
+        name: "Porridge oats",
         image: m16a4,
         Cartridge: "5.56 mm",
         type: "Assault rifle",
@@ -218,7 +218,7 @@ export const inventory = [
     },
     {
         id:11,
-        name: "AWM",
+        name: "White beans",
         image: awm,
         Cartridge: "0.300 magnum",
         type: "Sniper Rifle",
@@ -252,7 +252,7 @@ export const inventory = [
 
     {
         id:13,
-        name: "Pan",
+        name: "Green lentils",
         image: pan,
         // Cartridge : "0.45 mm",
         type: "Melee",
@@ -284,7 +284,7 @@ export const inventory = [
     },
     {
         id:15,
-        name: "Mechete",
+        name: "Red kidney beans",
         image: mechete,
         // Cartridge : "0.45 mm",
         type: "Melee",
