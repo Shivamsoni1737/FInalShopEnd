@@ -7,6 +7,8 @@
     "@capacitor/core": "^4.4.0",
     "@react-icons/all-files": "^4.1.0",
     "@reduxjs/toolkit": "^1.9.1",
+    "@stripe/react-stripe-js": "^2.1.0",
+    "@stripe/stripe-js": "^1.52.1",
     "@syncfusion/ej2": "^19.4.48",
     "@syncfusion/ej2-react-charts": "^19.4.50",
     "@testing-library/jest-dom": "^5.16.5",
@@ -31,6 +33,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
+    "react-stripe-checkout": "^2.6.3",
     "react-toastify": "^9.0.8",
     "web-vitals": "^2.1.4"
   },
