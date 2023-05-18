@@ -276,7 +276,7 @@ export const editShopDetails = (id, shopname, description, category, GSTIN, pinc
 }
 
 //Get all local shops under 1km
-export const showAllLocalShops = (location) => async (dispatch) => {
+export const showAllLocalShops = (location,dist) => async (dispatch) => {
 
     try {
 
@@ -284,7 +284,7 @@ export const showAllLocalShops = (location) => async (dispatch) => {
             type: "GetAllLocalShopsRequest"
         })
 
-        const url = `${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/local-shops?latitude=${location.latitude}&longitude=${location.longitude}`
+        const url = `${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/local-shops?latitude=${location.latitude}&longitude=${location.longitude}&dist=${dist}`
 
         console.log(url)
         const { data } = await axios.get(url)

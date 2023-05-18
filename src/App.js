@@ -40,16 +40,17 @@ import Geolocation from './components/Maproute';
 import MapContainers from './components/Mapcontainer';
 import Payment from './components/Payment/Payment';
 
+export let location = {
+  latitude: "",
+  longitude: ""
+};
+
 function App() {
 
   const dispatch = useDispatch()
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [newLatitude, setLatitude] = useState(null)
   const [newLongitude, setLongitude] = useState(null)
-  var location = {
-    latitude: "",
-    longitude: ""
-  }
   console.log(newLatitude)
   console.log(newLongitude)
 
@@ -61,7 +62,7 @@ function App() {
     navigator.geolocation.watchPosition(position => {
       const { latitude, longitude } = position.coords;
       //console.log(latitude, longitude, "here");
-      dispatch(showAllLocalShops({ latitude: latitude, longitude: longitude }))
+      dispatch(showAllLocalShops({ latitude: latitude, longitude: longitude }, -1))
       location.latitude = latitude
       location.longitude = longitude
       setLatitude(latitude)
@@ -69,16 +70,6 @@ function App() {
     });
 
   }, [])
-
-  // useEffect(()=>{
-  //   if (newLatitude && newLongitude) 
-  //   {
-  //     dispatch(showAllLocalShops({latitude: newLatitude, longitude: newLongitude}))
-  //     console.log(newLatitude, "inside");
-  //   }
-
-
-  // },[])
 
   return (
     <div>
