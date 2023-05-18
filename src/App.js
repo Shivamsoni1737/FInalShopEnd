@@ -36,23 +36,18 @@ import Viewitem from './components/Dashboard/inventory/Viewitem';
 import Edititem from './components/Dashboard/inventory/Edititem';
 import AddItem from './components/Dashboard/inventory/AddItem';
 import { showAllLocalShops } from './Actions/Shop';
-import Geolocation from './components/Maproute';
-import MapContainers from './components/Mapcontainer';
-import Payment from './components/Payment/Payment';
-
-export let location = {
-  latitude: "",
-  longitude: ""
-};
+import Cart from './components/Cart';
 
 function App() {
 
   const dispatch = useDispatch()
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [newLatitude, setLatitude] = useState(null)
-  const [newLongitude, setLongitude] = useState(null)
-  console.log(newLatitude)
-  console.log(newLongitude)
+  // const [newLatitude, setLatitude] = useState(null)
+  // const [newLongitude, setLongitude] = useState(null)
+  var location = {
+    latitude: "",
+    longitude: ""
+  }
 
   useEffect(() => {
     console.log("Loading user details")
@@ -65,8 +60,8 @@ function App() {
       dispatch(showAllLocalShops({ latitude: latitude, longitude: longitude }, -1))
       location.latitude = latitude
       location.longitude = longitude
-      setLatitude(latitude)
-      setLongitude(longitude)
+      // setLatitude(latitude)
+      // setLongitude(longitude)
     });
 
   }, [])
@@ -106,6 +101,7 @@ function App() {
           <Route exact path="/customer/:id" element={<CustomerID />}></Route>
           <Route path="/user/changepassword" element={<Usersecurity />}></Route>
           <Route exact path="/shop/products/:id" element={<ShopInventroy />} />
+          <Route exact path="/cart" element={<Cart />} />
         </Routes>
       </div>
       <Footer />

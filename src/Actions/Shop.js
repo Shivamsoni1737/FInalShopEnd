@@ -284,7 +284,8 @@ export const showAllLocalShops = (location,dist) => async (dispatch) => {
             type: "GetAllLocalShopsRequest"
         })
 
-        const url = `${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/local-shops?latitude=${location.latitude}&longitude=${location.longitude}&dist=${dist}`
+        const url = `${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/shops`
+        // const url = `${process.env.REACT_APP_API_ENDPOINT}/api/v1/user/local-shops?latitude=${location.latitude}&longitude=${location.longitude}`
 
         console.log(url)
         const { data } = await axios.get(url)

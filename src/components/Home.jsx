@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { showAllLocalShops, showAllShops } from '../Actions/Shop';
+import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import Loader from './Loader';
 import {location} from "../App"
 
@@ -55,8 +56,13 @@ const Home = () => {
             to={`/shop/products/${shop._id}`}
             key={shop._id}
           >
-            <div className='absolute border border-black top-2 left-3 rounded-full bg-white h-[34px] w-[34px] flex justify-center items-center'>
-              {shop.rating}
+            <div className='absolute top-2 left-2'>
+              {shop.rating != 0 &&
+                <>
+                  <AiFillStar />
+                  {shop.rating}
+                </>
+              }
             </div>
             <img
               src={shop.shopimage.url}
