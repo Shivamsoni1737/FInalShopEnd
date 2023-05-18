@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, Category, StackingColumnSeries, Tooltip } from '@syncfusion/ej2-react-charts'
+import { ChartComponent, SeriesCollectionDirective, SeriesDirective, Inject, Legend, Category, StackingColumnSeries, Tooltip} from '@syncfusion/ej2-react-charts'
 import{stackedCustomSeries, stackedPrimaryXAxis, stackedPrimaryYAxis} from "../../../data/data"
 
 const BarChart = () => {
@@ -12,6 +12,7 @@ const BarChart = () => {
       primaryYAxis={stackedPrimaryYAxis}
       chartArea={{border:{width:0}}}
       tooltip={{enable:true}}
+      title="Sales"
     >
         <Inject services={[Legend, Category, StackingColumnSeries, Tooltip]} />
         <SeriesCollectionDirective>

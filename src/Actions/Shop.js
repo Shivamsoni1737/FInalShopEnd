@@ -276,7 +276,7 @@ export const editShopDetails = (id, shopname, description, category, GSTIN, pinc
 }
 
 //Get all local shops under 1km
-export const showAllLocalShops = (location) => async (dispatch) => {
+export const showAllLocalShops = (location,dist) => async (dispatch) => {
 
     try {
 

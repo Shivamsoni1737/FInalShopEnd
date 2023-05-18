@@ -12,6 +12,7 @@ const Linechart = () => {
         primaryXAxis={{valueType:"DateTime"}}
         chartArea={{border:{width: 0}}}
         tooltip={{enable:true}}
+        title="Sales (in thousands)"
       >
         <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
         <SeriesCollectionDirective>

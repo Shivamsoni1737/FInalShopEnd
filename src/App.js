@@ -57,7 +57,7 @@ function App() {
     navigator.geolocation.watchPosition(position => {
       const { latitude, longitude } = position.coords;
       //console.log(latitude, longitude, "here");
-      dispatch(showAllLocalShops({ latitude: latitude, longitude: longitude }))
+      dispatch(showAllLocalShops({ latitude: latitude, longitude: longitude }, -1))
       location.latitude = latitude
       location.longitude = longitude
       // setLatitude(latitude)
@@ -65,16 +65,6 @@ function App() {
     });
 
   }, [])
-
-  // useEffect(()=>{
-  //   if (newLatitude && newLongitude) 
-  //   {
-  //     dispatch(showAllLocalShops({latitude: newLatitude, longitude: newLongitude}))
-  //     console.log(newLatitude, "inside");
-  //   }
-
-
-  // },[])
 
   return (
     <div>
@@ -90,7 +80,9 @@ function App() {
           <Route path="/our-services" element={<Ourservices />}></Route>
           <Route path="/our-mission" element={<Ourmission />}></Route>
           <Route path="/why-us" element={<Whyus />}></Route>
-
+          <Route path="/geolocation" element={<Geolocation />}></Route>
+          <Route path="/mapcontainer" element={<MapContainers />}></Route>
+          <Route path="/payment" element={<Payment />}></Route>
           <Route path="/dashboard" element={<Dashboard sidebarOpen={sidebarOpen} />}>
             <Route path='' element={<DashHome />} />
             <Route path='inventory' element={<Inventory />} >
