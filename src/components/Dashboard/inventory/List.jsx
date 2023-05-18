@@ -54,7 +54,7 @@ const List = ({items, setItems, type, setType, setState}) => {
 
           {shop && <Link to={`/dashboard/inventory/add/${shop._id}`} className='border bg-gray-200 text-gray-800 font-semibold px-2 md:px-12 py-2 flex items-center hover:bg-gray-500 hover:text-white hover:cursor-pointer'><BsPlusCircle className='mr-3' />Add Item</Link>}
 
-          <div>
+          {/* <div>
             <select
              className='py-2 px-1'
              value={type}
@@ -68,7 +68,7 @@ const List = ({items, setItems, type, setType, setState}) => {
               <option value="Melee">Melee</option>
               <option value="Throwable">Throwable</option>
             </select>
-          </div>
+          </div> */}
         </div>
 
         <div className="overflow-auto rounded-lg shadow hidden md:block">

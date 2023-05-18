@@ -1,10 +1,8 @@
 import React from "react";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
-import { CgInsights } from 'react-icons/cg';
 import {ImProfile} from 'react-icons/im';
-import { FiSettings } from 'react-icons/fi';
+import { GrShieldSecurity } from 'react-icons/gr';
 import { IoMdArrowBack } from 'react-icons/io';
 import { MdOutlineSpaceDashboard, MdLogout, MdInventory, MdInsights } from 'react-icons/md';
 
@@ -58,7 +56,7 @@ const Sidebar = ({ option, setOption }) => {
             Your Inventory
           </h1>
         </Link>
-
+{/* 
 
 
         <Link
@@ -74,7 +72,7 @@ const Sidebar = ({ option, setOption }) => {
           >
             Customer Insights
           </h1>
-        </Link>
+        </Link> */}
 
 
 
@@ -118,12 +116,12 @@ const Sidebar = ({ option, setOption }) => {
             }`}
         >
           <span>
-            <FiSettings className="nav-icon" />
+            <GrShieldSecurity className="nav-icon" />
           </span>
           <h1
             className={`${location.pathname === "/dashboard/settings"? "text-black font-semibold" : "text-gray-600"}   group-hover:text-black xl:flex hidden`}
           >
-            Settings
+            Account Security
           </h1>
         </Link>
 
