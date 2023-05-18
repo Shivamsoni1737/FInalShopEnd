@@ -5,21 +5,21 @@ const initialState = {}
 export const userReducer = createReducer(initialState, {
 
     LoginRequest: (state) => {
-        state.loading= true;                                               //This is an arrow function not an object
+        state.loading = true;                                               //This is an arrow function not an object
     },
 
     //Manipulating User Login
     UserLoginSuccess: (state, action) => {
         state.loading = false;
         state.user = action.payload;
-        state.isAuthenticated= true;
+        state.isAuthenticated = true;
     },
 
-     //Manipulating Merchant Login
+    //Manipulating Merchant Login
     MerchantLoginSuccess: (state, action) => {
         state.loading = false;
         state.merchant = action.payload;
-        state.isAuthenticated= true;
+        state.isAuthenticated = true;
     },
 
     //Login failure
@@ -32,14 +32,14 @@ export const userReducer = createReducer(initialState, {
 
     //Manipulating Logout
     LogoutRequest: (state) => {
-        state.loading= true;
+        state.loading = true;
     },
     LogoutSuccess: (state, action) => {
         state.loading = false;
         state.user = null;
         state.merchant = null;
         state.message = action.payload;
-        state.isAuthenticated= false;
+        state.isAuthenticated = false;
     },
     LogoutFailure: (state, action) => {
         state.loading = false;
@@ -102,7 +102,7 @@ export const userReducer = createReducer(initialState, {
 
     // change password
     ChangeUserPasswordRequest: (state) => {
-        state.loading= true;                                               //This is an arrow function not an object
+        state.loading = true;                                               //This is an arrow function not an object
     },
     ChangeUserPasswordSuccess: (state, action) => {
         state.loading = false;
@@ -113,7 +113,23 @@ export const userReducer = createReducer(initialState, {
         state.error = action.payload;
     },
 
-    clearErrors: (state) =>{
+    AddToCartRequest: (state) => {
+        state.loading = true;                                               //This is an arrow function not an object
+    },
+    AddToCartSuccess: (state, action) => {
+        state.loading = false;
+        state.message = action.payload;
+    },
+    AddToCartFailure: (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+    },
+    cart: (state, action) => {
+        state.loading = false;
+        state.cart = action.payload;
+    },
+
+    clearErrors: (state) => {
         state.error = null;
         state.message = null
     }
