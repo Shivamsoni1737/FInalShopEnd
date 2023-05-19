@@ -60,7 +60,7 @@ const ItemCards = (item) => {
 
     const handleAddtoCard = async () => {
         await dispatch(addToCart(item._id, 1))
-        navigate("/cart")
+        await navigate("/cart")
     }
 
     return (
@@ -81,7 +81,7 @@ const ItemCards = (item) => {
             <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700"></hr>
             {item.stock ?
                 <div>
-                    <button className="w-full bg-green-500 p-2" onClick={handleAddtoCard}>Add to Card</button>
+                    <button className="w-full bg-green-500 p-2" onClick={handleAddtoCard}>Add to Cart</button>
                 </div> : <div className="text-red-500 p-2">Out of Stock</div>}
         </div>
     )
