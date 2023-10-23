@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { allProductsOfShop } from '../Actions/Shop';
 import { addToCart, getCartDetails } from '../Actions/User';
@@ -24,17 +24,44 @@ const Cart = () => {
     const [total, setTotal] = useState(0);
     const [open, setOpen] = useState(false);
     const [todelete, setTodelete] = useState(null);
+    const navigate = useNavigate()
 
 
-    const handleAdd = (id) => {
-        const itemToIncrease = item.filter((item) => item.id === id)[0];
-        const quantity = itemToIncrease.count + 1;
+    const handleAdd =async (e, id, quantity) => {
+        await dispatch(addToCart(id,quantity + 1))
+        await dispatch(getCartDetails())
+        e.preventDefault();
+        navigate('/cart');
+        // console.log("Add ID", id)
+        // const itemToIncrease = item.filter((item) => item.id === id)[0];
+        // const quantity = itemToIncrease.count + 1;
         // routetoApi(itemid, quantity)
     }
 
-    const handleRemove = (id) => {
-        const itemToIncrease = item.filter((item) => item.id === id)[0];
-        const quantity = itemToIncrease.count - 1;
+    const handleDelete =async (e, id) => {
+        await dispatch(addToCart(id,0))
+        await dispatch(getCartDetails())
+        e.preventDefault();
+        console.log(cart.products.length(), "rtgs")
+        if (cart.products.length() > 0) {
+        navigate('/cart');
+        } else {
+        navigate('/');
+        }
+    }
+
+    const handleRemove = async (e, id, quantity) => {
+        await dispatch(addToCart(id,quantity - 1))
+        await dispatch(getCartDetails())
+        e.preventDefault();
+        console.log(cart.products.length(), "rtgs")
+        if (cart.products.length() > 0) {
+            navigate('/cart');
+            } else {
+            navigate('/');
+            }
+        // const itemToIncrease = item.filter((item) => item.id === id)[0];
+        // const quantity = itemToIncrease.count - 1;
         // routetoApi(itemid, quantity)
     }
 
@@ -43,7 +70,8 @@ const Cart = () => {
     }, [])
 
     useEffect(() => {
-        console.log("Card madarchod", cart)
+        if(!cart) return;
+        // if(!cart.products) return;
         setItem(cart.products)
         console.log("Card", item)
     }, [cart])
@@ -58,16 +86,17 @@ const Cart = () => {
                     Add more items
                 </button>
             </div>
-            {item ?
+            {cart && cart.products ?
                 <div className="flex flex-col max-w-md m-auto gap-6">
-                    {item.map((item) => {
+                    {cart.products.map((product) => {
+                        let item = product.product
                         return (
                             <>
                                 <div key={item.id} className="flex flex-row shadow-sm justify-start items-center h-[120px] p-2 gap-2 mb-2">
                                     <div>
-                                        <img src={item.imageUrl} alt={item.name} className="h-[50px] w-[50px] object-cover mr-4" />
-                                        <p className="text-bold mr-4 mt-2">Rs {item.cost} /-</p>
-                                        <button className='flex border px-2 items-center my-3 border-red-500 hover:border-red-700 hover:bg-red-200 rounded-lg' onClick={() => { setOpen(true); setTodelete(item) }}>
+                                        {/* <img src={item.image.url} alt={item.name} className="h-[50px] w-[50px] object-cover mr-4" /> */}
+                                        <p className="text-bold mr-4 mt-2">Rs {item.price} /-</p>
+                                        <button className='flex border px-2 items-center my-3 border-red-500 hover:border-red-700 hover:bg-red-200 rounded-lg' onClick={(e) => {handleDelete(e, item._id) }}>
                                             <p className='mr-1'>Remove</p>
                                             <AiOutlineDelete fontSize="20px" /></button>
                                     </div>
@@ -76,11 +105,11 @@ const Cart = () => {
                                         <p className='text-gray-500'>{item.category}</p>
                                     </div>
                                     <div className='flex mr-4 gap-1'>
-                                        <button onClick={() => { handleRemove(item.id) }}><AiOutlineMinusCircle fontSize="20px" color="green" /></button>
+                                        <button onClick={(e) => { handleRemove(e, item._id, product.quantity) }}><AiOutlineMinusCircle fontSize="20px" color="green" /></button>
                                         <p className='text-xl'>{item.count}</p>
-                                        <button onClick={() => { handleAdd(item.id) }}><AiOutlinePlusCircle fontSize="20px" color="green" /></button>
+                                        <button onClick={(e) => { handleAdd(e, item._id, product.quantity) }}><AiOutlinePlusCircle fontSize="20px" color="green" /></button>
                                     </div>
-                                    <p className=''>Rs {item.cost * item.count} /-</p>
+                                    <p className=''>Rs {Number(product.price) * Number(product.quantity)} /-</p>
                                 </div>
                                 <ConfirmDelete open={open} setOpen={setOpen} item={todelete} />
                             </>
@@ -94,7 +123,7 @@ const Cart = () => {
                             </button>
                             <div className="flex">
                                 <p className="text-bold">Total Price</p>
-                                <p className="mx-4">Rs {total} /-</p>
+                                <p className="mx-4">Rs {cart.totalPrice} /-</p>
                             </div>
                         </div>
                     </div>}

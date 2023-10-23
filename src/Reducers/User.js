@@ -114,18 +114,18 @@ export const userReducer = createReducer(initialState, {
     },
 
     AddToCartRequest: (state) => {
-        state.loading = true;                                               //This is an arrow function not an object
+        state.cartLoading = true;                                               //This is an arrow function not an object
     },
     AddToCartSuccess: (state, action) => {
-        state.loading = false;
-        state.message = action.payload;
+        state.cartLoading = false;
+        state.cartMessage = action.payload;
     },
     AddToCartFailure: (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
+        state.cartLoading = false;
+        state.cartError = action.payload;
     },
     cart: (state, action) => {
-        state.loading = false;
+        state.cartLoading = false;
         state.cart = action.payload;
     },
 

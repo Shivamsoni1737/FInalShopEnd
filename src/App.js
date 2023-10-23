@@ -37,6 +37,14 @@ import Edititem from './components/Dashboard/inventory/Edititem';
 import AddItem from './components/Dashboard/inventory/AddItem';
 import { showAllLocalShops } from './Actions/Shop';
 import Cart from './components/Cart';
+import Geolocation from './components/Maproute';
+import MapContainers from './components/Mapcontainer';
+import Payment from './components/Payment/Payment';
+
+export let location = {
+  latitude: "",
+  longitude: ""
+}
 
 function App() {
 
@@ -44,10 +52,6 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   // const [newLatitude, setLatitude] = useState(null)
   // const [newLongitude, setLongitude] = useState(null)
-  var location = {
-    latitude: "",
-    longitude: ""
-  }
 
   useEffect(() => {
     console.log("Loading user details")
