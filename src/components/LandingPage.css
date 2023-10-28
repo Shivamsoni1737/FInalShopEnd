@@ -1,0 +1,145 @@
+/* STYLES FROM: https://github.com/YIZHUANG/react-multi-carousel/blob/master/src/assets/styles.css */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.main {
+  background-color: #2a363b;
+  font-family: "Montserrat", sans-serif;
+}
+
+.main-box {
+  display: flex;
+  text-align: center;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.box1 {
+  flex: 1;
+}
+
+.box1 img {
+  height: 13rem;
+  padding-right: 5rem;
+  width: auto;
+}
+
+.box2 {
+  padding-top: 5.5rem;
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+  color: aliceblue;
+  text-decoration: none;
+  justify-content: space-around;
+}
+
+.box2 a {
+  color: aliceblue;
+  font-size: 2rem;
+  text-decoration: none;
+  padding: 0 2rem;
+  width: 50%;
+}
+
+.box3 {
+  color: aliceblue;
+  font-size: 2rem;
+  /* text-align: left; */
+  padding-top: 4.5rem;
+  padding-left: 3rem;
+  flex: 1;
+}
+
+.box3 a {
+  color: aliceblue;
+  padding: 1rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.reserved {
+  background-color: #99b898;
+  color: black;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  word-spacing: 1rem;
+}
+
+/* <----------media query----------> */
+
+@media only screen and (max-width: 768px) {
+  .main {
+    width: fit-content;
+    width: 100vw;
+    text-align: center;
+  }
+
+  .main-box {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: aliceblue;
+    width: 100vw;
+    justify-content: center;
+  }
+
+  .box2 {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+    text-align: center;
+  }
+
+  .box1 img {
+    text-align: center;
+    padding-right: 1em;
+  }
+
+  .box3 {
+    text-align: center;
+    padding-left: 0em;
+  }
+}
+
+.react-multi-carousel-list {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.react-multi-carousel-track {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, transition;
+  padding-bottom: 12px;
+}
+
+.react-multi-carousel-item {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .react-multi-carousel-item {
+    flex-shrink: 0 !important;
+  }
+
+  .react-multi-carousel-track {
+    overflow: visible !important;
+  }
+}
