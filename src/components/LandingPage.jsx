@@ -585,7 +585,7 @@ const HeaderMobile = () => {
 function Logo() {
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      <img src={"/logo.png"} alt={"logo"} height={50} width={50} />
+      <img src={"/logo.png"} alt='shoffline' height={50} width={50} />
       <Typography
         paragraph
         sx={{ mb: 0, ml: 1, fontWeight: "900" }}
@@ -603,11 +603,11 @@ function Footer() {
     <section className='main'>
       <div className='main-box'>
         <div className='box1'>
-          <img src='logo.png' alt='logo.png' />
+          <img src='logo.png' alt='shoffline' />
         </div>
         <div className='box2'>
           <div>
-            <a href='http://gmail.com'>
+            <a href='http://indiashoffline@gmail.com'>
               <FontAwesomeIcon icon={faEnvelope} /> Email
             </a>
           </div>
@@ -620,16 +620,16 @@ function Footer() {
         <div className='box3'>
           <div className='foll'>Follow us</div>
           <div>
-            <a href='http://facebook.com'>
+            <a href='https://www.instagram.com/shofflineindia/'>
               <FontAwesomeIcon icon={faFacebook} />
             </a>
-            <a href='http://instagram.com'>
+            <a href='https://www.instagram.com/shofflineindia/'>
               <FontAwesomeIcon icon={faInstagram} />
             </a>
-            <a href='http://twitter.com'>
+            <a href='https://www.linkedin.com/company/shoffline'>
               <FontAwesomeIcon icon={faTwitter} />
             </a>
-            <a href='http://linkdin.com'>
+            <a href='https://www.linkedin.com/company/shofflinem'>
               <FontAwesomeIcon icon={faLinkedinIn} />
             </a>
           </div>

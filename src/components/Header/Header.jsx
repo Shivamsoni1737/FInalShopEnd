@@ -83,7 +83,7 @@ const Header = ({ sidebarOpen, setSidebarOpen }) => {
 
         <div onClick={gotohome} className='cursor-pointer'>
           <p className='font-bold flex items-center text-xl'>
-            Dhanda Paani <GiShoppingBag className='text-gray-800 ml-2' />
+            Shoffline <GiShoppingBag className='text-gray-800 ml-2' />
           </p>
         </div>
 
